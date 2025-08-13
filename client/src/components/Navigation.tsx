@@ -1,0 +1,140 @@
+import { useState } from "react";
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useTheme } from "@/components/ThemeProvider";
+import { Moon, Sun, Menu, Globe, Church } from "lucide-react";
+import { motion } from "framer-motion";
+
+export default function Navigation() {
+  const { theme, toggleTheme } = useTheme();
+  const [language, setLanguage] = useState<"en" | "ar">("en");
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleLanguage = () => {
+    const newLang = language === "en" ? "ar" : "en";
+    setLanguage(newLang);
+    document.documentElement.setAttribute("dir", newLang === "ar" ? "rtl" : "ltr");
+    document.documentElement.setAttribute("lang", newLang);
+  };
+
+  const navItems = [
+    { href: "#home", label: "Home" },
+    { href: "#about", label: "About Us" },
+    { href: "#services", label: "Services" },
+    { href: "#events", label: "Events" },
+    { href: "#contact", label: "Contact" },
+  ];
+
+  return (
+    <nav className="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <motion.div 
+            className="flex items-center space-x-3"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center">
+              <Church className="text-white text-lg" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-lg font-bold text-gray-900 dark:text-white">As-Saadah</span>
+              <span className="text-xs text-gray-600 dark:text-gray-400 font-arabic">الجمعية الإسلامية</span>
+            </div>
+          </motion.div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navItems.map((item, index) => (
+              <motion.a
+                key={item.href}
+                href={item.href}
+                className="text-gray-700 dark:text-gray-300 hover:text-primary-start transition-colors"
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                data-testid={`nav-link-${item.label.toLowerCase().replace(" ", "-")}`}
+              >
+                {item.label}
+              </motion.a>
+            ))}
+            <motion.a
+              href="#donate"
+              className="gradient-primary text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              data-testid="nav-donate-button"
+            >
+              Donate
+            </motion.a>
+          </div>
+
+          {/* Controls */}
+          <div className="flex items-center space-x-3">
+            {/* Language Toggle */}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={toggleLanguage}
+              className="flex items-center space-x-1"
+              data-testid="language-toggle"
+            >
+              <span className="text-gray-700 dark:text-gray-300">{language.toUpperCase()}</span>
+              <Globe className="h-3 w-3 text-gray-500" />
+            </Button>
+            
+            {/* Theme Toggle */}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={toggleTheme}
+              data-testid="theme-toggle"
+            >
+              {theme === "light" ? (
+                <Moon className="h-4 w-4" />
+              ) : (
+                <Sun className="h-4 w-4" />
+              )}
+            </Button>
+
+            {/* Mobile Menu */}
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button variant="outline" size="sm" className="md:hidden" data-testid="mobile-menu-toggle">
+                  <Menu className="h-4 w-4" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent>
+                <div className="flex flex-col space-y-4 mt-8">
+                  {navItems.map((item) => (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      className="text-lg text-gray-700 dark:text-gray-300 hover:text-primary-start transition-colors"
+                      onClick={() => setIsOpen(false)}
+                      data-testid={`mobile-nav-link-${item.label.toLowerCase().replace(" ", "-")}`}
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                  <a
+                    href="#donate"
+                    className="text-lg text-primary-start font-medium hover:text-primary-end transition-colors"
+                    onClick={() => setIsOpen(false)}
+                    data-testid="mobile-nav-donate"
+                  >
+                    Donate
+                  </a>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+}

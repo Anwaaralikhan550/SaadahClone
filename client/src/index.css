@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -42,7 +42,8 @@
   --font-sans: 'Inter', sans-serif;
   --font-serif: 'Georgia', serif;
   --font-mono: 'Menlo', monospace;
-  --font-arabic: 'Amiri', serif;
+  --font-arabic: 'Noto Sans Arabic', 'Amiri', serif;
+  --font-urdu: 'Noto Nastaliq Urdu', 'Amiri', serif;
   --font-inter: 'Inter', sans-serif;
   --radius: 1.3rem;
   --islamic-green: hsl(140, 50%, 35%);
@@ -118,6 +119,26 @@
     margin-right: 0;
     margin-left: auto;
   }
+
+  .font-arabic {
+    font-family: var(--font-arabic);
+  }
+
+  .font-urdu {
+    font-family: var(--font-urdu);
+  }
+
+  html[lang="ar"] .font-arabic,
+  html[lang="ar"] .arabic {
+    font-family: var(--font-arabic);
+    direction: rtl;
+  }
+
+  html[lang="ur"] .font-urdu,
+  html[lang="ur"] .urdu {
+    font-family: var(--font-urdu);
+    direction: rtl;
+  }
 }
 
 @layer utilities {
@@ -145,5 +166,108 @@
     font-family: var(--font-arabic);
     direction: rtl;
     text-align: right;
+  }
+
+  .urdu {
+    font-family: var(--font-urdu);
+    direction: rtl;
+    text-align: right;
+  }
+
+  .islamic-green {
+    color: var(--islamic-green);
+  }
+
+  .islamic-gold {
+    color: var(--islamic-gold);
+  }
+
+  .islamic-blue {
+    color: var(--islamic-blue);
+  }
+
+  .text-primary-start {
+    color: var(--primary-start);
+  }
+
+  .text-primary-end {
+    color: var(--primary-end);
+  }
+
+  .bg-primary-start {
+    background-color: var(--primary-start);
+  }
+
+  .bg-primary-end {
+    background-color: var(--primary-end);
+  }
+
+  /* Custom animations */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+
+  @keyframes fadeInUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(30px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    from { 
+      opacity: 0; 
+      transform: translateX(-30px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateX(0); 
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInFromLeft 0.6s ease-out;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Enhanced button hover effects */
+  .btn-islamic {
+    background: linear-gradient(135deg, var(--islamic-green), var(--islamic-gold));
+    transition: all 0.3s ease;
+  }
+
+  .btn-islamic:hover {
+    background: linear-gradient(135deg, var(--islamic-gold), var(--islamic-green));
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+
+  /* RTL-specific utilities */
+  html[dir="rtl"] .space-x-reverse > * + * {
+    margin-left: 0;
+    margin-right: 0.75rem;
+  }
+
+  html[dir="rtl"] .space-x-3 > * + * {
+    margin-left: 0;
+    margin-right: 0.75rem;
   }
 }

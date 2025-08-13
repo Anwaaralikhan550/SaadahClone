@@ -3,27 +3,29 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useTheme } from "@/components/ThemeProvider";
-import { Moon, Sun, Menu, Globe, Church } from "lucide-react";
+import { Moon, Sun, Menu } from "lucide-react";
 import { motion } from "framer-motion";
+import MosqueLogo from "@/components/MosqueLogo";
+import LanguageSelector, { type Language } from "@/components/LanguageSelector";
+import { getTranslation } from "@/lib/i18n";
 
 export default function Navigation() {
   const { theme, toggleTheme } = useTheme();
-  const [language, setLanguage] = useState<"en" | "ar">("en");
+  const [language, setLanguage] = useState<Language>("en");
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggleLanguage = () => {
-    const newLang = language === "en" ? "ar" : "en";
+  const handleLanguageChange = (newLang: Language) => {
     setLanguage(newLang);
-    document.documentElement.setAttribute("dir", newLang === "ar" ? "rtl" : "ltr");
+    document.documentElement.setAttribute("dir", newLang === "ar" || newLang === "ur" ? "rtl" : "ltr");
     document.documentElement.setAttribute("lang", newLang);
   };
 
   const navItems = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About Us" },
-    { href: "#services", label: "Services" },
-    { href: "#events", label: "Events" },
-    { href: "#contact", label: "Contact" },
+    { href: "#home", label: getTranslation("nav.home", language) },
+    { href: "#about", label: getTranslation("nav.about", language) },
+    { href: "#services", label: getTranslation("nav.services", language) },
+    { href: "#events", label: getTranslation("nav.events", language) },
+    { href: "#contact", label: getTranslation("nav.contact", language) },
   ];
 
   return (
@@ -32,17 +34,19 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <motion.div 
-            className="flex items-center space-x-3"
+            className="flex items-center space-x-3 rtl:space-x-reverse"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="w-10 h-10 gradient-primary rounded-lg flex items-center justify-center">
-              <Church className="text-white text-lg" />
+            <div className="w-12 h-12 flex items-center justify-center">
+              <MosqueLogo size={40} className="text-primary" animated={true} />
             </div>
             <div className="flex flex-col">
               <span className="text-lg font-bold text-gray-900 dark:text-white">As-Saadah</span>
-              <span className="text-xs text-gray-600 dark:text-gray-400 font-arabic">الجمعية الإسلامية</span>
+              <span className="text-xs text-gray-600 dark:text-gray-400 font-arabic">
+                {language === "ur" ? "جمعیت السعادة الاسلامیہ" : "الجمعية الإسلامية"}
+              </span>
             </div>
           </motion.div>
 
@@ -69,23 +73,17 @@ export default function Navigation() {
               transition={{ duration: 0.5, delay: 0.6 }}
               data-testid="nav-donate-button"
             >
-              Donate
+              {getTranslation("nav.donate", language)}
             </motion.a>
           </div>
 
           {/* Controls */}
-          <div className="flex items-center space-x-3">
-            {/* Language Toggle */}
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={toggleLanguage}
-              className="flex items-center space-x-1"
-              data-testid="language-toggle"
-            >
-              <span className="text-gray-700 dark:text-gray-300">{language.toUpperCase()}</span>
-              <Globe className="h-3 w-3 text-gray-500" />
-            </Button>
+          <div className="flex items-center space-x-3 rtl:space-x-reverse">
+            {/* Language Selector */}
+            <LanguageSelector 
+              currentLanguage={language}
+              onLanguageChange={handleLanguageChange}
+            />
             
             {/* Theme Toggle */}
             <Button
@@ -127,7 +125,7 @@ export default function Navigation() {
                     onClick={() => setIsOpen(false)}
                     data-testid="mobile-nav-donate"
                   >
-                    Donate
+                    {getTranslation("nav.donate", language)}
                   </a>
                 </div>
               </SheetContent>

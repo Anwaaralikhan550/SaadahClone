@@ -1,4 +1,5 @@
 import Navigation from "@/components/Navigation";
+import { motion, useScroll, useTransform } from "framer-motion";
 import HeroSection from "@/components/HeroSection";
 import MissionSection from "@/components/MissionSection";
 import ServicesSection from "@/components/ServicesSection";
@@ -8,13 +9,21 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 300], [0, -30]);
+  const y2 = useTransform(scrollY, [0, 500], [0, -50]);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
       <main>
         <HeroSection />
-        <MissionSection />
-        <ServicesSection />
+        <motion.div style={{ y: y1 }}>
+          <MissionSection />
+        </motion.div>
+        <motion.div style={{ y: y2 }}>
+          <ServicesSection />
+        </motion.div>
         <EventsSection />
         <DonationSection />
         <ContactSection />

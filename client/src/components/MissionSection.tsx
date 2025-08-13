@@ -3,10 +3,10 @@ import { BookOpen, Users, Heart } from "lucide-react";
 
 export default function MissionSection() {
   const stats = [
-    { value: "500+", label: "Active Members" },
-    { value: "25+", label: "Programs" },
-    { value: "15", label: "Years Serving" },
-    { value: "100+", label: "Annual Events" },
+    { value: "500+", label: "Active Members", icon: "👥" },
+    { value: "25+", label: "Programs", icon: "📚" },
+    { value: "15", label: "Years Serving", icon: "⭐" },
+    { value: "100+", label: "Annual Events", icon: "🎉" },
   ];
 
   const missions = [
@@ -91,6 +91,7 @@ export default function MissionSection() {
                 viewport={{ once: true }}
                 data-testid={`stat-${stat.label.toLowerCase().replace(" ", "-")}`}
               >
+                <div className="text-4xl mb-2">{stat.icon}</div>
                 <div className="text-3xl font-bold mb-2">{stat.value}</div>
                 <div className="text-sm opacity-90">{stat.label}</div>
               </motion.div>

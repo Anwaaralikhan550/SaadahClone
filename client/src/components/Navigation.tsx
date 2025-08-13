@@ -29,7 +29,7 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 transition-colors duration-300">
+    <nav className="fixed top-0 w-full z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 transition-all duration-300 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -39,15 +39,10 @@ export default function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="w-12 h-12 flex items-center justify-center">
-              <MosqueLogo size={40} className="text-primary" animated={true} />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-lg font-bold text-gray-900 dark:text-white">As-Saadah</span>
-              <span className="text-xs text-gray-600 dark:text-gray-400 font-arabic">
-                {language === "ur" ? "جمعیت السعادة الاسلامیہ" : "الجمعية الإسلامية"}
-              </span>
-            </div>
+            <MosqueLogo size={50} className="text-primary-start hover:text-primary-end transition-colors duration-300" animated={true} />
+            <span className="text-xl font-bold bg-gradient-to-r from-primary-start to-primary-end bg-clip-text text-transparent">
+              As-Saadah
+            </span>
           </motion.div>
 
           {/* Desktop Navigation */}

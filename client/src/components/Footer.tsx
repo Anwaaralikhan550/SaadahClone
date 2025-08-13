@@ -58,7 +58,7 @@ export default function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold">As-Saadah</span>
-                <span className="text-xs text-gray-400 font-arabic">الجمعية الإسلامية</span>
+                <span className="text-xs text-gray-400">Islamic Organization</span>
               </div>
             </div>
             <p className="text-gray-300 text-sm">

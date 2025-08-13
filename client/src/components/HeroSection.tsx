@@ -27,19 +27,27 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            <span className="gradient-primary-text">As-Saadah</span>
+          <motion.h1 
+            className="hero-text font-bold text-white mb-6 leading-tight"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <span className="gradient-primary-text text-4xl sm:text-5xl lg:text-7xl">As-Saadah</span>
             <br />
             <span className="text-3xl sm:text-4xl lg:text-5xl">Islamic Organization</span>
-          </h1>
+          </motion.h1>
           
-          <p className="text-xl sm:text-2xl text-gray-200 mb-4 font-arabic arabic">
-            جمعية السعادة الإسلامية
-          </p>
+
           
-          <p className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <motion.p 
+            className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             Building faith, serving community, and spreading the beautiful message of Islam through education, outreach, and compassionate service to all humanity.
-          </p>
+          </motion.p>
 
           <motion.div 
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
@@ -49,7 +57,7 @@ export default function HeroSection() {
           >
             <Button
               size="lg"
-              className="gradient-primary text-white px-8 py-4 text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 rounded-xl backdrop-blur-sm"
+              className="gradient-primary text-white px-8 py-4 text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 rounded-xl backdrop-blur-sm hover-lift"
               data-testid="button-learn-more"
               onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
             >
@@ -58,7 +66,7 @@ export default function HeroSection() {
             <Button
               variant="outline"
               size="lg"
-              className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 rounded-xl backdrop-blur-sm"
+              className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 rounded-xl backdrop-blur-sm hover-lift"
               data-testid="button-join-community"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >

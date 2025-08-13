@@ -17,16 +17,24 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />
       <main>
-        <HeroSection />
-        <motion.div style={{ y: y1 }}>
+        <section id="home">
+          <HeroSection />
+        </section>
+        <motion.div id="about" style={{ y: y1 }}>
           <MissionSection />
         </motion.div>
-        <motion.div style={{ y: y2 }}>
+        <motion.div id="services" style={{ y: y2 }}>
           <ServicesSection />
         </motion.div>
-        <EventsSection />
-        <DonationSection />
-        <ContactSection />
+        <section id="events">
+          <EventsSection />
+        </section>
+        <section id="donate">
+          <DonationSection />
+        </section>
+        <section id="contact">
+          <ContactSection />
+        </section>
       </main>
       <Footer />
     </div>

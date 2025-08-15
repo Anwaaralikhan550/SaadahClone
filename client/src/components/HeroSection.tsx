@@ -5,6 +5,8 @@ export default function HeroSection() {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Geometric Pattern Overlay */}
+      <div className="geometric-pattern"></div>
       {/* Background Image with Parallax Effect */}
       <motion.div 
         className="absolute inset-0 bg-gradient-to-br from-primary-start/20 to-primary-end/20"
@@ -57,18 +59,24 @@ export default function HeroSection() {
           >
             <Button
               size="lg"
-              className="gradient-primary text-white px-8 py-4 text-lg font-semibold hover:shadow-2xl hover:scale-105 transition-all duration-300 rounded-xl backdrop-blur-sm hover-lift"
+              className="modern-button hover:glow-primary"
               data-testid="button-learn-more"
-              onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => {
+                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+              }}
             >
               Learn About Us
             </Button>
             <Button
               variant="outline"
               size="lg"
-              className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 rounded-xl backdrop-blur-sm hover-lift"
+              className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 rounded-xl backdrop-blur-sm hover:glow-primary"
               data-testid="button-join-community"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => {
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+              }}
             >
               Join Our Community
             </Button>

@@ -104,8 +104,8 @@ export default function DonationSection() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <Card className="bg-white dark:bg-gray-900 shadow-xl transition-colors duration-300">
-              <CardContent className="p-8">
+            <Card className="modern-card group">
+              <div className="modern-card-content p-8">
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Make a Donation</h3>
                 
                 <form onSubmit={handleDonation} className="space-y-6">
@@ -120,7 +120,7 @@ export default function DonationSection() {
                           key={type.id}
                           type="button"
                           variant={donationType === type.id ? "default" : "outline"}
-                          className={donationType === type.id ? "gradient-primary text-white" : ""}
+                          className={donationType === type.id ? "modern-button" : "border-2 hover:border-primary-start hover:text-primary-start transition-all duration-300"}
                           onClick={() => setDonationType(type.id)}
                           data-testid={`donation-type-${type.id}`}
                         >
@@ -141,7 +141,7 @@ export default function DonationSection() {
                           key={preset}
                           type="button"
                           variant={amount === preset ? "default" : "outline"}
-                          className={amount === preset ? "gradient-primary text-white" : ""}
+                          className={amount === preset ? "modern-button" : "border-2 hover:border-primary-start hover:text-primary-start transition-all duration-300"}
                           onClick={() => setAmount(preset)}
                           data-testid={`amount-${preset}`}
                         >
@@ -170,7 +170,7 @@ export default function DonationSection() {
                           key={freq.id}
                           type="button"
                           variant={frequency === freq.id ? "default" : "outline"}
-                          className={frequency === freq.id ? "gradient-primary text-white" : ""}
+                          className={frequency === freq.id ? "modern-button" : "border-2 hover:border-primary-start hover:text-primary-start transition-all duration-300"}
                           onClick={() => setFrequency(freq.id)}
                           data-testid={`frequency-${freq.id}`}
                         >
@@ -224,7 +224,7 @@ export default function DonationSection() {
 
                   <Button
                     type="submit"
-                    className="w-full gradient-primary text-white p-4 text-lg font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                    className="w-full modern-button hover:glow-primary text-lg"
                     disabled={donationMutation.isPending}
                     data-testid="button-donate"
                   >
@@ -236,7 +236,7 @@ export default function DonationSection() {
                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-4 text-center">
                   Your donation is secure and tax-deductible. Receipt will be sent via email.
                 </p>
-              </CardContent>
+              </div>
             </Card>
           </motion.div>
 
@@ -249,8 +249,8 @@ export default function DonationSection() {
             viewport={{ once: true }}
           >
             {/* Current Campaign */}
-            <Card className="bg-white dark:bg-gray-900 shadow-lg transition-colors duration-300">
-              <CardContent className="p-6">
+            <Card className="modern-card group">
+              <div className="modern-card-content">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Current Campaign</h3>
                 <h4 className="text-lg font-semibold text-primary-start mb-2">Mosque Renovation Project</h4>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
@@ -270,18 +270,18 @@ export default function DonationSection() {
                 </div>
                 
                 <Button 
-                  variant="secondary" 
-                  className="w-full"
+                  className="modern-button w-full hover:glow-primary"
                   data-testid="button-learn-more-campaign"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 >
                   Learn More About This Campaign
                 </Button>
-              </CardContent>
+              </div>
             </Card>
 
             {/* Impact Stats */}
-            <Card className="bg-gradient-to-br from-islamic-green/20 to-islamic-green/40">
-              <CardContent className="p-6">
+            <Card className="modern-card group bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20">
+              <div className="modern-card-content">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">Your Impact</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {[
@@ -296,12 +296,12 @@ export default function DonationSection() {
                     </div>
                   ))}
                 </div>
-              </CardContent>
+              </div>
             </Card>
 
             {/* Other Ways to Help */}
-            <Card className="bg-white dark:bg-gray-900 shadow-lg transition-colors duration-300">
-              <CardContent className="p-6">
+            <Card className="modern-card group">
+              <div className="modern-card-content">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Other Ways to Help</h3>
                 <div className="space-y-3">
                   {[
@@ -311,16 +311,17 @@ export default function DonationSection() {
                   ].map((item) => (
                     <Button
                       key={item.testId}
-                      variant="secondary"
-                      className="w-full justify-start bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                      variant="outline"
+                      className="w-full justify-start border-2 hover:border-primary-start hover:text-primary-start hover:glow-primary transition-all duration-300"
                       data-testid={`button-${item.testId}`}
+                      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     >
                       <item.icon className="text-primary-start mr-3 h-5 w-5" />
                       {item.label}
                     </Button>
                   ))}
                 </div>
-              </CardContent>
+              </div>
             </Card>
           </motion.div>
         </div>

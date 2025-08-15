@@ -113,9 +113,9 @@ export default function ContactSection() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <Card className="bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-                <CardContent className="p-6">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary-start/20 to-primary-start/40 rounded-lg flex items-center justify-center mb-4">
+              <Card className="modern-card group">
+                <div className="modern-card-content">
+                  <div className="w-12 h-12 bg-gradient-to-br from-primary-start/20 to-primary-start/40 rounded-xl flex items-center justify-center mb-4 group-hover:glow-primary transition-all duration-300">
                     <MapPin className="text-primary-start h-6 w-6" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Visit Us</h3>
@@ -125,13 +125,12 @@ export default function ContactSection() {
                     United States
                   </p>
                   <Button 
-                    variant="ghost" 
-                    className="text-primary-start hover:text-primary-end transition-colors font-medium p-0"
+                    className="modern-button mt-2 hover:glow-primary"
                     data-testid="button-get-directions"
                   >
-                    Get Directions <ExternalLink className="ml-1 h-4 w-4" />
+                    Get Directions <ExternalLink className="ml-2 h-4 w-4" />
                   </Button>
-                </CardContent>
+                </div>
               </Card>
             </motion.div>
 
@@ -142,9 +141,9 @@ export default function ContactSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-                <CardContent className="p-6">
-                  <div className="w-12 h-12 bg-gradient-to-br from-islamic-green/20 to-islamic-green/40 rounded-lg flex items-center justify-center mb-4">
+              <Card className="modern-card group">
+                <div className="modern-card-content">
+                  <div className="w-12 h-12 bg-gradient-to-br from-islamic-green/20 to-islamic-green/40 rounded-xl flex items-center justify-center mb-4 group-hover:glow-green transition-all duration-300">
                     <Phone className="text-islamic-green h-6 w-6" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Contact Info</h3>
@@ -162,7 +161,7 @@ export default function ContactSection() {
                       Open Daily 5:00 AM - 10:00 PM
                     </div>
                   </div>
-                </CardContent>
+                </div>
               </Card>
             </motion.div>
 
@@ -173,10 +172,10 @@ export default function ContactSection() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-                <CardContent className="p-6">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary-end/20 to-primary-end/40 rounded-lg flex items-center justify-center mb-4">
-                    <Share className="text-primary-end h-6 w-6" />
+              <Card className="modern-card group">
+                <div className="modern-card-content">
+                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500/20 to-purple-600/40 rounded-xl flex items-center justify-center mb-4 group-hover:glow-primary transition-all duration-300">
+                    <Share className="text-purple-600 h-6 w-6" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Follow Us</h3>
                   <div className="flex space-x-3">
@@ -196,7 +195,7 @@ export default function ContactSection() {
                       </a>
                     ))}
                   </div>
-                </CardContent>
+                </div>
               </Card>
             </motion.div>
           </div>
@@ -210,8 +209,8 @@ export default function ContactSection() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <Card className="bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-                <CardContent className="p-8">
+              <Card className="modern-card group">
+                <div className="modern-card-content p-8">
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Send us a Message</h3>
                   
                   <form onSubmit={handleSubmit} className="space-y-6">
@@ -264,7 +263,7 @@ export default function ContactSection() {
                     
                     <Button
                       type="submit"
-                      className="gradient-primary text-white px-8 py-4 font-bold hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                      className="modern-button hover:glow-primary w-full sm:w-auto"
                       disabled={contactMutation.isPending}
                       data-testid="button-send-message"
                     >
@@ -272,7 +271,7 @@ export default function ContactSection() {
                       {contactMutation.isPending ? "Sending..." : "Send Message"}
                     </Button>
                   </form>
-                </CardContent>
+                </div>
               </Card>
             </motion.div>
 
@@ -283,8 +282,8 @@ export default function ContactSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-                <CardContent className="p-6">
+              <Card className="modern-card group">
+                <div className="modern-card-content">
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Our Location</h3>
                   <div className="aspect-video bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden relative">
                     <img 
@@ -294,10 +293,10 @@ export default function ContactSection() {
                     />
                     <div className="absolute inset-0 flex items-center justify-center bg-black/30">
                       <Button 
-                        className="bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-lg hover:shadow-xl transition-all"
+                        className="modern-button hover:glow-primary"
                         data-testid="button-open-map"
                       >
-                        <MapPin className="text-primary-start mr-2 h-5 w-5" />
+                        <MapPin className="mr-2 h-5 w-5" />
                         Open in Google Maps
                       </Button>
                     </div>
@@ -316,7 +315,7 @@ export default function ContactSection() {
                       </div>
                     ))}
                   </div>
-                </CardContent>
+                </div>
               </Card>
             </motion.div>
           </div>

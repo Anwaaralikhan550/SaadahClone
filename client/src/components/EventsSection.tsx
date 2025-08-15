@@ -75,61 +75,62 @@ export default function EventsSection() {
                 viewport={{ once: true }}
               >
                 {event.isFeatured ? (
-                  <Card className="gradient-primary text-white">
-                    <CardContent className="p-6">
+                  <Card className="modern-card group cursor-pointer gradient-border">
+                    <div className="modern-card-content bg-gradient-to-br from-primary-start to-primary-end text-white">
                       <div className="flex items-start justify-between mb-4">
-                        <div>
+                        <div className="flex-1">
                           <div className="text-sm opacity-90 mb-1">{event.date}</div>
-                          <h3 className="text-2xl font-bold mb-2">{event.title}</h3>
-                          <p className="opacity-90">{event.description}</p>
+                          <h3 className="text-2xl font-bold mb-3 group-hover:scale-105 transition-transform duration-300">{event.title}</h3>
+                          <p className="opacity-90 leading-relaxed">{event.description}</p>
                         </div>
-                        <div className="text-right">
-                          <div className="text-2xl font-bold">{event.day}</div>
-                          <div className="text-sm opacity-90">{event.month}</div>
+                        <div className="text-right ml-4">
+                          <div className="text-3xl font-bold bg-white/20 rounded-xl p-3 backdrop-blur-sm">{event.day}</div>
+                          <div className="text-sm opacity-90 mt-1">{event.month}</div>
                         </div>
                       </div>
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between mt-6">
                         <div className="flex items-center text-sm opacity-90">
                           <Clock className="mr-2 h-4 w-4" />
                           <span>{event.time}</span>
                         </div>
                         <Button 
-                          className="bg-white text-primary-start hover:shadow-lg transition-all"
+                          className="bg-white text-primary-start hover:bg-gray-100 hover:scale-105 transition-all duration-300 font-semibold"
                           data-testid={`button-register-${event.id}`}
+                          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                         >
                           Register Now
                         </Button>
                       </div>
-                    </CardContent>
+                    </div>
                   </Card>
                 ) : (
-                  <Card className="bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
-                    <CardContent className="p-6">
+                  <Card className="modern-card group cursor-pointer">
+                    <div className="modern-card-content">
                       <div className="flex items-start justify-between mb-4">
-                        <div>
+                        <div className="flex-1">
                           <div className="text-sm text-gray-500 dark:text-gray-400 mb-1">{event.date}</div>
-                          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{event.title}</h3>
-                          <p className="text-gray-600 dark:text-gray-300">{event.description}</p>
+                          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:gradient-primary-text transition-all duration-300">{event.title}</h3>
+                          <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{event.description}</p>
                         </div>
-                        <div className="text-right">
-                          <div className="text-xl font-bold text-islamic-green">{event.day}</div>
-                          <div className="text-xs text-gray-500 dark:text-gray-400">{event.month}</div>
+                        <div className="text-right ml-4">
+                          <div className="text-2xl font-bold text-islamic-green bg-islamic-green/10 rounded-xl p-2 text-center min-w-[60px]">{event.day}</div>
+                          <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">{event.month}</div>
                         </div>
                       </div>
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between mt-6">
                         <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                           <Clock className="mr-2 h-4 w-4" />
                           <span>{event.time}</span>
                         </div>
                         <Button 
-                          variant="ghost" 
-                          className="text-primary-start hover:text-primary-end transition-colors font-medium"
+                          className="modern-button hover:glow-primary"
                           data-testid={`button-learn-more-${event.id}`}
+                          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                         >
-                          Learn More <Eye className="ml-1 h-4 w-4" />
+                          Learn More <Eye className="ml-2 h-4 w-4" />
                         </Button>
                       </div>
-                    </CardContent>
+                    </div>
                   </Card>
                 )}
               </motion.div>

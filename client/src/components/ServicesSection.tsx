@@ -82,30 +82,33 @@ export default function ServicesSection() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="h-full bg-white dark:bg-gray-900 shadow-lg hover:shadow-2xl transition-all duration-300 group">
-                <CardContent className="p-6">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-lg flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+              <Card className="modern-card h-full group cursor-pointer">
+                <div className="modern-card-content">
+                  <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:glow-primary transition-all duration-300`}>
                     <service.icon className={`h-6 w-6 ${service.iconColor}`} />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{service.title}</h3>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:gradient-primary-text transition-all duration-300">{service.title}</h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">
                     {service.description}
                   </p>
-                  <ul className="text-sm text-gray-500 dark:text-gray-400 space-y-1 mb-4">
+                  <ul className="text-sm text-gray-500 dark:text-gray-400 space-y-2 mb-6">
                     {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} data-testid={`feature-${service.title.toLowerCase().replace(" ", "-")}-${featureIndex}`}>
-                        • {feature}
+                      <li key={featureIndex} className="flex items-center" data-testid={`feature-${service.title.toLowerCase().replace(" ", "-")}-${featureIndex}`}>
+                        <div className="w-1.5 h-1.5 bg-primary-start rounded-full mr-2"></div>
+                        {feature}
                       </li>
                     ))}
                   </ul>
                   <Button 
-                    variant="ghost" 
-                    className="text-primary-start hover:text-primary-end transition-colors font-medium p-0"
+                    className="modern-button w-full hover:glow-primary"
                     data-testid={`button-learn-more-${service.title.toLowerCase().replace(" ", "-")}`}
+                    onClick={() => {
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
                   >
-                    Learn More <ArrowRight className="ml-1 h-4 w-4" />
+                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
-                </CardContent>
+                </div>
               </Card>
             </motion.div>
           ))}

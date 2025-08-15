@@ -6,6 +6,7 @@ import { useTheme } from "@/components/ThemeProvider";
 import { Moon, Sun, Menu } from "lucide-react";
 import { motion } from "framer-motion";
 import MosqueLogo from "@/components/MosqueLogo";
+import AnimatedALogo from "@/components/AnimatedALogo";
 import LanguageSelector, { type Language } from "@/components/LanguageSelector";
 import { getTranslation } from "@/lib/i18n";
 
@@ -39,9 +40,9 @@ export default function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <MosqueLogo size={50} className="text-primary-start hover:text-primary-end transition-colors duration-300" animated={true} />
-            <span className="text-xl font-bold bg-gradient-to-r from-primary-start to-primary-end bg-clip-text text-transparent">
-              As-Saadah
+            <AnimatedALogo size={50} className="hover:glow-primary transition-all duration-300" />
+            <span className="text-xl font-bold gradient-primary-text hover:scale-105 transition-transform duration-300">
+              s-Saadah
             </span>
           </motion.div>
 
@@ -62,7 +63,7 @@ export default function Navigation() {
             ))}
             <motion.a
               href="#donate"
-              className="gradient-primary text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all"
+              className="modern-button hover:glow-primary"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}

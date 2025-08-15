@@ -2,10 +2,13 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { BookOpen, GraduationCap, Users, Heart, Baby, ArrowRight } from "lucide-react";
+import { useLocation } from "wouter";
 
 export default function ServicesSection() {
+  const [, setLocation] = useLocation();
   const services = [
     {
+      id: "quran-classes",
       icon: BookOpen,
       title: "Quran Classes",
       description: "Learn proper Quranic recitation, memorization, and understanding with certified instructors.",
@@ -14,6 +17,7 @@ export default function ServicesSection() {
       iconColor: "text-islamic-green",
     },
     {
+      id: "islamic-studies",
       icon: GraduationCap,
       title: "Islamic Studies",
       description: "Comprehensive Islamic education covering theology, history, and jurisprudence.",
@@ -22,6 +26,7 @@ export default function ServicesSection() {
       iconColor: "text-primary-start",
     },
     {
+      id: "youth-programs",
       icon: Baby,
       title: "Youth Programs",
       description: "Engaging activities and mentorship programs for young Muslims to grow in faith.",
@@ -30,6 +35,7 @@ export default function ServicesSection() {
       iconColor: "text-primary-end",
     },
     {
+      id: "womens-programs",
       icon: Users,
       title: "Women's Programs",
       description: "Empowering Muslim women through education, support groups, and skill development.",
@@ -38,6 +44,7 @@ export default function ServicesSection() {
       iconColor: "text-pink-500",
     },
     {
+      id: "community-outreach",
       icon: Heart,
       title: "Community Outreach",
       description: "Building bridges with the broader community through service and interfaith dialogue.",
@@ -46,6 +53,7 @@ export default function ServicesSection() {
       iconColor: "text-blue-500",
     },
     {
+      id: "prayer-services",
       icon: BookOpen,
       title: "Prayer Services",
       description: "Daily prayers, Jummah services, and special occasion prayers for the community.",
@@ -103,7 +111,7 @@ export default function ServicesSection() {
                     className="modern-button w-full hover:glow-primary"
                     data-testid={`button-learn-more-${service.title.toLowerCase().replace(" ", "-")}`}
                     onClick={() => {
-                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                      setLocation(`/service/${service.id}`);
                     }}
                   >
                     Learn More <ArrowRight className="ml-2 h-4 w-4" />

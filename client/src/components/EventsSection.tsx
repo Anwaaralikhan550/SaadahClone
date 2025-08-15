@@ -4,8 +4,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, Bell, Plus, Eye, Mail } from "lucide-react";
 import { usePrayerTimes } from "@/hooks/usePrayerTimes";
+import { useLocation } from "wouter";
 
 export default function EventsSection() {
+  const [, setLocation] = useLocation();
   const { data: events, isLoading: eventsLoading } = useQuery({
     queryKey: ["/api/events"],
   });
@@ -14,7 +16,7 @@ export default function EventsSection() {
 
   const upcomingEvents = [
     {
-      id: 1,
+      id: "knowledge-competition",
       date: "December 15, 2024",
       title: "Annual Islamic Knowledge Competition",
       description: "Test your knowledge of Islam in our annual competition featuring Quran, Hadith, and Islamic history categories.",
@@ -24,7 +26,7 @@ export default function EventsSection() {
       isFeatured: true,
     },
     {
-      id: 2,
+      id: "family-game-night",
       date: "December 20, 2024",
       title: "Family Game Night",
       description: "Fun evening for the whole family with Islamic-themed games and activities.",
@@ -34,7 +36,7 @@ export default function EventsSection() {
       isFeatured: false,
     },
     {
-      id: 3,
+      id: "iftar-workshop",
       date: "December 25, 2024",
       title: "Community Iftar Preparation Workshop",
       description: "Learn to prepare traditional Ramadan dishes and plan community iftars.",
@@ -96,7 +98,9 @@ export default function EventsSection() {
                         <Button 
                           className="bg-white text-primary-start hover:bg-gray-100 hover:scale-105 transition-all duration-300 font-semibold"
                           data-testid={`button-register-${event.id}`}
-                          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                          onClick={() => {
+                            setLocation(`/event/${event.id}`);
+                          }}
                         >
                           Register Now
                         </Button>
@@ -125,7 +129,9 @@ export default function EventsSection() {
                         <Button 
                           className="modern-button hover:glow-primary"
                           data-testid={`button-learn-more-${event.id}`}
-                          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                          onClick={() => {
+                            setLocation(`/event/${event.id}`);
+                          }}
                         >
                           Learn More <Eye className="ml-2 h-4 w-4" />
                         </Button>
@@ -221,8 +227,14 @@ export default function EventsSection() {
                     <Button 
                       variant="ghost" 
                       size="sm" 
-                      className="text-primary-start hover:text-primary-end transition-colors"
+                      className="text-primary-start hover:text-primary-end hover:glow-primary transition-all duration-300"
                       data-testid="button-prayer-notifications"
+                      onClick={() => {
+                        const element = document.getElementById('contact');
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
                     >
                       <Bell className="mr-1 h-4 w-4" />
                       Set Prayer Reminders
@@ -244,25 +256,40 @@ export default function EventsSection() {
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Quick Actions</h3>
                   <div className="space-y-3">
                     <Button 
-                      variant="secondary" 
-                      className="w-full justify-start bg-white dark:bg-gray-800 text-gray-900 dark:text-white hover:shadow-lg transition-all"
+                      variant="outline" 
+                      className="w-full justify-start border-2 hover:border-primary-start hover:text-primary-start hover:glow-primary transition-all duration-300"
                       data-testid="button-submit-event"
+                      onClick={() => {
+                        const element = document.getElementById('contact');
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
                     >
                       <Plus className="text-primary-start mr-3 h-4 w-4" />
                       Submit Event
                     </Button>
                     <Button 
-                      variant="secondary" 
-                      className="w-full justify-start bg-white dark:bg-gray-800 text-gray-900 dark:text-white hover:shadow-lg transition-all"
+                      variant="outline" 
+                      className="w-full justify-start border-2 hover:border-primary-start hover:text-primary-start hover:glow-primary transition-all duration-300"
                       data-testid="button-view-calendar"
+                      onClick={() => {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
                     >
                       <Calendar className="text-primary-start mr-3 h-4 w-4" />
                       View Full Calendar
                     </Button>
                     <Button 
-                      variant="secondary" 
-                      className="w-full justify-start bg-white dark:bg-gray-800 text-gray-900 dark:text-white hover:shadow-lg transition-all"
+                      variant="outline" 
+                      className="w-full justify-start border-2 hover:border-primary-start hover:text-primary-start hover:glow-primary transition-all duration-300"
                       data-testid="button-newsletter"
+                      onClick={() => {
+                        const element = document.getElementById('contact');
+                        if (element) {
+                          element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
                     >
                       <Mail className="text-primary-start mr-3 h-4 w-4" />
                       Newsletter Signup

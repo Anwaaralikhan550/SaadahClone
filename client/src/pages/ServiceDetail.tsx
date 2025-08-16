@@ -775,14 +775,42 @@ export default function ServiceDetail() {
     );
   }
 
+  // Dynamic backgrounds for each service type
+  const backgroundClass = {
+    "education": "bg-gradient-to-br from-emerald-50 via-green-50/50 to-teal-50 dark:from-emerald-950 dark:via-green-950/50 dark:to-teal-950",
+    "health": "bg-gradient-to-br from-red-50 via-pink-50/50 to-rose-50 dark:from-red-950 dark:via-pink-950/50 dark:to-rose-950",
+    "poverty-alleviation": "bg-gradient-to-br from-green-50 via-emerald-50/50 to-cyan-50 dark:from-green-950 dark:via-emerald-950/50 dark:to-cyan-950",
+    "refugees-homeless": "bg-gradient-to-br from-blue-50 via-sky-50/50 to-indigo-50 dark:from-blue-950 dark:via-sky-950/50 dark:to-indigo-950",
+    "women-children": "bg-gradient-to-br from-pink-50 via-rose-50/50 to-purple-50 dark:from-pink-950 dark:via-rose-950/50 dark:to-purple-950",
+    "environmental": "bg-gradient-to-br from-emerald-50 via-green-50/50 to-lime-50 dark:from-emerald-950 dark:via-green-950/50 dark:to-lime-950",
+    "religious-programs": "bg-gradient-to-br from-orange-50 via-amber-50/50 to-yellow-50 dark:from-orange-950 dark:via-amber-950/50 dark:to-yellow-950",
+    "emergency-relief": "bg-gradient-to-br from-orange-50 via-red-50/50 to-pink-50 dark:from-orange-950 dark:via-red-950/50 dark:to-pink-950",
+    "youth-development": "bg-gradient-to-br from-purple-50 via-violet-50/50 to-indigo-50 dark:from-purple-950 dark:via-violet-950/50 dark:to-indigo-950",
+    "professional-development": "bg-gradient-to-br from-indigo-50 via-blue-50/50 to-cyan-50 dark:from-indigo-950 dark:via-blue-950/50 dark:to-cyan-950",
+    "research-data": "bg-gradient-to-br from-cyan-50 via-blue-50/50 to-indigo-50 dark:from-cyan-950 dark:via-blue-950/50 dark:to-indigo-950",
+    "social-business": "bg-gradient-to-br from-yellow-50 via-amber-50/50 to-orange-50 dark:from-yellow-950 dark:via-amber-950/50 dark:to-orange-950",
+    "volunteering": "bg-gradient-to-br from-emerald-50 via-teal-50/50 to-cyan-50 dark:from-emerald-950 dark:via-teal-950/50 dark:to-cyan-950",
+    "new-muslim-support": "bg-gradient-to-br from-blue-50 via-indigo-50/50 to-purple-50 dark:from-blue-950 dark:via-indigo-950/50 dark:to-purple-950",
+    "social-safety-net": "bg-gradient-to-br from-violet-50 via-purple-50/50 to-pink-50 dark:from-violet-950 dark:via-purple-950/50 dark:to-pink-950",
+    "technology-platforms": "bg-gradient-to-br from-slate-50 via-gray-50/50 to-zinc-50 dark:from-slate-950 dark:via-gray-950/50 dark:to-zinc-950",
+    "transparency": "bg-gradient-to-br from-blue-50 via-cyan-50/50 to-teal-50 dark:from-blue-950 dark:via-cyan-950/50 dark:to-teal-950"
+  };
+
+  const currentBg = backgroundClass[serviceId as keyof typeof backgroundClass] || "bg-gradient-to-br from-orange-50 via-purple-50/30 to-pink-50 dark:from-orange-950 dark:via-purple-950/30 dark:to-pink-950";
+
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <motion.div 
+      className={`min-h-screen ${currentBg} transition-all duration-1000`}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
       <Navigation />
       
       {/* Animated Hero Header */}
-      <section className="pt-24 pb-16 bg-gradient-to-br from-white via-orange-50/30 to-purple-50/30 dark:from-gray-800 dark:via-orange-900/10 dark:to-purple-900/10 relative overflow-hidden">
-        {/* Islamic Pattern Background */}
-        <div className="absolute inset-0 opacity-5 dark:opacity-10">
+      <section className="pt-24 pb-16 bg-gradient-to-br from-white/70 via-white/40 to-transparent dark:from-gray-900/70 dark:via-gray-900/40 dark:to-transparent relative overflow-hidden backdrop-blur-sm">
+        {/* Enhanced Islamic Pattern Background */}
+        <div className="absolute inset-0 opacity-10 dark:opacity-20">
           <div className="absolute top-10 left-10 w-32 h-32 border-2 border-islamic-gold rotate-45 rounded-lg animate-pulse"></div>
           <div className="absolute top-32 right-20 w-24 h-24 border-2 border-primary-start rotate-12 rounded-full animate-bounce-slow"></div>
           <div className="absolute bottom-20 left-20 w-40 h-40 border-2 border-islamic-green rotate-45 rounded-lg animate-pulse" style={{animationDelay: '1s'}}></div>
@@ -816,7 +844,7 @@ export default function ServiceDetail() {
               <div className={`inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br ${service.color} rounded-3xl mb-6 shadow-lg animate-pulse`}>
                 <service.icon className={`h-10 w-10 ${service.iconColor}`} />
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 via-primary-start to-primary-end dark:from-white dark:via-primary-start dark:to-primary-end bg-clip-text text-transparent mb-6 leading-tight">
+              <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-gray-900 via-primary-start to-primary-end dark:from-white dark:via-primary-start dark:to-primary-end bg-clip-text text-transparent mb-8 leading-tight tracking-tight">
                 {service.title}
               </h1>
               <div className="flex items-center justify-center text-lg text-gray-600 dark:text-gray-300 mb-8">
@@ -832,10 +860,10 @@ export default function ServiceDetail() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <Card className="modern-card group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
+              <Card className="modern-card group bg-white/90 dark:bg-gray-800/90 backdrop-blur-md border-0 shadow-xl ring-1 ring-black/5 dark:ring-white/10">
                 <div className="modern-card-content p-8 text-center">
                   <Quote className="h-8 w-8 text-primary-start mx-auto mb-4 animate-bounce-slow" />
-                  <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-200 leading-relaxed italic">
+                  <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-200 leading-relaxed font-medium">
                     "{service.description}"
                   </p>
                   <div className="mt-6 flex items-center justify-center space-x-2">
@@ -851,7 +879,7 @@ export default function ServiceDetail() {
       </section>
 
       {/* Key Benefits Section */}
-      <section className="py-16 bg-gradient-to-r from-orange-50/50 to-purple-50/50 dark:from-orange-900/10 dark:to-purple-900/10">
+      <section className="py-20 bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -861,7 +889,7 @@ export default function ServiceDetail() {
             className="text-center mb-12"
           >
             <Target className="h-12 w-12 text-primary-start mx-auto mb-4 animate-bounce-slow" />
-            <h2 className="text-4xl font-bold bg-gradient-to-r from-gray-900 to-primary-start dark:from-white dark:to-primary-start bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 to-primary-start dark:from-white dark:to-primary-start bg-clip-text text-transparent mb-6">
               Transform Your Life Through This Service
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-primary-start to-primary-end mx-auto rounded-full"></div>
@@ -876,7 +904,7 @@ export default function ServiceDetail() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="modern-card h-full group hover:scale-105 transition-all duration-500">
+                <Card className="modern-card h-full group hover:scale-105 hover:shadow-2xl transition-all duration-500 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-0 ring-1 ring-black/5 dark:ring-white/10">
                   <div className="modern-card-content p-6 text-center">
                     <div className="w-12 h-12 bg-gradient-to-br from-primary-start/20 to-primary-end/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                       <CheckCircle className="h-6 w-6 text-primary-start" />
@@ -1163,6 +1191,6 @@ export default function ServiceDetail() {
       </section>
 
       <Footer />
-    </div>
+    </motion.div>
   );
 }

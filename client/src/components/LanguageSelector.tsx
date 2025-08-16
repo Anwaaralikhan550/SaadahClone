@@ -38,17 +38,17 @@ export default function LanguageSelector({
         <Button
           variant="outline"
           size="sm"
-          className={`flex items-center space-x-2 min-w-[120px] justify-between ${className}`}
+          className={`flex items-center space-x-2 min-w-[120px] justify-between border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors ${className}`}
           data-testid="language-selector"
         >
           <div className="flex items-center space-x-2">
             <span className="text-lg" role="img" aria-label={`${currentLang.name} flag`}>
               {currentLang.flag}
             </span>
-            <span className="hidden sm:inline text-sm font-medium">
+            <span className="hidden sm:inline text-sm font-medium text-gray-700 dark:text-gray-200">
               {currentLang.nativeName}
             </span>
-            <span className="sm:hidden text-sm font-medium">
+            <span className="sm:hidden text-sm font-medium text-gray-700 dark:text-gray-200">
               {currentLang.code.toUpperCase()}
             </span>
           </div>
@@ -56,7 +56,7 @@ export default function LanguageSelector({
             animate={{ rotate: isOpen ? 180 : 0 }}
             transition={{ duration: 0.2 }}
           >
-            <ChevronDown className="h-3 w-3" />
+            <ChevronDown className="h-3 w-3 text-gray-700 dark:text-gray-200" />
           </motion.div>
         </Button>
       </DropdownMenuTrigger>
@@ -72,10 +72,10 @@ export default function LanguageSelector({
               onLanguageChange(language.code);
               setIsOpen(false);
             }}
-            className={`flex items-center space-x-3 px-3 py-2 cursor-pointer transition-colors ${
+            className={`flex items-center space-x-3 px-3 py-2 cursor-pointer transition-colors text-gray-700 dark:text-gray-200 ${
               currentLanguage === language.code 
-                ? 'bg-primary/10 text-primary' 
-                : 'hover:bg-gray-50 dark:hover:bg-gray-700'
+                ? 'bg-primary/10 text-primary dark:text-primary' 
+                : 'hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
             }`}
             data-testid={`language-option-${language.code}`}
           >
@@ -89,7 +89,7 @@ export default function LanguageSelector({
                 {language.flag}
               </span>
               <div className="flex flex-col">
-                <span className="text-sm font-medium">
+                <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
                   {language.nativeName}
                 </span>
                 <span className="text-xs text-gray-500 dark:text-gray-400">

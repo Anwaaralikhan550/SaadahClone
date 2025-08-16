@@ -261,7 +261,7 @@ export default function PrayerTimes({
 
   if (compact) {
     return (
-      <Card className={`bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-lg ${className}`}>
+      <Card className={`bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm shadow-lg text-gray-900 dark:text-gray-100 ${className}`}>
         <CardContent className="p-4">
           <div className="flex items-center justify-between mb-2">
             <h3 className="text-sm font-semibold text-gray-900 dark:text-white flex items-center">
@@ -284,8 +284,8 @@ export default function PrayerTimes({
             <div className="space-y-1">
               {[...Array(5)].map((_, i) => (
                 <div key={i} className="flex justify-between items-center">
-                  <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded w-12 animate-pulse"></div>
-                  <div className="h-3 bg-gray-200 dark:bg-gray-700 rounded w-16 animate-pulse"></div>
+                  <div className="h-3 bg-gray-200 dark:bg-gray-600 rounded w-12 animate-pulse"></div>
+                  <div className="h-3 bg-gray-200 dark:bg-gray-600 rounded w-16 animate-pulse"></div>
                 </div>
               ))}
             </div>
@@ -312,7 +312,7 @@ export default function PrayerTimes({
                         ? 'text-green-600 dark:text-green-400' 
                         : 'text-gray-900 dark:text-white'
                     }`}>
-                      {prayerTimes?.[prayer.key as keyof PrayerTimesData] || "--:--"}
+                      {(prayerTimes?.[prayer.key as keyof PrayerTimesData] as string) || "--:--"}
                     </span>
                   </motion.div>
                 );
@@ -501,7 +501,7 @@ export default function PrayerTimes({
           animate={{ opacity: 1, y: 0 }}
           className="mb-4"
         >
-          <Card className="gradient-primary text-white">
+          <Card className="gradient-primary text-white shadow-lg">
             <CardContent className="p-4">
               <div className="flex items-center justify-between">
                 <div>
@@ -522,7 +522,7 @@ export default function PrayerTimes({
       )}
 
       {/* Full Prayer Times */}
-      <Card className="bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
+      <Card className="bg-gray-50 dark:bg-gray-800 transition-colors duration-300 text-gray-900 dark:text-gray-100">
         <CardContent className="p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-xl font-bold text-gray-900 dark:text-white flex items-center">
@@ -570,8 +570,8 @@ export default function PrayerTimes({
                     transition={{ duration: 0.3, delay: index * 0.1 }}
                     className={`flex justify-between items-center p-4 rounded-lg transition-all duration-300 ${
                       isNext 
-                        ? 'bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 border-l-4 border-green-500' 
-                        : 'hover:bg-gray-100 dark:hover:bg-gray-700'
+                        ? 'bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900/30 dark:to-green-800/30 border-l-4 border-green-500' 
+                        : 'hover:bg-gray-100 dark:hover:bg-gray-700/70'
                     }`}
                     data-testid={`prayer-time-full-${prayer.key}`}
                   >
@@ -599,7 +599,7 @@ export default function PrayerTimes({
                           ? 'text-green-700 dark:text-green-300' 
                           : 'text-gray-900 dark:text-white'
                       }`}>
-                        {prayerTimes?.[prayer.key as keyof PrayerTimesData] || "--:--"}
+                        {(prayerTimes?.[prayer.key as keyof PrayerTimesData] as string) || "--:--"}
                       </span>
                     </div>
                   </motion.div>

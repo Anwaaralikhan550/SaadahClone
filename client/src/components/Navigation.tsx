@@ -52,7 +52,7 @@ export default function Navigation() {
               <motion.a
                 key={item.href}
                 href={item.href}
-                className="text-gray-700 dark:text-gray-300 hover:text-primary-start transition-colors"
+                className="text-gray-700 dark:text-gray-200 hover:text-primary-start dark:hover:text-primary-start transition-colors font-medium"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -87,6 +87,7 @@ export default function Navigation() {
               size="sm"
               onClick={toggleTheme}
               data-testid="theme-toggle"
+              className="border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               {theme === "light" ? (
                 <Moon className="h-4 w-4" />
@@ -98,7 +99,12 @@ export default function Navigation() {
             {/* Mobile Menu */}
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
-                <Button variant="outline" size="sm" className="md:hidden" data-testid="mobile-menu-toggle">
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="md:hidden border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors" 
+                  data-testid="mobile-menu-toggle"
+                >
                   <Menu className="h-4 w-4" />
                 </Button>
               </SheetTrigger>
@@ -108,7 +114,7 @@ export default function Navigation() {
                     <a
                       key={item.href}
                       href={item.href}
-                      className="text-lg text-gray-700 dark:text-gray-300 hover:text-primary-start transition-colors"
+                      className="text-lg text-gray-700 dark:text-gray-200 hover:text-primary-start dark:hover:text-primary-start transition-colors font-medium"
                       onClick={() => setIsOpen(false)}
                       data-testid={`mobile-nav-link-${item.label.toLowerCase().replace(" ", "-")}`}
                     >

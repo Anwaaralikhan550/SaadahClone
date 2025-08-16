@@ -254,11 +254,23 @@ export default function SocialSafetyNetSection() {
                 we're here to help connect you with the right resources and opportunities.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="modern-button hover:glow-primary">
+                <Button 
+                  className="modern-button hover:glow-primary"
+                  onClick={() => {
+                    const contactSection = document.getElementById('contact');
+                    if (contactSection) {
+                      contactSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                >
                   <Phone className="h-4 w-4 mr-2" />
                   Request Assistance
                 </Button>
-                <Button variant="outline" className="modern-button-outline">
+                <Button 
+                  variant="outline" 
+                  className="modern-button-outline"
+                  onClick={() => setLocation("/service/social-safety-net")}
+                >
                   <Heart className="h-4 w-4 mr-2" />
                   Support Our Programs
                 </Button>

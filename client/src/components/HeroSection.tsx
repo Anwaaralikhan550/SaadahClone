@@ -62,8 +62,7 @@ export default function HeroSection() {
               className="modern-button hover:glow-primary"
               data-testid="button-learn-more"
               onClick={() => {
-                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-                setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
+                document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
               Learn About Us
@@ -75,7 +74,6 @@ export default function HeroSection() {
               data-testid="button-join-community"
               onClick={() => {
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100);
               }}
             >
               Join Our Community

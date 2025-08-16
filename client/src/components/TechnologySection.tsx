@@ -290,11 +290,20 @@ export default function TechnologySection() {
                 connect, or seek support, our technology platforms are designed to serve you wherever you are.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="modern-button hover:glow-primary">
+                <Button 
+                  className="modern-button hover:glow-primary"
+                  onClick={() => setLocation("/service/technology-platforms")}
+                >
                   <Monitor className="h-4 w-4 mr-2" />
                   Access Online Platform
                 </Button>
-                <Button variant="outline" className="modern-button-outline">
+                <Button 
+                  variant="outline" 
+                  className="modern-button-outline"
+                  onClick={() => {
+                    window.open('https://discord.gg/as-saadah-community', '_blank');
+                  }}
+                >
                   <MessageCircle className="h-4 w-4 mr-2" />
                   Join Community Chat
                 </Button>

@@ -274,7 +274,8 @@ export default function EventsSection() {
                       className="w-full justify-start border-2 hover:border-primary-start hover:text-primary-start hover:glow-primary transition-all duration-300"
                       data-testid="button-view-calendar"
                       onClick={() => {
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        // Open a calendar view or external calendar
+                        window.open('https://calendar.google.com/calendar/embed?src=c_mosque%40as-saadah.org', '_blank');
                       }}
                     >
                       <Calendar className="text-primary-start mr-3 h-4 w-4" />

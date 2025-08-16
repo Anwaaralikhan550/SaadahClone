@@ -127,6 +127,7 @@ export default function ContactSection() {
                   <Button 
                     className="modern-button mt-2 hover:glow-primary"
                     data-testid="button-get-directions"
+                    onClick={() => window.open('https://maps.google.com/maps?q=123+Islamic+Center+Drive,+Springfield,+IL+62701', '_blank')}
                   >
                     Get Directions <ExternalLink className="ml-2 h-4 w-4" />
                   </Button>
@@ -295,6 +296,7 @@ export default function ContactSection() {
                       <Button 
                         className="modern-button hover:glow-primary"
                         data-testid="button-open-map"
+                        onClick={() => window.open('https://maps.google.com/maps?q=123+Islamic+Center+Drive,+Springfield,+IL+62701', '_blank')}
                       >
                         <MapPin className="mr-2 h-5 w-5" />
                         Open in Google Maps

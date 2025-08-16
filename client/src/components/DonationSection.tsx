@@ -272,7 +272,12 @@ export default function DonationSection() {
                 <Button 
                   className="modern-button w-full hover:glow-primary mt-auto"
                   data-testid="button-learn-more-campaign"
-                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                  onClick={() => {
+                    toast({
+                      title: "Campaign Details",
+                      description: "Visit our mosque to learn more about the renovation project, see architectural plans, and speak with project coordinators. Tours available after Friday prayers.",
+                    });
+                  }}
                 >
                   Learn More About This Campaign
                 </Button>
@@ -314,7 +319,22 @@ export default function DonationSection() {
                       variant="outline"
                       className="w-full justify-start border-2 hover:border-primary-start hover:text-primary-start hover:glow-primary transition-all duration-300"
                       data-testid={`button-${item.testId}`}
-                      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                      onClick={() => {
+                        if (item.testId === 'volunteer') {
+                          document.getElementById('volunteering')?.scrollIntoView({ behavior: 'smooth' });
+                        } else if (item.testId === 'amazon-smile') {
+                          window.open('https://smile.amazon.com/ch/45-0123456', '_blank');
+                        } else if (item.testId === 'spread-word') {
+                          navigator.share ? navigator.share({
+                            title: 'As-Saadah Islamic Organization',
+                            text: 'Supporting our community through faith, education, and service.',
+                            url: window.location.href
+                          }) : toast({
+                            title: "Share Our Mission",
+                            description: "Copy this URL to share with friends and family: " + window.location.href,
+                          });
+                        }
+                      }}
                     >
                       <item.icon className="text-primary-start mr-3 h-5 w-5" />
                       {item.label}

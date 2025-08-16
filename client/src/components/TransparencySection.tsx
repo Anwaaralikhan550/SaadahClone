@@ -137,7 +137,7 @@ export default function TransparencySection() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="modern-card text-center">
+              <Card className="modern-card text-center h-full">
                 <div className="modern-card-content">
                   <div className="w-12 h-12 bg-gradient-to-br from-primary-start/20 to-primary-start/40 rounded-full flex items-center justify-center mx-auto mb-4">
                     <stat.icon className="h-6 w-6 text-primary-start" />

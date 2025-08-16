@@ -108,6 +108,52 @@ export const newsletterSubscriptions = pgTable("newsletter_subscriptions", {
   subscribedAt: timestamp("subscribed_at").defaultNow(),
 });
 
+// Programs and Services table
+export const programs = pgTable("programs", {
+  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+  title: text("title").notNull(),
+  titleAr: text("title_ar"),
+  category: varchar("category").notNull(), // education, health, poverty, etc.
+  description: text("description").notNull(),
+  descriptionAr: text("description_ar"),
+  features: text("features").array(),
+  featuresAr: text("features_ar").array(),
+  isActive: boolean("is_active").default(true),
+  isFeatured: boolean("is_featured").default(false),
+  imageUrl: varchar("image_url"),
+  contactInfo: text("contact_info"),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+// Volunteers table
+export const volunteers = pgTable("volunteers", {
+  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+  name: varchar("name").notNull(),
+  email: varchar("email").notNull(),
+  phone: varchar("phone"),
+  skills: text("skills").array(),
+  availability: varchar("availability"), // weekends, evenings, etc.
+  interests: text("interests").array(), // which programs they want to help with
+  experience: text("experience"),
+  status: varchar("status").default("pending"), // pending, approved, active
+  registeredAt: timestamp("registered_at").defaultNow(),
+});
+
+// Success stories table
+export const successStories = pgTable("success_stories", {
+  id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
+  title: text("title").notNull(),
+  titleAr: text("title_ar"),
+  story: text("story").notNull(),
+  storyAr: text("story_ar"),
+  beneficiaryName: varchar("beneficiary_name"),
+  program: varchar("program"), // which program helped them
+  imageUrl: varchar("image_url"),
+  isPublished: boolean("is_published").default(false),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
 // Insert schemas
 export const insertEventSchema = createInsertSchema(events).omit({
   id: true,
@@ -143,6 +189,24 @@ export const insertNewsletterSubscriptionSchema = createInsertSchema(newsletterS
   subscribedAt: true,
 });
 
+export const insertProgramSchema = createInsertSchema(programs).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export const insertVolunteerSchema = createInsertSchema(volunteers).omit({
+  id: true,
+  registeredAt: true,
+  status: true,
+});
+
+export const insertSuccessStorySchema = createInsertSchema(successStories).omit({
+  id: true,
+  createdAt: true,
+  isPublished: true,
+});
+
 // Types
 export type UpsertUser = typeof users.$inferInsert;
 export type User = typeof users.$inferSelect;
@@ -158,3 +222,9 @@ export type PrayerTimes = typeof prayerTimes.$inferSelect;
 export type InsertPrayerTimes = z.infer<typeof insertPrayerTimesSchema>;
 export type NewsletterSubscription = typeof newsletterSubscriptions.$inferSelect;
 export type InsertNewsletterSubscription = z.infer<typeof insertNewsletterSubscriptionSchema>;
+export type Program = typeof programs.$inferSelect;
+export type InsertProgram = z.infer<typeof insertProgramSchema>;
+export type Volunteer = typeof volunteers.$inferSelect;
+export type InsertVolunteer = z.infer<typeof insertVolunteerSchema>;
+export type SuccessStory = typeof successStories.$inferSelect;
+export type InsertSuccessStory = z.infer<typeof insertSuccessStorySchema>;

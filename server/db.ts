@@ -6,9 +6,9 @@ import * as schema from "@shared/schema";
 neonConfig.webSocketConstructor = ws;
 
 if (!process.env.DATABASE_URL) {
-  console.warn("WARNING: DATABASE_URL not set. Database features will be disabled.");
-  // Set a placeholder URL to prevent immediate failure
-  process.env.DATABASE_URL = "postgresql://placeholder:placeholder@localhost:5432/placeholder";
+  console.warn("WARNING: DATABASE_URL not set. Using fallback configuration.");
+  // Create a temporary DATABASE_URL for development
+  process.env.DATABASE_URL = "postgresql://user:password@localhost:5432/temp_db";
 }
 
 export const pool = new Pool({ connectionString: process.env.DATABASE_URL });

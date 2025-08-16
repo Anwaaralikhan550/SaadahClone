@@ -2,7 +2,7 @@ import { useParams, useLocation } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowLeft, BookOpen, GraduationCap, Users, Heart, Baby, Clock, MapPin, Phone, Mail, Star, Award, Quote, CheckCircle, Sparkles, Target, Gift } from "lucide-react";
+import { ArrowLeft, BookOpen, GraduationCap, Users, Heart, Baby, Clock, MapPin, Phone, Mail, Star, Award, Quote, CheckCircle, Sparkles, Target, Gift, Home, Shield, Trees, Briefcase, BarChart3, Building2 } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
@@ -208,6 +208,391 @@ export default function ServiceDetail() {
         { name: "Imam Mohammad Hassan", text: "Seeing our community come together for prayers, especially Jummah, strengthens our bonds and faith.", role: "Imam" },
         { name: "Abdullah Rahman", text: "The Tarawih prayers during Ramadan create such a peaceful and spiritual atmosphere for the entire family.", role: "Community Member" },
         { name: "Fatima Al-Zahra", text: "Having a place for proper prayer services has been essential for maintaining our spiritual practices.", role: "Worshipper" }
+      ]
+    },
+    // New comprehensive foundation services
+    "education": {
+      icon: GraduationCap,
+      title: "Education Services",
+      description: "Comprehensive educational support from establishing schools and colleges to providing scholarships and literacy programs that transform lives and communities.",
+      features: [
+        "Schools and colleges establishment",
+        "Merit-based scholarships for deserving students",
+        "Adult literacy programs for all ages",
+        "Women's education and empowerment",
+        "Vocational training and skill development",
+        "Educational resource centers"
+      ],
+      schedule: "Year-round programs with flexible scheduling",
+      instructor: "Certified educators and volunteers",
+      age: "All ages from children to adults",
+      fee: "Scholarships available, sliding scale fees",
+      color: "from-islamic-green/20 to-islamic-green/40",
+      iconColor: "text-islamic-green",
+      benefits: [
+        "Access quality education regardless of financial status",
+        "Develop skills for better employment opportunities",
+        "Build confidence through literacy and knowledge",
+        "Connect education with Islamic values",
+        "Receive mentorship and academic support",
+        "Join a supportive learning community"
+      ],
+      testimonials: [
+        { name: "Amina Abdullah", text: "The scholarship program enabled me to pursue my engineering degree and now I'm giving back to the community.", role: "Scholarship Recipient" },
+        { name: "Hassan Mohamed", text: "The adult literacy program changed my life. I can now read to my children and help them with homework.", role: "Graduate" },
+        { name: "Dr. Sarah Khan", text: "Teaching at the foundation's schools allows me to combine quality education with Islamic principles.", role: "Educator" }
+      ]
+    },
+    "health": {
+      icon: Heart,
+      title: "Health Services",
+      description: "Comprehensive healthcare support including hospitals, clinics, free medical services, and health awareness programs serving our community's physical well-being.",
+      features: [
+        "Community hospitals and medical centers",
+        "Free medicines and vaccination programs",
+        "Health awareness workshops and campaigns",
+        "Mobile medical units for remote areas",
+        "Mental health and counseling services",
+        "Preventive healthcare programs"
+      ],
+      schedule: "24/7 emergency services, daily clinics 8 AM - 6 PM",
+      instructor: "Licensed medical professionals and volunteers",
+      age: "All ages, prenatal to elderly care",
+      fee: "Free for low-income families, subsidized rates",
+      color: "from-red-400/20 to-red-400/40",
+      iconColor: "text-red-500",
+      benefits: [
+        "Access quality healthcare regardless of ability to pay",
+        "Receive preventive care and health education",
+        "Get support for mental health and wellness",
+        "Access specialized medical services",
+        "Participate in community health programs",
+        "Receive care aligned with Islamic principles"
+      ],
+      testimonials: [
+        { name: "Dr. Fatima Al-Zahra", text: "Providing healthcare through Islamic principles of compassion has been deeply fulfilling for our medical team.", role: "Chief Medical Officer" },
+        { name: "Ahmad Hassan", text: "The free medication program helped manage my diabetes when I couldn't afford treatment elsewhere.", role: "Patient" },
+        { name: "Nurse Khadija", text: "The mobile clinics reach families who otherwise wouldn't have access to basic healthcare services.", role: "Healthcare Provider" }
+      ]
+    },
+    "poverty-alleviation": {
+      icon: Gift,
+      title: "Poverty Alleviation",
+      description: "Comprehensive support for low-income families through financial assistance, skill training, and distribution of basic necessities to break the cycle of poverty.",
+      features: [
+        "Emergency financial assistance programs",
+        "Skill training and employment placement",
+        "Food pantry and clothing distribution",
+        "Housing assistance and support",
+        "Microfinance and small business loans",
+        "Financial literacy education"
+      ],
+      schedule: "Monday-Friday 9 AM - 5 PM, emergency assistance 24/7",
+      instructor: "Social workers and community volunteers",
+      age: "Families and individuals in need",
+      fee: "Free services and assistance",
+      color: "from-green-400/20 to-green-400/40",
+      iconColor: "text-green-500",
+      benefits: [
+        "Receive immediate relief during financial crises",
+        "Develop skills for sustainable employment",
+        "Access resources for basic necessities",
+        "Get support for housing and stability",
+        "Learn financial management and planning",
+        "Build pathways out of poverty"
+      ],
+      testimonials: [
+        { name: "Zainab Ahmed", text: "The skills training program helped me start my catering business and become financially independent.", role: "Program Graduate" },
+        { name: "Omar Al-Rashid", text: "During unemployment, the foundation's support kept my family fed and housed until I found work.", role: "Beneficiary" },
+        { name: "Social Worker Maria", text: "Seeing families transition from crisis to stability through our programs is incredibly rewarding.", role: "Staff Member" }
+      ]
+    },
+    "refugees-homeless": {
+      icon: Home,
+      title: "Refugees & Homeless Support",
+      description: "Comprehensive support for displaced individuals and families including emergency shelter, employment assistance, and integration programs.",
+      features: [
+        "Emergency shelter and temporary housing",
+        "Job placement and employment support",
+        "Legal aid and documentation assistance",
+        "Language learning and cultural orientation",
+        "Integration support and mentorship",
+        "Family reunification services"
+      ],
+      schedule: "24/7 emergency services, daily support 8 AM - 8 PM",
+      instructor: "Social workers, legal advocates, and volunteers",
+      age: "All ages, individuals and families",
+      fee: "Free services and support",
+      color: "from-blue-400/20 to-blue-400/40",
+      iconColor: "text-blue-500",
+      benefits: [
+        "Find safe, dignified housing solutions",
+        "Access employment and income opportunities",
+        "Receive legal support and advocacy",
+        "Learn language and cultural integration skills",
+        "Connect with supportive community networks",
+        "Rebuild stability and independence"
+      ],
+      testimonials: [
+        { name: "Refugee Family", text: "The foundation helped us rebuild our lives with dignity and hope for our children's future.", role: "Beneficiary Family" },
+        { name: "Legal Advocate Aisha", text: "Helping families navigate complex legal systems and reunite with loved ones is deeply meaningful work.", role: "Staff" },
+        { name: "Community Volunteer", text: "Welcoming refugees and homeless individuals has enriched our community immeasurably.", role: "Volunteer" }
+      ]
+    },
+    "women-children": {
+      icon: Users,
+      title: "Women & Children Welfare",
+      description: "Specialized programs focusing on women's empowerment, children's protection, and comprehensive support for mothers and families.",
+      features: [
+        "Women's empowerment and leadership programs",
+        "Childcare centers and after-school programs",
+        "Child protection and safety services",
+        "Parenting education and family support",
+        "Women's health and wellness programs",
+        "Rights awareness and advocacy"
+      ],
+      schedule: "Monday-Saturday 8 AM - 6 PM, emergency services 24/7",
+      instructor: "Licensed social workers and certified educators",
+      age: "Women and children of all ages",
+      fee: "Free for those in need, sliding scale available",
+      color: "from-pink-400/20 to-pink-400/40",
+      iconColor: "text-pink-500",
+      benefits: [
+        "Access safe, supportive environment for growth",
+        "Develop leadership and professional skills",
+        "Receive comprehensive childcare services",
+        "Learn parenting and family management skills",
+        "Access health and wellness resources",
+        "Connect with empowering community network"
+      ],
+      testimonials: [
+        { name: "Maryam Hassan", text: "The leadership program gave me confidence to start my own nonprofit and advocate for other women.", role: "Program Graduate" },
+        { name: "Single Mother Fatima", text: "The childcare center allowed me to complete my education while knowing my children were safe and learning.", role: "Beneficiary" },
+        { name: "Child Advocate Sarah", text: "Protecting children and empowering mothers creates stronger, healthier communities for everyone.", role: "Staff" }
+      ]
+    },
+    "environmental": {
+      icon: Trees,
+      title: "Environmental Protection",
+      description: "Community-driven environmental initiatives including tree plantation, waste management, and sustainability programs that care for Allah's creation.",
+      features: [
+        "Tree plantation and urban greening campaigns",
+        "Waste reduction and recycling programs",
+        "Environmental education and awareness",
+        "Community garden projects",
+        "Clean energy and sustainability initiatives",
+        "Water conservation programs"
+      ],
+      schedule: "Seasonal campaigns, monthly community events",
+      instructor: "Environmental scientists and community volunteers",
+      age: "All ages, family-friendly activities",
+      fee: "Free participation, donations welcome",
+      color: "from-emerald-400/20 to-emerald-400/40",
+      iconColor: "text-emerald-500",
+      benefits: [
+        "Contribute to environmental stewardship as Islamic duty",
+        "Learn sustainable living practices",
+        "Engage in community beautification projects",
+        "Develop environmental awareness and responsibility",
+        "Participate in family-friendly outdoor activities",
+        "Create lasting positive impact on local environment"
+      ],
+      testimonials: [
+        { name: "Environmental Coordinator Ahmad", text: "Our tree planting campaigns have transformed neighborhoods while teaching Islamic environmental ethics.", role: "Program Coordinator" },
+        { name: "Community Member Layla", text: "The community garden brings families together while teaching children to care for Allah's creation.", role: "Volunteer" },
+        { name: "Youth Leader Omar", text: "Leading environmental projects gives young people purpose and connection to their community.", role: "Youth Volunteer" }
+      ]
+    },
+    "religious-programs": {
+      icon: BookOpen,
+      title: "Religious & Social Programs",
+      description: "Comprehensive Islamic education and community programs including Ramadan relief, mosque services, and spiritual development activities.",
+      features: [
+        "Ramadan and Eid relief programs",
+        "Islamic schools and Quran courses",
+        "Mosque construction and maintenance",
+        "Dawah and outreach programs",
+        "Religious counseling and guidance",
+        "Community prayer and study circles"
+      ],
+      schedule: "Daily programs, special events during Islamic calendar",
+      instructor: "Islamic scholars, imams, and community teachers",
+      age: "All ages, family programs available",
+      fee: "Free for community members",
+      color: "from-primary-start/20 to-primary-start/40",
+      iconColor: "text-primary-start",
+      benefits: [
+        "Deepen understanding of Islamic principles",
+        "Connect with supportive faith community",
+        "Access religious guidance and counseling",
+        "Participate in charitable giving programs",
+        "Learn Islamic history and culture",
+        "Strengthen spiritual practice and devotion"
+      ],
+      testimonials: [
+        { name: "Imam Abdullah", text: "Our Islamic education programs help community members grow spiritually while staying connected to their cultural roots.", role: "Religious Leader" },
+        { name: "Family Program Coordinator", text: "Ramadan programs bring families together and teach children the importance of charity and compassion.", role: "Staff" },
+        { name: "Community Member Hassan", text: "The mosque maintenance program allows us to care for our spiritual home as a community effort.", role: "Volunteer" }
+      ]
+    },
+    "emergency-relief": {
+      icon: Shield,
+      title: "Emergency Relief",
+      description: "Rapid response and comprehensive support during natural disasters, crises, and emergency situations affecting our community and beyond.",
+      features: [
+        "Natural disaster response and recovery",
+        "Emergency food and shelter distribution",
+        "Medical emergency assistance",
+        "Crisis counseling and mental health support",
+        "Disaster preparedness training",
+        "Community resilience building"
+      ],
+      schedule: "24/7 emergency response, regular preparedness training",
+      instructor: "Emergency response professionals and trained volunteers",
+      age: "Community-wide support, all ages",
+      fee: "Free emergency assistance and training",
+      color: "from-orange-400/20 to-orange-400/40",
+      iconColor: "text-orange-500",
+      benefits: [
+        "Receive immediate aid during emergencies",
+        "Access professional crisis support services",
+        "Learn disaster preparedness and safety skills",
+        "Connect with community support networks",
+        "Participate in building community resilience",
+        "Help others during times of crisis"
+      ],
+      testimonials: [
+        { name: "Emergency Coordinator Ahmad", text: "Our swift response during the recent flooding helped dozens of families recover and rebuild their lives.", role: "Emergency Manager" },
+        { name: "Disaster Survivor Layla", text: "The foundation's emergency shelter and support helped us through the most difficult time in our lives.", role: "Beneficiary" },
+        { name: "Volunteer Firefighter Omar", text: "Training community members in emergency preparedness creates a stronger, more resilient neighborhood.", role: "Trainer" }
+      ]
+    },
+    "youth-development": {
+      icon: Target,
+      title: "Youth Development",
+      description: "Comprehensive programs designed to develop leadership skills, provide mentorship, and create positive opportunities for young people in our community.",
+      features: [
+        "Leadership training and development programs",
+        "Sports leagues and recreational activities",
+        "Cultural arts and creativity workshops",
+        "Career guidance and job placement",
+        "Mentorship and counseling services",
+        "Community service project coordination"
+      ],
+      schedule: "After-school programs Monday-Friday, weekend activities",
+      instructor: "Youth development specialists and community mentors",
+      age: "Ages 13-25, programs for different age groups",
+      fee: "Free participation, materials provided",
+      color: "from-purple-400/20 to-purple-400/40",
+      iconColor: "text-purple-500",
+      benefits: [
+        "Develop leadership and communication skills",
+        "Engage in positive recreational activities",
+        "Receive career guidance and job training",
+        "Connect with positive role models and mentors",
+        "Participate in meaningful community service",
+        "Build confidence and life skills"
+      ],
+      testimonials: [
+        { name: "Youth Leader Aisha", text: "The leadership program gave me skills to organize community events and mentor younger students.", role: "Program Graduate" },
+        { name: "Sports Coach Mohamed", text: "Sports programs teach teamwork, discipline, and provide positive alternatives to risky behaviors.", role: "Instructor" },
+        { name: "Career Counselor Sarah", text: "Helping young people discover their talents and career paths is incredibly fulfilling work.", role: "Staff" }
+      ]
+    },
+    "professional-development": {
+      icon: Briefcase,
+      title: "Professional Development",
+      description: "Comprehensive training programs in vocational skills, business development, and technology to prepare community members for career success.",
+      features: [
+        "Vocational training in high-demand fields",
+        "Business development and entrepreneurship",
+        "IT and digital skills certification",
+        "Professional resume and interview training",
+        "Job placement and career services",
+        "Small business loans and support"
+      ],
+      schedule: "Evening and weekend classes, flexible scheduling",
+      instructor: "Industry professionals and certified trainers",
+      age: "Adults and young adults 16+",
+      fee: "Sliding scale fees, scholarships available",
+      color: "from-indigo-400/20 to-indigo-400/40",
+      iconColor: "text-indigo-500",
+      benefits: [
+        "Gain marketable skills for better employment",
+        "Receive support for starting your own business",
+        "Access modern technology training",
+        "Develop professional networking connections",
+        "Get help with job search and placement",
+        "Build financial independence and stability"
+      ],
+      testimonials: [
+        { name: "IT Graduate Fatima", text: "The web development course helped me transition from retail to a tech career with triple the salary.", role: "Program Graduate" },
+        { name: "Small Business Owner Ahmed", text: "The entrepreneurship program provided both training and a microloan to start my restaurant.", role: "Business Owner" },
+        { name: "Job Counselor Maria", text: "Seeing students land their dream jobs after completing our training programs never gets old.", role: "Staff" }
+      ]
+    },
+    "research-data": {
+      icon: BarChart3,
+      title: "Research & Data Analysis",
+      description: "Community-focused research initiatives that assess needs, measure impact, and develop data-driven solutions for social challenges.",
+      features: [
+        "Community needs assessment studies",
+        "Program impact evaluation and reporting",
+        "Scientific and technological research projects",
+        "Data collection and analysis training",
+        "Research publication and dissemination",
+        "Policy advocacy based on research findings"
+      ],
+      schedule: "Ongoing projects, quarterly community reports",
+      instructor: "Research scientists, data analysts, and academics",
+      age: "Research opportunities for high school and college students",
+      fee: "Free participation, research stipends available",
+      color: "from-cyan-400/20 to-cyan-400/40",
+      iconColor: "text-cyan-500",
+      benefits: [
+        "Contribute to evidence-based community improvement",
+        "Gain valuable research and analytical skills",
+        "Participate in meaningful scientific studies",
+        "Learn data collection and analysis techniques",
+        "Support policy changes through research",
+        "Build academic and professional credentials"
+      ],
+      testimonials: [
+        { name: "Research Director Dr. Hassan", text: "Our community needs assessments have guided the foundation's programs and attracted significant funding.", role: "Research Leader" },
+        { name: "Student Researcher Amina", text: "Participating in research projects prepared me for graduate school and a career in public policy.", role: "Student" },
+        { name: "Data Analyst Omar", text: "Using data to show the real impact of our programs helps secure resources for expanding services.", role: "Staff" }
+      ]
+    },
+    "social-business": {
+      icon: Building2,
+      title: "Social Entrepreneurship & Business Support",
+      description: "Supporting local businesses and developing sustainable social enterprises that create jobs while addressing community needs.",
+      features: [
+        "Local business development and support",
+        "Social enterprise incubation programs",
+        "Marketing and product development assistance",
+        "Cooperative business model training",
+        "Fair trade and ethical business practices",
+        "Community investment and crowdfunding"
+      ],
+      schedule: "Business hours Monday-Friday, weekend workshops",
+      instructor: "Business development specialists and successful entrepreneurs",
+      age: "Adult entrepreneurs and business owners",
+      fee: "Consultation fees, low-interest loans available",
+      color: "from-yellow-400/20 to-yellow-400/40",
+      iconColor: "text-yellow-600",
+      benefits: [
+        "Access business development resources and mentoring",
+        "Learn sustainable and ethical business practices",
+        "Connect with local market opportunities",
+        "Receive marketing and branding support",
+        "Access to microfinance and investment opportunities",
+        "Build businesses that serve community needs"
+      ],
+      testimonials: [
+        { name: "Social Enterprise Owner Zainab", text: "The incubation program helped me launch a catering business that employs local women and serves healthy meals.", role: "Entrepreneur" },
+        { name: "Business Mentor Ahmad", text: "Supporting local businesses creates jobs and keeps money circulating within our community.", role: "Advisor" },
+        { name: "Cooperative Leader Fatima", text: "Learning cooperative business models allowed our group to pool resources and share profits fairly.", role: "Business Owner" }
       ]
     }
   };

@@ -163,7 +163,7 @@ export default function ServicesSection() {
               viewport={{ once: true }}
             >
               <Card className="modern-card h-full group cursor-pointer">
-                <div className="modern-card-content">
+                <div className="modern-card-content flex flex-col h-full">
                   <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:glow-primary transition-all duration-300`}>
                     <service.icon className={`h-6 w-6 ${service.iconColor}`} />
                   </div>
@@ -180,7 +180,7 @@ export default function ServicesSection() {
                     ))}
                   </ul>
                   <Button 
-                    className="modern-button w-full hover:glow-primary"
+                    className="modern-button w-full hover:glow-primary mt-auto"
                     data-testid={`button-learn-more-${service.title.toLowerCase().replace(" ", "-")}`}
                     onClick={() => {
                       setLocation(`/service/${service.id}`);

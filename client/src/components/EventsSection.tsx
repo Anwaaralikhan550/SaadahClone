@@ -108,8 +108,8 @@ export default function EventsSection() {
                     </div>
                   </Card>
                 ) : (
-                  <Card className="modern-card group cursor-pointer">
-                    <div className="modern-card-content">
+                  <Card className="modern-card group cursor-pointer h-full">
+                    <div className="modern-card-content flex flex-col h-full">
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex-1">
                           <div className="text-sm text-gray-500 dark:text-gray-400 mb-1">{event.date}</div>
@@ -121,7 +121,7 @@ export default function EventsSection() {
                           <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">{event.month}</div>
                         </div>
                       </div>
-                      <div className="flex items-center justify-between mt-6">
+                      <div className="flex items-center justify-between mt-auto pt-6">
                         <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                           <Clock className="mr-2 h-4 w-4" />
                           <span>{event.time}</span>

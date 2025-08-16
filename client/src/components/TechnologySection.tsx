@@ -169,7 +169,7 @@ export default function TechnologySection() {
               viewport={{ once: true }}
             >
               <Card className="modern-card h-full">
-                <div className="modern-card-content">
+                <div className="modern-card-content flex flex-col h-full">
                   <div className={`w-16 h-16 bg-gradient-to-br ${platform.color} rounded-xl flex items-center justify-center mb-6`}>
                     <platform.icon className={`h-6 w-6 ${platform.iconColor}`} />
                   </div>
@@ -196,7 +196,7 @@ export default function TechnologySection() {
                   </ul>
 
                   <Button 
-                    className="modern-button w-full hover:glow-primary"
+                    className="modern-button w-full hover:glow-primary mt-auto"
                     onClick={() => setLocation("/service/technology-platforms")}
                   >
                     <Play className="h-4 w-4 mr-2" />

@@ -170,7 +170,7 @@ export default function SocialSafetyNetSection() {
               viewport={{ once: true }}
             >
               <Card className="modern-card h-full">
-                <div className="modern-card-content">
+                <div className="modern-card-content flex flex-col h-full">
                   <div className={`w-16 h-16 bg-gradient-to-br ${facility.color} rounded-xl flex items-center justify-center mb-6`}>
                     <facility.icon className={`h-6 w-6 ${facility.iconColor}`} />
                   </div>
@@ -198,7 +198,7 @@ export default function SocialSafetyNetSection() {
                   </ul>
 
                   <Button 
-                    className="modern-button w-full hover:glow-primary"
+                    className="modern-button w-full hover:glow-primary mt-auto"
                     onClick={() => setLocation("/service/social-safety-net")}
                   >
                     Learn More

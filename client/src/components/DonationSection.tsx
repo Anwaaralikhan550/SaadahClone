@@ -270,7 +270,7 @@ export default function DonationSection() {
                 </div>
                 
                 <Button 
-                  className="modern-button w-full hover:glow-primary"
+                  className="modern-button w-full hover:glow-primary mt-auto"
                   data-testid="button-learn-more-campaign"
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 >

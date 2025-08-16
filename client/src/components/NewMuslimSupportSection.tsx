@@ -143,13 +143,13 @@ export default function NewMuslimSupportSection() {
               viewport={{ once: true }}
             >
               <Card className="modern-card h-full">
-                <div className="modern-card-content">
+                <div className="modern-card-content flex flex-col h-full">
                   <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center mb-6`}>
                     <service.icon className={`h-6 w-6 ${service.iconColor}`} />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{service.title}</h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">{service.description}</p>
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 mb-6 flex-1">
                     {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start text-sm text-gray-600 dark:text-gray-400">
                         <div className="w-1.5 h-1.5 bg-primary-start rounded-full mr-3 mt-2 flex-shrink-0"></div>
@@ -157,6 +157,12 @@ export default function NewMuslimSupportSection() {
                       </li>
                     ))}
                   </ul>
+                  <Button 
+                    className="modern-button w-full hover:glow-primary mt-auto"
+                    onClick={() => setLocation("/service/new-muslim-support")}
+                  >
+                    Learn More
+                  </Button>
                 </div>
               </Card>
             </motion.div>

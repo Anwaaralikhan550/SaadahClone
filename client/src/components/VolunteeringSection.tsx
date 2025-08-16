@@ -110,7 +110,7 @@ export default function VolunteeringSection() {
               viewport={{ once: true }}
             >
               <Card className="modern-card h-full">
-                <div className="modern-card-content">
+                <div className="modern-card-content flex flex-col h-full">
                   <div className={`w-full h-2 bg-gradient-to-r ${opportunity.color} rounded-t-lg mb-6`}></div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{opportunity.title}</h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">{opportunity.description}</p>
@@ -132,7 +132,7 @@ export default function VolunteeringSection() {
                   </div>
 
                   <Button 
-                    className="modern-button w-full hover:glow-primary"
+                    className="modern-button w-full hover:glow-primary mt-auto"
                     onClick={() => setLocation("/service/volunteering")}
                   >
                     Learn More

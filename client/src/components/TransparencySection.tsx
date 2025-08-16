@@ -206,8 +206,8 @@ export default function TransparencySection() {
           </h3>
           <div className="grid md:grid-cols-2 gap-6">
             {reports.map((report, index) => (
-              <Card key={report.title} className="modern-card">
-                <div className="modern-card-content">
+              <Card key={report.title} className="modern-card h-full">
+                <div className="modern-card-content flex flex-col h-full">
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
                       <h4 className="font-semibold text-gray-900 dark:text-white mb-2">{report.title}</h4>
@@ -218,7 +218,7 @@ export default function TransparencySection() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 mt-auto">
                     <Button 
                       size="sm" 
                       className="flex-1"

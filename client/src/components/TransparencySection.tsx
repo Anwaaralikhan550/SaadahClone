@@ -13,8 +13,10 @@ import {
   Download,
   Eye
 } from "lucide-react";
+import { useLocation } from "wouter";
 
 export default function TransparencySection() {
+  const [, setLocation] = useLocation();
   const financialData = [
     {
       category: "Education Programs",
@@ -217,11 +219,20 @@ export default function TransparencySection() {
                     </div>
                   </div>
                   <div className="flex gap-2">
-                    <Button size="sm" className="flex-1">
+                    <Button 
+                      size="sm" 
+                      className="flex-1"
+                      onClick={() => setLocation("/service/transparency")}
+                    >
                       <Download className="h-4 w-4 mr-2" />
                       Download
                     </Button>
-                    <Button size="sm" variant="outline" className="flex-1">
+                    <Button 
+                      size="sm" 
+                      variant="outline" 
+                      className="flex-1"
+                      onClick={() => setLocation("/service/transparency")}
+                    >
                       <Eye className="h-4 w-4 mr-2" />
                       View
                     </Button>

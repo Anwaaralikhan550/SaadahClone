@@ -2,7 +2,7 @@ import { useParams, useLocation } from "wouter";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowLeft, BookOpen, GraduationCap, Users, Heart, Baby, Clock, MapPin, Phone, Mail, Star, Award, Quote, CheckCircle, Sparkles, Target, Gift, Home, Shield, Trees, Briefcase, BarChart3, Building2 } from "lucide-react";
+import { ArrowLeft, BookOpen, GraduationCap, Users, Heart, Baby, Clock, MapPin, Phone, Mail, Star, Award, Quote, CheckCircle, Sparkles, Target, Gift, Home, Shield, Trees, Briefcase, BarChart3, Building2, Monitor } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
@@ -593,6 +593,166 @@ export default function ServiceDetail() {
         { name: "Social Enterprise Owner Zainab", text: "The incubation program helped me launch a catering business that employs local women and serves healthy meals.", role: "Entrepreneur" },
         { name: "Business Mentor Ahmad", text: "Supporting local businesses creates jobs and keeps money circulating within our community.", role: "Advisor" },
         { name: "Cooperative Leader Fatima", text: "Learning cooperative business models allowed our group to pool resources and share profits fairly.", role: "Business Owner" }
+      ]
+    },
+    "volunteering": {
+      icon: Users,
+      title: "Volunteer Opportunities",
+      description: "Join our dedicated team of volunteers and make a meaningful impact in your community through various service opportunities.",
+      features: [
+        "Education support and tutoring programs",
+        "Community outreach and event assistance",
+        "Healthcare support and awareness campaigns",
+        "Administrative and organizational support",
+        "Youth mentorship and guidance programs",
+        "Emergency response and disaster relief"
+      ],
+      schedule: "Flexible scheduling, weekend programs available",
+      instructor: "Community coordinators and volunteer managers",
+      age: "All ages welcome, youth programs 13+",
+      fee: "Free participation, training provided",
+      color: "from-primary-start/20 to-primary-start/40",
+      iconColor: "text-primary-start",
+      benefits: [
+        "Make direct positive impact in your community",
+        "Build valuable skills and experience",
+        "Connect with like-minded community members",
+        "Receive volunteer recognition and certificates",
+        "Participate in meaningful service projects",
+        "Access flexible scheduling to fit your lifestyle"
+      ],
+      testimonials: [
+        { name: "Volunteer Coordinator Sarah", text: "Our volunteers are the heart of everything we do. They bring passion and dedication to serving our community.", role: "Staff" },
+        { name: "Community Volunteer Ahmad", text: "Volunteering here has been incredibly rewarding. I've made lasting friendships while helping those in need.", role: "Volunteer" },
+        { name: "Youth Volunteer Amina", text: "The mentorship program taught me leadership skills while helping younger students succeed in school.", role: "Youth Volunteer" }
+      ]
+    },
+    "transparency": {
+      icon: BarChart3,
+      title: "Financial Transparency",
+      description: "Complete transparency in our financial operations with detailed reporting on fund allocation, program expenses, and community impact.",
+      features: [
+        "Detailed annual financial reports",
+        "Monthly program expense breakdowns",
+        "Independent third-party audits",
+        "Public access to all financial documents",
+        "Impact measurement and reporting",
+        "Donor fund tracking systems"
+      ],
+      schedule: "Reports published quarterly, annual audit available",
+      instructor: "Certified public accountants and financial analysts",
+      age: "Community members and donors",
+      fee: "Free public access to all reports",
+      color: "from-blue-400/20 to-blue-400/40",
+      iconColor: "text-blue-500",
+      benefits: [
+        "Complete visibility into fund utilization",
+        "Confidence in responsible money management",
+        "Understanding of program effectiveness",
+        "Access to impact measurement data",
+        "Participation in financial oversight",
+        "Trust through verified independent audits"
+      ],
+      testimonials: [
+        { name: "Finance Director Dr. Hassan", text: "Our commitment to transparency builds trust and ensures every dollar serves our community effectively.", role: "Finance Staff" },
+        { name: "Donor Community Member", text: "Seeing exactly how my donations are used gives me confidence to continue supporting the foundation.", role: "Donor" },
+        { name: "Independent Auditor", text: "The foundation's financial practices exceed industry standards for transparency and accountability.", role: "External Auditor" }
+      ]
+    },
+    "new-muslim-support": {
+      icon: Heart,
+      title: "New Muslim Support",
+      description: "Comprehensive support system for new Muslims including education, community integration, and ongoing guidance on their Islamic journey.",
+      features: [
+        "Islamic education and basic principles training",
+        "One-on-one mentorship programs",
+        "Community integration activities",
+        "Family support and counseling services",
+        "Practical Islamic living guidance",
+        "Support group meetings and discussions"
+      ],
+      schedule: "Weekly classes, monthly community events, 24/7 support available",
+      instructor: "Islamic scholars, experienced mentors, and community leaders",
+      age: "New Muslims of all ages, family programs available",
+      fee: "Free comprehensive support services",
+      color: "from-islamic-green/20 to-islamic-green/40",
+      iconColor: "text-islamic-green",
+      benefits: [
+        "Receive comprehensive Islamic education",
+        "Connect with supportive community network",
+        "Access experienced mentorship and guidance",
+        "Learn practical Islamic living skills",
+        "Participate in welcoming community events",
+        "Get ongoing support for your Islamic journey"
+      ],
+      testimonials: [
+        { name: "New Muslim Support Coordinator", text: "Welcoming new Muslims and supporting their journey is one of our most important and rewarding programs.", role: "Program Director" },
+        { name: "Recent Convert Maryam", text: "The support program helped me learn Islam step by step while connecting with an amazing community.", role: "Program Participant" },
+        { name: "Mentor Brother Ahmad", text: "Being a mentor to new Muslims allows me to share the beauty of Islam and build lasting friendships.", role: "Community Mentor" }
+      ]
+    },
+    "social-safety-net": {
+      icon: Shield,
+      title: "Social Safety Net",
+      description: "Comprehensive support systems including hostels, elderly care, community welfare centers, and crisis intervention services.",
+      features: [
+        "Orphan hostels with comprehensive care",
+        "Elderly care centers and assisted living",
+        "Community welfare service coordination",
+        "Crisis support and emergency assistance",
+        "Family support and counseling programs",
+        "Community resource centers"
+      ],
+      schedule: "24/7 residential care, daily services 8 AM - 8 PM",
+      instructor: "Licensed social workers, care professionals, and support staff",
+      age: "All ages from children to elderly",
+      fee: "Services based on need, sliding scale available",
+      color: "from-purple-400/20 to-purple-400/40",
+      iconColor: "text-purple-500",
+      benefits: [
+        "Access safe, dignified housing and care",
+        "Receive comprehensive support services",
+        "Connect with professional care staff",
+        "Access emergency assistance when needed",
+        "Participate in community support networks",
+        "Receive individualized care planning"
+      ],
+      testimonials: [
+        { name: "Care Center Director", text: "Our safety net programs ensure that no one in our community faces crisis alone.", role: "Program Director" },
+        { name: "Elderly Resident Ahmad", text: "The care center feels like home, with staff who genuinely care about our wellbeing and dignity.", role: "Resident" },
+        { name: "Social Worker Fatima", text: "Providing comprehensive support to vulnerable community members is deeply fulfilling work.", role: "Staff Member" }
+      ]
+    },
+    "technology-platforms": {
+      icon: Monitor,
+      title: "Technology & Digital Platforms",
+      description: "Innovative digital solutions including online learning, virtual community groups, and 24/7 support services to connect our global community.",
+      features: [
+        "Online courses and digital learning platforms",
+        "Virtual community groups and discussions",
+        "Digital resource libraries and databases",
+        "24/7 online support and counseling services",
+        "Mobile applications for service access",
+        "Digital literacy training programs"
+      ],
+      schedule: "24/7 online access, live sessions scheduled regularly",
+      instructor: "Technology specialists, digital educators, and online moderators",
+      age: "All ages, specialized programs for seniors",
+      fee: "Free access, premium features available",
+      color: "from-cyan-400/20 to-cyan-400/40",
+      iconColor: "text-cyan-500",
+      benefits: [
+        "Access services from anywhere in the world",
+        "Connect with global Muslim community",
+        "Learn at your own pace with flexible scheduling",
+        "Access comprehensive digital resource library",
+        "Receive 24/7 support and assistance",
+        "Participate in virtual community events"
+      ],
+      testimonials: [
+        { name: "Technology Director", text: "Our digital platforms break down geographical barriers and connect Muslims worldwide.", role: "Tech Lead" },
+        { name: "Online Student Amina", text: "The digital courses allowed me to continue my Islamic education while caring for my family.", role: "Student" },
+        { name: "Virtual Community Member", text: "The online discussion groups provide spiritual support and friendship across continents.", role: "Community Member" }
       ]
     }
   };

@@ -12,8 +12,10 @@ import {
   Phone,
   UserPlus
 } from "lucide-react";
+import { useLocation } from "wouter";
 
 export default function SocialSafetyNetSection() {
+  const [, setLocation] = useLocation();
   const facilities = [
     {
       icon: Home,
@@ -195,7 +197,10 @@ export default function SocialSafetyNetSection() {
                     ))}
                   </ul>
 
-                  <Button className="modern-button w-full hover:glow-primary">
+                  <Button 
+                    className="modern-button w-full hover:glow-primary"
+                    onClick={() => setLocation("/service/social-safety-net")}
+                  >
                     Learn More
                   </Button>
                 </div>

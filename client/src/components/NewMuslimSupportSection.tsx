@@ -12,8 +12,10 @@ import {
   Calendar,
   Phone
 } from "lucide-react";
+import { useLocation } from "wouter";
 
 export default function NewMuslimSupportSection() {
+  const [, setLocation] = useLocation();
   const supportServices = [
     {
       icon: BookOpen,
@@ -178,7 +180,10 @@ export default function NewMuslimSupportSection() {
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{mentorshipProgram.title}</h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-6">{mentorshipProgram.description}</p>
-                  <Button className="modern-button hover:glow-primary">
+                  <Button 
+                    className="modern-button hover:glow-primary"
+                    onClick={() => setLocation("/service/new-muslim-support")}
+                  >
                     Request a Mentor
                   </Button>
                 </div>
@@ -246,11 +251,18 @@ export default function NewMuslimSupportSection() {
                 and to connect with our New Muslim Support program.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button className="modern-button hover:glow-primary">
+                <Button 
+                  className="modern-button hover:glow-primary"
+                  onClick={() => setLocation("/service/new-muslim-support")}
+                >
                   <Calendar className="h-4 w-4 mr-2" />
                   Schedule a Meeting
                 </Button>
-                <Button variant="outline" className="modern-button-outline">
+                <Button 
+                  variant="outline" 
+                  className="modern-button-outline"
+                  onClick={() => setLocation("/service/new-muslim-support")}
+                >
                   <Phone className="h-4 w-4 mr-2" />
                   Call Support Line
                 </Button>

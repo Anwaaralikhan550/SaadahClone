@@ -14,8 +14,10 @@ import {
   Headphones,
   Play
 } from "lucide-react";
+import { useLocation } from "wouter";
 
 export default function TechnologySection() {
+  const [, setLocation] = useLocation();
   const digitalPlatforms = [
     {
       icon: BookOpen,
@@ -193,7 +195,10 @@ export default function TechnologySection() {
                     ))}
                   </ul>
 
-                  <Button className="modern-button w-full hover:glow-primary">
+                  <Button 
+                    className="modern-button w-full hover:glow-primary"
+                    onClick={() => setLocation("/service/technology-platforms")}
+                  >
                     <Play className="h-4 w-4 mr-2" />
                     Explore Platform
                   </Button>

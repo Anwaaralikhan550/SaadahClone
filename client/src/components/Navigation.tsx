@@ -85,11 +85,22 @@ export default function Navigation() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <img 
+              <motion.img 
                 src={asSaadahLogo} 
                 alt="As-Saadah Islamic Organization" 
-                className="h-12 w-auto object-contain hover:scale-105 transition-all duration-300 filter dark:brightness-110"
+                className="h-12 w-auto object-contain filter dark:brightness-110"
                 data-testid="nav-logo"
+                initial={{ opacity: 0, scale: 0.8, y: -10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ 
+                  duration: 0.8, 
+                  ease: "easeOut",
+                  delay: 0.2 
+                }}
+                whileHover={{ 
+                  scale: 1.05, 
+                  transition: { duration: 0.2 } 
+                }}
               />
               <span className="text-xl font-bold gradient-primary-text hover:scale-105 transition-transform duration-300">
                 As-Saadah

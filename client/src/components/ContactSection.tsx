@@ -104,11 +104,27 @@ export default function ContactSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <img 
+            <motion.img 
               src={asSaadahLogo} 
               alt="As-Saadah Islamic Organization" 
-              className="h-20 w-auto object-contain filter dark:brightness-110 hover:scale-105 transition-all duration-300"
+              className="h-20 w-auto object-contain filter dark:brightness-110"
               data-testid="contact-logo"
+              initial={{ opacity: 0, scale: 0.5, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ 
+                duration: 1.0, 
+                ease: "easeOut",
+                delay: 0.3 
+              }}
+              whileHover={{ 
+                scale: 1.08, 
+                rotate: [0, -1, 1, 0],
+                transition: { 
+                  duration: 0.3,
+                  rotate: { repeat: 1, duration: 0.4 }
+                } 
+              }}
+              viewport={{ once: true, margin: "-50px" }}
             />
           </motion.div>
           

@@ -38,20 +38,23 @@ export function usePrayerTimes(options: UsePrayerTimesOptions = {}) {
         return fetchPrayerTimes();
       }
     },
-    refetchInterval: autoUpdate ? 1000 * 60 * 5 : false, // Refetch every 5 minutes if auto-update is enabled
-    staleTime: 1000 * 60 * 30, // Consider data stale after 30 minutes
-    retry: 3,
-    retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 30000),
+    refetchInterval: autoUpdate ? 1000 * 60 * 30 : false, // Refetch every 30 minutes if auto-update is enabled
+    staleTime: 1000 * 60 * 60, // Consider data stale after 1 hour
+    retry: 2,
+    retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 10000),
   });
 
-  // Auto-refresh every minute for live updates
+  // Auto-refresh only when crossing day boundaries for live updates
   useEffect(() => {
     if (!autoUpdate) return;
 
     const interval = setInterval(() => {
-      // Only invalidate to trigger a refetch if the data is stale
-      queryClient.invalidateQueries({ queryKey });
-    }, 1000 * 60); // Every minute
+      // Only invalidate once per day when date changes
+      const now = new Date();
+      if (now.getHours() === 0 && now.getMinutes() < 5) {
+        queryClient.invalidateQueries({ queryKey });
+      }
+    }, 1000 * 60 * 5); // Check every 5 minutes but only refresh at midnight
 
     return () => clearInterval(interval);
   }, [queryClient, queryKey, autoUpdate]);

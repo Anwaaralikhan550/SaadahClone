@@ -50,7 +50,7 @@ export default function PrayerTimes({
   const [customCity, setCustomCity] = useState<string>("");
   const [cityInput, setCityInput] = useState<string>("");
   const [isSearching, setIsSearching] = useState(false);
-  const [useCurrentLocation, setUseCurrentLocation] = useState(true);
+  const [useCurrentLocation, setUseCurrentLocation] = useState(false);
   const [alertState, setAlertState] = useState<AlertState>({
     isEnabled: enableAlerts,
     soundEnabled: false,
@@ -78,18 +78,14 @@ export default function PrayerTimes({
     return () => clearInterval(timer);
   }, []);
 
-  // Get user's current location on component mount
+  // Initialize with timezone-based location (no user permission required)
   useEffect(() => {
-    if (useCurrentLocation) {
-      getCurrentLocation()
-        .then(setLocation)
-        .catch((error) => {
-          console.warn('Could not get current location:', error);
-          // Fallback to default location or show location input
-          setUseCurrentLocation(false);
-        });
+    if (useCurrentLocation && !location) {
+      // Don't request location permission, just use timezone-based approach
+      setUseCurrentLocation(false);
+      setCustomCity(''); // This will trigger timezone-based fallback
     }
-  }, [useCurrentLocation]);
+  }, [useCurrentLocation, location]);
 
   // Request notification permission when alerts are enabled
   useEffect(() => {

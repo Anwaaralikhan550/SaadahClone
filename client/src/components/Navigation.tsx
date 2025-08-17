@@ -7,19 +7,12 @@ import { Moon, Sun, Menu } from "lucide-react";
 import { motion } from "framer-motion";
 import MosqueLogo from "@/components/MosqueLogo";
 import AnimatedALogo from "@/components/AnimatedALogo";
-import LanguageSelector, { type Language } from "@/components/LanguageSelector";
 import { getTranslation } from "@/lib/i18n";
 
 export default function Navigation() {
   const { theme, toggleTheme } = useTheme();
-  const [language, setLanguage] = useState<Language>("en");
   const [isOpen, setIsOpen] = useState(false);
-
-  const handleLanguageChange = (newLang: Language) => {
-    setLanguage(newLang);
-    document.documentElement.setAttribute("dir", newLang === "ar" || newLang === "ur" ? "rtl" : "ltr");
-    document.documentElement.setAttribute("lang", newLang);
-  };
+  const language = "en"; // Fixed to English only
 
   const navItems = [
     { href: "#home", label: getTranslation("nav.home", language) },
@@ -74,13 +67,7 @@ export default function Navigation() {
           </div>
 
           {/* Controls */}
-          <div className="flex items-center space-x-3 rtl:space-x-reverse">
-            {/* Language Selector */}
-            <LanguageSelector 
-              currentLanguage={language}
-              onLanguageChange={handleLanguageChange}
-            />
-            
+          <div className="flex items-center space-x-3">
             {/* Theme Toggle */}
             <Button
               variant="outline"

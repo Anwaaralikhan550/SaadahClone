@@ -9,7 +9,7 @@ import {
 import { Globe, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 
-export type Language = "en" | "ar" | "ur";
+export type Language = "en";
 
 interface LanguageSelectorProps {
   currentLanguage: Language;
@@ -19,8 +19,6 @@ interface LanguageSelectorProps {
 
 const languages = [
   { code: "en" as Language, name: "English", nativeName: "English", flag: "🇺🇸" },
-  { code: "ar" as Language, name: "Arabic", nativeName: "العربية", flag: "🇸🇦" },
-  { code: "ur" as Language, name: "Urdu", nativeName: "اردو", flag: "🇵🇰" },
 ];
 
 export default function LanguageSelector({ 

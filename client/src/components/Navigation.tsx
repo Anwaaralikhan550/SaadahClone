@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useTheme } from "@/components/ThemeProvider";
@@ -12,40 +12,93 @@ import { getTranslation } from "@/lib/i18n";
 export default function Navigation() {
   const { theme, toggleTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
+  const [location, navigate] = useLocation();
   const language = "en"; // Fixed to English only
 
   const navItems = [
-    { href: "#home", label: getTranslation("nav.home", language) },
-    { href: "#about", label: getTranslation("nav.about", language) },
-    { href: "#services", label: getTranslation("nav.services", language) },
-    { href: "#events", label: getTranslation("nav.events", language) },
-    { href: "#contact", label: getTranslation("nav.contact", language) },
+    { href: "home", label: getTranslation("nav.home", language) },
+    { href: "about", label: getTranslation("nav.about", language) },
+    { href: "services", label: getTranslation("nav.services", language) },
+    { href: "events", label: getTranslation("nav.events", language) },
+    { href: "contact", label: getTranslation("nav.contact", language) },
   ];
+
+  // Handle navigation clicks
+  const handleNavClick = (href: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    if (location !== "/") {
+      // If not on home page, navigate to home first, then scroll
+      navigate("/");
+      setTimeout(() => {
+        scrollToSection(href);
+      }, 100);
+    } else {
+      // If on home page, just scroll to section
+      scrollToSection(href);
+    }
+    setIsOpen(false);
+  };
+
+  // Handle donate button click
+  const handleDonateClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    if (location !== "/") {
+      // If not on home page, navigate to home first, then scroll
+      navigate("/");
+      setTimeout(() => {
+        scrollToSection("donate");
+      }, 100);
+    } else {
+      // If on home page, just scroll to section
+      scrollToSection("donate");
+    }
+    setIsOpen(false);
+  };
+
+  // Smooth scroll to section with offset for fixed navbar
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const navbarHeight = 64; // Height of the fixed navbar (h-16 = 64px)
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+  };
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 transition-all duration-300 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <motion.div 
-            className="flex items-center space-x-3 rtl:space-x-reverse"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <AnimatedALogo size={50} className="hover:glow-primary transition-all duration-300" />
-            <span className="text-xl font-bold gradient-primary-text hover:scale-105 transition-transform duration-300">
-              s-Saadah
-            </span>
-          </motion.div>
+          <Link href="/">
+            <motion.div 
+              className="flex items-center space-x-3 rtl:space-x-reverse cursor-pointer"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <AnimatedALogo size={50} className="hover:glow-primary transition-all duration-300" />
+              <span className="text-xl font-bold gradient-primary-text hover:scale-105 transition-transform duration-300">
+                s-Saadah
+              </span>
+            </motion.div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item, index) => (
               <motion.a
                 key={item.href}
-                href={item.href}
-                className="text-gray-700 dark:text-gray-200 hover:text-primary-start dark:hover:text-primary-start transition-colors font-medium"
+                href={`#${item.href}`}
+                onClick={(e) => handleNavClick(item.href, e)}
+                className="text-gray-700 dark:text-gray-200 hover:text-primary-start dark:hover:text-primary-start transition-colors font-medium cursor-pointer"
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -56,7 +109,8 @@ export default function Navigation() {
             ))}
             <motion.a
               href="#donate"
-              className="modern-button hover:glow-primary"
+              onClick={handleDonateClick}
+              className="modern-button hover:glow-primary cursor-pointer"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
@@ -100,9 +154,9 @@ export default function Navigation() {
                   {navItems.map((item) => (
                     <a
                       key={item.href}
-                      href={item.href}
-                      className="text-lg text-gray-700 dark:text-gray-200 hover:text-primary-start dark:hover:text-primary-start transition-colors font-medium"
-                      onClick={() => setIsOpen(false)}
+                      href={`#${item.href}`}
+                      onClick={(e) => handleNavClick(item.href, e)}
+                      className="text-lg text-gray-700 dark:text-gray-200 hover:text-primary-start dark:hover:text-primary-start transition-colors font-medium cursor-pointer"
                       data-testid={`mobile-nav-link-${item.label.toLowerCase().replace(" ", "-")}`}
                     >
                       {item.label}
@@ -110,8 +164,8 @@ export default function Navigation() {
                   ))}
                   <a
                     href="#donate"
-                    className="text-lg text-primary-start font-medium hover:text-primary-end transition-colors"
-                    onClick={() => setIsOpen(false)}
+                    className="text-lg text-primary-start font-medium hover:text-primary-end transition-colors cursor-pointer"
+                    onClick={handleDonateClick}
                     data-testid="mobile-nav-donate"
                   >
                     {getTranslation("nav.donate", language)}

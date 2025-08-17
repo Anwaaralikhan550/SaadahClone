@@ -22,6 +22,7 @@ import {
   Utensils
 } from "lucide-react";
 import { type InsertContactMessage } from "@shared/schema";
+import asSaadahLogo from "../assets/as-saadah-logo.png";
 
 export default function ContactSection() {
   const { toast } = useToast();
@@ -95,6 +96,22 @@ export default function ContactSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
+          {/* Organization Logo */}
+          <motion.div 
+            className="flex justify-center mb-6"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <img 
+              src={asSaadahLogo} 
+              alt="As-Saadah Islamic Organization" 
+              className="h-20 w-auto object-contain filter dark:brightness-110 hover:scale-105 transition-all duration-300"
+              data-testid="contact-logo"
+            />
+          </motion.div>
+          
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Get in <span className="gradient-primary-text">Touch</span>
           </h2>

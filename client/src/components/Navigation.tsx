@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import MosqueLogo from "@/components/MosqueLogo";
 import AnimatedALogo from "@/components/AnimatedALogo";
 import { getTranslation } from "@/lib/i18n";
+import asSaadahLogo from "../assets/as-saadah-logo.png";
 
 export default function Navigation() {
   const { theme, toggleTheme } = useTheme();
@@ -84,9 +85,14 @@ export default function Navigation() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <AnimatedALogo size={50} className="hover:glow-primary transition-all duration-300" />
+              <img 
+                src={asSaadahLogo} 
+                alt="As-Saadah Islamic Organization" 
+                className="h-12 w-auto object-contain hover:scale-105 transition-all duration-300 filter dark:brightness-110"
+                data-testid="nav-logo"
+              />
               <span className="text-xl font-bold gradient-primary-text hover:scale-105 transition-transform duration-300">
-                s-Saadah
+                As-Saadah
               </span>
             </motion.div>
           </Link>

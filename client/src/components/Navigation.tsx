@@ -80,7 +80,7 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/">
             <motion.div 
-              className="flex items-center space-x-3 rtl:space-x-reverse cursor-pointer"
+              className="cursor-pointer"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
@@ -88,7 +88,7 @@ export default function Navigation() {
               <motion.img 
                 src={asSaadahLogo} 
                 alt="As-Saadah Islamic Organization" 
-                className="h-20 w-auto object-contain filter dark:brightness-110"
+                className="w-auto object-contain filter dark:brightness-110"
                 style={{ height: '5rem' }}
                 data-testid="nav-logo"
                 initial={{ opacity: 0, scale: 0.8, y: -10 }}
@@ -103,9 +103,6 @@ export default function Navigation() {
                   transition: { duration: 0.2 } 
                 }}
               />
-              <span className="text-xl font-bold gradient-primary-text hover:scale-105 transition-transform duration-300">
-                As-Saadah
-              </span>
             </motion.div>
           </Link>
 

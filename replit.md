@@ -10,13 +10,15 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Updates (January 2025)
 
-### Live Date/Time Feature & Color Palette Update (January 18, 2025)
-- ✅ **Live Date/Time Display**: Added real-time date and time feature in DD-MM-YYYY HH:MM:SS format
-- ✅ **Automatic Updates**: JavaScript function updates every second without user intervention
-- ✅ **Multi-Device Support**: Date/time displays on both desktop (navigation bar) and mobile (mobile menu)
-- ✅ **No Location Required**: Simple JavaScript Date object eliminates need for location permissions
-- ✅ **Islamic Color Styling**: Date/time display uses Islamic beige background with green accent borders
+### Islamic Hijri Date Feature & Color Palette Update (January 18, 2025)
+- ✅ **Islamic Hijri Date Display**: Integrated Aladhan Islamic Calendar API for accurate Hijri dates
+- ✅ **Daily Auto-Updates**: Hijri date updates automatically at midnight and checks hourly for accuracy
+- ✅ **Multi-Device Support**: Hijri date displays on both desktop (navigation bar) and mobile (mobile menu)
+- ✅ **No Location Required**: API provides region-appropriate Hijri dates without location permissions
+- ✅ **Islamic Color Styling**: Date display uses Islamic beige background with green accent borders
 - ✅ **Responsive Design**: Hidden on tablets, visible on desktop and mobile for optimal space usage
+- ✅ **Error Handling**: Graceful fallback to Gregorian date if API is temporarily unavailable
+- ✅ **Format**: Displays as "DD Month YYYY AH" (e.g., "24 Safar 1447 AH")
 
 ### Project Migration & Color Palette Update (January 18, 2025)
 - ✅ **Replit Agent Migration**: Successfully completed full migration from Replit Agent to standard Replit environment

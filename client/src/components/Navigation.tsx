@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import MosqueLogo from "@/components/MosqueLogo";
 import AnimatedALogo from "@/components/AnimatedALogo";
 import { getTranslation } from "@/lib/i18n";
+import { useDateTime } from "@/hooks/useDateTime";
 import asSaadahLogo from "../assets/as-saadah-logo.png";
 
 export default function Navigation() {
@@ -15,6 +16,7 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [location, navigate] = useLocation();
   const language = "en"; // Fixed to English only
+  const dateTime = useDateTime();
 
   const navItems = [
     { href: "home", label: getTranslation("nav.home", language) },
@@ -137,6 +139,14 @@ export default function Navigation() {
 
           {/* Controls */}
           <div className="flex items-center space-x-3">
+            {/* Date and Time Display */}
+            <div 
+              id="datetime"
+              className="hidden lg:block text-sm text-gray-600 dark:text-gray-300 font-mono bg-islamic-beige dark:bg-gray-800 px-3 py-1 rounded-md border border-islamic-green/20 dark:border-gray-600"
+            >
+              {dateTime}
+            </div>
+            
             {/* Theme Toggle */}
             <Button
               variant="outline"
@@ -166,6 +176,13 @@ export default function Navigation() {
               </SheetTrigger>
               <SheetContent>
                 <div className="flex flex-col space-y-4 mt-8">
+                  {/* Mobile Date and Time Display */}
+                  <div 
+                    className="text-sm text-gray-600 dark:text-gray-300 font-mono bg-islamic-beige dark:bg-gray-800 px-3 py-2 rounded-md border border-islamic-green/20 dark:border-gray-600 text-center"
+                  >
+                    {dateTime}
+                  </div>
+                  
                   {navItems.map((item) => (
                     <a
                       key={item.href}

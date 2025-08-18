@@ -10,16 +10,15 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Updates (January 2025)
 
-### Islamic Calendar Block in Events Section (January 18, 2025)
-- ✅ **Date Removed from Navigation**: Completely removed date/time display from navbar as requested
-- ✅ **Islamic Calendar Block**: Created dedicated calendar section within Events showing both date systems
-- ✅ **Hijri Date Integration**: Uses Aladhan Islamic Calendar API for accurate Islamic dates
-- ✅ **Shamsi Date Calculation**: Implements Persian/Solar calendar conversion algorithm  
-- ✅ **Daily Auto-Updates**: Both calendars update automatically at midnight and hourly for accuracy
-- ✅ **No Location Required**: API and algorithms work without location permissions
-- ✅ **Islamic Styling**: Calendar block uses Islamic color palette with beige background and green accents
-- ✅ **Error Handling**: Graceful fallback to Gregorian dates if APIs are temporarily unavailable
-- ✅ **Format**: Hijri displays as "DD Month YYYY AH", Shamsi as "DD Month YYYY SH"
+### Islamic Hijri Date Feature & Color Palette Update (January 18, 2025)
+- ✅ **Islamic Hijri Date Display**: Integrated Aladhan Islamic Calendar API for accurate Hijri dates
+- ✅ **Daily Auto-Updates**: Hijri date updates automatically at midnight and checks hourly for accuracy
+- ✅ **Multi-Device Support**: Hijri date displays on both desktop (navigation bar) and mobile (mobile menu)
+- ✅ **No Location Required**: API provides region-appropriate Hijri dates without location permissions
+- ✅ **Islamic Color Styling**: Date display uses Islamic beige background with green accent borders
+- ✅ **Responsive Design**: Hidden on tablets, visible on desktop and mobile for optimal space usage
+- ✅ **Error Handling**: Graceful fallback to Gregorian date if API is temporarily unavailable
+- ✅ **Format**: Displays as "DD Month YYYY AH" (e.g., "24 Safar 1447 AH")
 
 ### Project Migration & Color Palette Update (January 18, 2025)
 - ✅ **Replit Agent Migration**: Successfully completed full migration from Replit Agent to standard Replit environment

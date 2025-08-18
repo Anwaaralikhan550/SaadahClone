@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Calendar, Clock, Bell, Plus, Eye, Mail } from "lucide-react";
 import { usePrayerTimes } from "@/hooks/usePrayerTimes";
 import { useLocation } from "wouter";
-import { useIslamicCalendar } from "@/hooks/useDateTime";
 
 export default function EventsSection() {
   const [, setLocation] = useLocation();
@@ -14,7 +13,6 @@ export default function EventsSection() {
   });
 
   const { data: prayerTimes, isLoading: prayerLoading } = usePrayerTimes();
-  const { hijriDate, shamsiDate, error } = useIslamicCalendar();
 
   const upcomingEvents = [
     {
@@ -65,54 +63,6 @@ export default function EventsSection() {
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Join us for inspiring events, educational programs, and community gatherings throughout the year.
           </p>
-        </motion.div>
-
-        {/* Islamic Calendar Block */}
-        <motion.div
-          className="mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          viewport={{ once: true }}
-        >
-          <Card className="gradient-border hover-glow transition-all duration-300">
-            <CardContent className="p-8">
-              <div className="text-center">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center justify-center gap-3">
-                  <Calendar className="h-8 w-8 text-islamic-green" />
-                  Islamic Calendar
-                </h3>
-                
-                <div className="grid md:grid-cols-2 gap-6">
-                  {/* Hijri Date */}
-                  <div className="bg-islamic-beige dark:bg-gray-800 p-6 rounded-lg border border-islamic-green/20 dark:border-gray-600">
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      Hijri Date
-                    </h4>
-                    <p className="text-2xl font-bold text-islamic-green dark:text-islamic-green font-mono">
-                      {hijriDate}
-                    </p>
-                  </div>
-                  
-                  {/* Shamsi Date */}
-                  <div className="bg-islamic-beige dark:bg-gray-800 p-6 rounded-lg border border-islamic-green/20 dark:border-gray-600">
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                      Shamsi Date
-                    </h4>
-                    <p className="text-2xl font-bold text-islamic-green dark:text-islamic-green font-mono">
-                      {shamsiDate}
-                    </p>
-                  </div>
-                </div>
-                
-                {error && (
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
-                    {error}
-                  </p>
-                )}
-              </div>
-            </CardContent>
-          </Card>
         </motion.div>
 
         <div className="grid lg:grid-cols-3 gap-8">

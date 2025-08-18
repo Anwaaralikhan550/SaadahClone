@@ -67,6 +67,7 @@ export default {
           green: "var(--islamic-green)",
           gold: "var(--islamic-gold)",
           blue: "var(--islamic-blue)",
+          beige: "var(--islamic-beige)",
         },
         dark: {
           bg: "var(--dark-bg)",
@@ -111,10 +112,10 @@ export default {
         },
         "pulse-glow": {
           "0%, 100%": {
-            boxShadow: "0 0 20px rgba(255, 122, 80, 0.5), 0 0 40px rgba(184, 77, 255, 0.3)",
+            boxShadow: "0 0 20px rgba(46, 139, 87, 0.5), 0 0 40px rgba(255, 217, 102, 0.3)",
           },
           "50%": {
-            boxShadow: "0 0 30px rgba(255, 122, 80, 0.8), 0 0 60px rgba(184, 77, 255, 0.6)",
+            boxShadow: "0 0 30px rgba(46, 139, 87, 0.8), 0 0 60px rgba(255, 217, 102, 0.6)",
           },
         },
         "gradient-shift": {

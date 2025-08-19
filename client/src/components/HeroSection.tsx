@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "wouter";
 
 export default function HeroSection() {
+  const [, setLocation] = useLocation();
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -59,10 +61,10 @@ export default function HeroSection() {
           >
             <Button
               size="lg"
-              className="modern-button hover:glow-primary"
+              className="modern-button hover:glow-primary transform hover:scale-105 transition-all duration-300"
               data-testid="button-learn-more"
               onClick={() => {
-                document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                setLocation('/services');
               }}
             >
               Learn About Us
@@ -70,10 +72,10 @@ export default function HeroSection() {
             <Button
               variant="outline"
               size="lg"
-              className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 rounded-xl backdrop-blur-sm hover:glow-primary"
+              className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 rounded-xl backdrop-blur-sm hover:glow-primary transform hover:scale-105"
               data-testid="button-join-community"
               onClick={() => {
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                setLocation('/contact');
               }}
             >
               Join Our Community

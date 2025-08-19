@@ -6,39 +6,39 @@
 
 :root {
   --background: hsl(0, 0%, 100%);
-  --foreground: hsl(210, 25%, 7.8431%);
-  --card: hsl(41, 100%, 96%);
-  --card-foreground: hsl(210, 25%, 7.8431%);
+  --foreground: hsl(213, 26%, 15%);
+  --card: hsl(213, 100%, 98%);
+  --card-foreground: hsl(213, 26%, 15%);
   --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(210, 25%, 7.8431%);
-  --primary: hsl(146, 49%, 35%);
+  --popover-foreground: hsl(213, 26%, 15%);
+  --primary: hsl(213, 85%, 45%);
   --primary-foreground: hsl(0, 0%, 100%);
-  --primary-start: #2E8B57;
-  --primary-end: #FFD966;
-  --secondary: hsl(146, 49%, 35%);
+  --primary-start: hsl(213, 85%, 45%);
+  --primary-end: hsl(213, 85%, 45%);
+  --secondary: hsl(213, 70%, 55%);
   --secondary-foreground: hsl(0, 0%, 100%);
-  --muted: hsl(41, 100%, 96%);
-  --muted-foreground: hsl(210, 25%, 7.8431%);
-  --accent-color: hsl(41, 100%, 96%);
-  --accent-foreground: hsl(146, 49%, 35%);
+  --muted: hsl(213, 50%, 95%);
+  --muted-foreground: hsl(213, 26%, 45%);
+  --accent-color: hsl(213, 40%, 92%);
+  --accent-foreground: hsl(213, 85%, 45%);
   --destructive: hsl(356.3033, 90.5579%, 54.3137%);
   --destructive-foreground: hsl(0, 0%, 100%);
-  --border: hsl(41, 100%, 90%);
-  --input: hsl(41, 100%, 96%);
-  --ring: hsl(146, 49%, 35%);
-  --chart-1: hsl(146, 49%, 35%);
-  --chart-2: hsl(50, 100%, 70%);
-  --chart-3: hsl(41, 100%, 70%);
-  --chart-4: hsl(146, 49%, 45%);
-  --chart-5: hsl(50, 100%, 60%);
-  --sidebar-background: hsl(41, 100%, 96%);
-  --sidebar-foreground: hsl(210, 25%, 7.8431%);
-  --sidebar-primary: hsl(146, 49%, 35%);
+  --border: hsl(213, 30%, 85%);
+  --input: hsl(213, 40%, 96%);
+  --ring: hsl(213, 85%, 45%);
+  --chart-1: hsl(213, 85%, 45%);
+  --chart-2: hsl(213, 70%, 55%);
+  --chart-3: hsl(213, 60%, 65%);
+  --chart-4: hsl(213, 50%, 75%);
+  --chart-5: hsl(213, 40%, 85%);
+  --sidebar-background: hsl(213, 100%, 98%);
+  --sidebar-foreground: hsl(213, 26%, 15%);
+  --sidebar-primary: hsl(213, 85%, 45%);
   --sidebar-primary-foreground: hsl(0, 0%, 100%);
-  --sidebar-accent: hsl(41, 100%, 96%);
-  --sidebar-accent-foreground: hsl(146, 49%, 35%);
-  --sidebar-border: hsl(41, 100%, 88%);
-  --sidebar-ring: hsl(146, 49%, 35%);
+  --sidebar-accent: hsl(213, 40%, 92%);
+  --sidebar-accent-foreground: hsl(213, 85%, 45%);
+  --sidebar-border: hsl(213, 30%, 85%);
+  --sidebar-ring: hsl(213, 85%, 45%);
   --font-sans: 'Inter', sans-serif;
   --font-serif: 'Georgia', serif;
   --font-mono: 'Menlo', monospace;
@@ -46,53 +46,54 @@
   --font-urdu: 'Noto Nastaliq Urdu', 'Amiri', serif;
   --font-inter: 'Inter', sans-serif;
   --radius: 1.3rem;
-  --islamic-green: #2E8B57;
-  --islamic-gold: #FFD966;
-  --islamic-blue: hsl(220, 75%, 35%);
-  --islamic-beige: #FAF3E0;
-  --dark-bg: hsl(0, 0%, 7%);
-  --dark-text: hsl(0, 0%, 93%);
-  --light-bg: hsl(0, 0%, 98%);
-  --light-text: hsl(0, 0%, 15%);
+  --blue-primary: hsl(213, 85%, 45%);
+  --blue-secondary: hsl(213, 70%, 55%);
+  --blue-light: hsl(213, 50%, 95%);
+  --blue-muted: hsl(213, 40%, 92%);
+  --dark-bg: hsl(213, 30%, 8%);
+  --dark-text: hsl(213, 15%, 93%);
+  --light-bg: hsl(213, 100%, 99%);
+  --light-text: hsl(213, 26%, 15%);
 }
 
 .dark {
-  --background: hsl(222, 84%, 5%);
-  --foreground: hsl(210, 40%, 98%);
-  --card: hsl(222, 84%, 8%);
-  --card-foreground: hsl(210, 40%, 98%);
-  --popover: hsl(222, 84%, 8%);
-  --popover-foreground: hsl(210, 40%, 98%);
-  --primary: hsl(146, 49%, 35%);
+  --background: hsl(213, 30%, 8%);
+  --foreground: hsl(213, 15%, 93%);
+  --card: hsl(213, 30%, 12%);
+  --card-foreground: hsl(213, 15%, 93%);
+  --popover: hsl(213, 30%, 12%);
+  --popover-foreground: hsl(213, 15%, 93%);
+  --primary: hsl(213, 75%, 55%);
   --primary-foreground: hsl(0, 0%, 100%);
-  --primary-start: #2E8B57;
-  --primary-end: #FFD966;
-  --secondary: hsl(217, 32%, 15%);
-  --secondary-foreground: hsl(210, 40%, 98%);
-  --muted: hsl(217, 32%, 15%);
-  --muted-foreground: hsl(215, 20%, 65%);
-  --accent: hsl(217, 32%, 15%);
-  --accent-foreground: hsl(210, 40%, 98%);
+  --primary-start: hsl(213, 75%, 55%);
+  --primary-end: hsl(213, 75%, 55%);
+  --secondary: hsl(213, 30%, 20%);
+  --secondary-foreground: hsl(213, 15%, 93%);
+  --muted: hsl(213, 30%, 15%);
+  --muted-foreground: hsl(213, 20%, 65%);
+  --accent: hsl(213, 30%, 20%);
+  --accent-foreground: hsl(213, 15%, 93%);
   --destructive: hsl(356.3033, 90.5579%, 54.3137%);
   --destructive-foreground: hsl(0, 0%, 100%);
-  --border: hsl(217, 32%, 15%);
-  --input: hsl(217, 32%, 15%);
-  --ring: hsl(146, 49%, 35%);
-  --sidebar-background: hsl(222, 84%, 8%);
-  --sidebar-foreground: hsl(210, 40%, 98%);
-  --sidebar-primary: hsl(146, 49%, 35%);
+  --border: hsl(213, 30%, 20%);
+  --input: hsl(213, 30%, 20%);
+  --ring: hsl(213, 75%, 55%);
+  --sidebar-background: hsl(213, 30%, 12%);
+  --sidebar-foreground: hsl(213, 15%, 93%);
+  --sidebar-primary: hsl(213, 75%, 55%);
   --sidebar-primary-foreground: hsl(0, 0%, 100%);
-  --sidebar-accent: hsl(217, 32%, 15%);
-  --sidebar-accent-foreground: hsl(210, 40%, 98%);
-  --sidebar-border: hsl(217, 32%, 15%);
-  --sidebar-ring: hsl(146, 49%, 35%);
-  --islamic-green: #2E8B57;
-  --islamic-gold: #FFD966;
-  --islamic-beige: #FAF3E0;
-  --dark-bg: hsl(222, 84%, 5%);
-  --dark-text: hsl(210, 40%, 98%);
-  --light-bg: hsl(217, 32%, 15%);
-  --light-text: hsl(210, 40%, 98%);
+  --sidebar-accent: hsl(213, 30%, 20%);
+  --sidebar-accent-foreground: hsl(213, 15%, 93%);
+  --sidebar-border: hsl(213, 30%, 20%);
+  --sidebar-ring: hsl(213, 75%, 55%);
+  --blue-primary: hsl(213, 75%, 55%);
+  --blue-secondary: hsl(213, 60%, 65%);
+  --blue-light: hsl(213, 30%, 15%);
+  --blue-muted: hsl(213, 30%, 20%);
+  --dark-bg: hsl(213, 30%, 8%);
+  --dark-text: hsl(213, 15%, 93%);
+  --light-bg: hsl(213, 30%, 20%);
+  --light-text: hsl(213, 15%, 93%);
 }
 
 @layer base {
@@ -170,7 +171,7 @@
   .gradient-border::before {
     content: '';
     @apply absolute inset-0 p-[2px] rounded-2xl;
-    background: linear-gradient(135deg, #2E8B57 0%, #FFD966 50%, #2E8B57 100%);
+    background: linear-gradient(135deg, hsl(213, 85%, 45%) 0%, hsl(213, 70%, 55%) 50%, hsl(213, 85%, 45%) 100%);
     z-index: -1;
   }
 
@@ -203,29 +204,29 @@
     100% { transform: translateX(100%); }
   }
 
-  /* Glow Effects */
+  /* Glow Effects - Blue Theme */
   .glow-primary {
     @apply shadow-lg;
-    box-shadow: 0 0 20px rgba(46, 139, 87, 0.3), 0 0 40px rgba(255, 217, 102, 0.2);
+    box-shadow: 0 0 20px rgba(41, 128, 185, 0.3), 0 0 40px rgba(41, 128, 185, 0.2);
   }
 
-  .glow-green {
+  .glow-blue {
     @apply shadow-lg;
-    box-shadow: 0 0 20px rgba(46, 139, 87, 0.4), 0 0 40px rgba(46, 139, 87, 0.3);
+    box-shadow: 0 0 20px rgba(41, 128, 185, 0.4), 0 0 40px rgba(41, 128, 185, 0.3);
   }
 
-  .glow-gold {
+  .glow-blue-light {
     @apply shadow-lg;
-    box-shadow: 0 0 20px rgba(255, 217, 102, 0.4), 0 0 40px rgba(255, 217, 102, 0.3);
+    box-shadow: 0 0 20px rgba(70, 150, 200, 0.4), 0 0 40px rgba(70, 150, 200, 0.3);
   }
 
-  /* Hero Section Patterns */
+  /* Hero Section Patterns - Blue Theme */
   .geometric-pattern {
     @apply absolute inset-0 opacity-10 pointer-events-none;
     background-image: 
-      radial-gradient(circle at 25% 25%, rgba(46, 139, 87, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, rgba(255, 217, 102, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(250, 243, 224, 0.4) 0%, transparent 50%);
+      radial-gradient(circle at 25% 25%, rgba(41, 128, 185, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(70, 150, 200, 0.3) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(230, 240, 250, 0.4) 0%, transparent 50%);
     animation: float 6s ease-in-out infinite;
   }
 
@@ -234,13 +235,13 @@
     50% { transform: translateY(-20px) rotate(1deg); }
   }
 
-  /* Text Gradients */
+  /* Text Gradients - Blue Theme */
   .gradient-primary-text {
     @apply bg-gradient-to-r from-primary-start to-primary-end bg-clip-text text-transparent;
   }
 
-  .gradient-islamic-text {
-    @apply bg-gradient-to-r from-islamic-green to-islamic-gold bg-clip-text text-transparent;
+  .gradient-blue-text {
+    @apply bg-gradient-to-r from-blue-primary to-blue-secondary bg-clip-text text-transparent;
   }
 
   /* Enhanced Animations */
@@ -263,12 +264,12 @@
     transform: translateY(var(--scroll-offset, 0));
   }
 
-  /* Islamic Inspired Patterns */
-  .islamic-pattern {
+  /* Blue Inspired Patterns */
+  .blue-pattern {
     background-image: 
-      radial-gradient(circle at 20% 20%, rgba(46, 139, 87, 0.1) 0%, transparent 20%),
-      radial-gradient(circle at 80% 80%, rgba(255, 217, 102, 0.1) 0%, transparent 20%),
-      linear-gradient(45deg, transparent 49%, rgba(46, 139, 87, 0.05) 50%, transparent 51%);
+      radial-gradient(circle at 20% 20%, rgba(41, 128, 185, 0.1) 0%, transparent 20%),
+      radial-gradient(circle at 80% 80%, rgba(70, 150, 200, 0.1) 0%, transparent 20%),
+      linear-gradient(45deg, transparent 49%, rgba(41, 128, 185, 0.05) 50%, transparent 51%);
   }
 
   /* Scroll to Top Animation */

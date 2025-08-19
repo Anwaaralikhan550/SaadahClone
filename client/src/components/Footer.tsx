@@ -184,8 +184,10 @@ export default function Footer() {
                 {prayerNames.map((prayer) => (
                   <div key={prayer.key} className="flex items-center" data-testid={`footer-prayer-${prayer.key}`}>
                     <span className="text-gray-400 mr-2">{prayer.label}:</span>
-                    <span className={`font-medium ${prayer.key === 'maghrib' ? 'text-primary-start' : 'text-white'}`}>
-                      {prayerTimes?.[prayer.key as keyof typeof prayerTimes] || "--:--"}
+                    <span className={`font-medium ${prayer.key === 'maghrib' ? 'text-primary' : 'text-white'}`}>
+                      {typeof prayerTimes?.[prayer.key as keyof typeof prayerTimes] === 'string' 
+                        ? prayerTimes[prayer.key as keyof typeof prayerTimes] 
+                        : "--:--"}
                     </span>
                   </div>
                 ))}

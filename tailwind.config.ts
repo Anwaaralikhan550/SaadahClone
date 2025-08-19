@@ -63,11 +63,11 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        islamic: {
-          green: "var(--islamic-green)",
-          gold: "var(--islamic-gold)",
-          blue: "var(--islamic-blue)",
-          beige: "var(--islamic-beige)",
+        blue: {
+          primary: "var(--blue-primary)",
+          secondary: "var(--blue-secondary)",
+          light: "var(--blue-light)",
+          muted: "var(--blue-muted)",
         },
         dark: {
           bg: "var(--dark-bg)",
@@ -112,10 +112,10 @@ export default {
         },
         "pulse-glow": {
           "0%, 100%": {
-            boxShadow: "0 0 20px rgba(46, 139, 87, 0.5), 0 0 40px rgba(255, 217, 102, 0.3)",
+            boxShadow: "0 0 20px rgba(41, 128, 185, 0.3), 0 0 40px rgba(41, 128, 185, 0.1)",
           },
           "50%": {
-            boxShadow: "0 0 30px rgba(46, 139, 87, 0.8), 0 0 60px rgba(255, 217, 102, 0.6)",
+            boxShadow: "0 0 30px rgba(41, 128, 185, 0.5), 0 0 60px rgba(41, 128, 185, 0.3)",
           },
         },
         "gradient-shift": {

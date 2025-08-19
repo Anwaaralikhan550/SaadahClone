@@ -7,8 +7,11 @@ import SocialSafetyNetSection from "@/components/SocialSafetyNetSection";
 import TechnologySection from "@/components/TechnologySection";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 export default function Services() {
+  useScrollToTop();
+  
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />

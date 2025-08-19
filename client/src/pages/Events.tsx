@@ -2,8 +2,11 @@ import Navigation from "@/components/Navigation";
 import EventsSection from "@/components/EventsSection";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 export default function Events() {
+  useScrollToTop();
+  
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />

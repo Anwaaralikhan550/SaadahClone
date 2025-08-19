@@ -2,8 +2,11 @@ import Navigation from "@/components/Navigation";
 import DonationSection from "@/components/DonationSection";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 export default function Donate() {
+  useScrollToTop();
+  
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Navigation />

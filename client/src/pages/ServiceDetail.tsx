@@ -1066,13 +1066,7 @@ export default function ServiceDetail() {
                 <Button
                   className="modern-button w-full hover:glow-primary text-lg"
                   onClick={() => {
-                    const element = document.getElementById('contact');
-                    if (element) {
-                      setLocation("/");
-                      setTimeout(() => {
-                        element.scrollIntoView({ behavior: 'smooth' });
-                      }, 100);
-                    }
+                    setLocation("/contact");
                   }}
                 >
                   Register Now
@@ -1159,13 +1153,7 @@ export default function ServiceDetail() {
                 className="bg-white text-primary-start hover:bg-gray-100 group relative overflow-hidden font-bold"
                 data-testid="button-register-service-cta"
                 onClick={() => {
-                  const element = document.getElementById('contact');
-                  if (element) {
-                    setLocation("/");
-                    setTimeout(() => {
-                      element.scrollIntoView({ behavior: 'smooth' });
-                    }, 100);
-                  }
+                  setLocation("/contact");
                 }}
               >
                 <span className="relative z-10">Register Now</span>

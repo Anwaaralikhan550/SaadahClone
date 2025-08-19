@@ -1,191 +1,63 @@
 # As-Saadah Islamic Organization Website
 
 ## Overview
-
-This is a modern, responsive website for As-Saadah Islamic Organization built with React, TypeScript, and Express.js. The application serves as a digital presence for the organization, providing information about their mission, services, events, and community activities. The website features a bilingual interface (English/Arabic), prayer times integration, event management, donation processing, and contact functionality.
+This project is a modern, responsive website for As-Saadah Islamic Organization, serving as its digital presence. It provides information about the organization's mission, services, events, and community activities. Key capabilities include a bilingual interface (English/Arabic), prayer times integration, event management, donation processing, and contact functionality. The business vision is to establish a professional and engaging online hub for the community.
 
 ## User Preferences
-
 Preferred communication style: Simple, everyday language.
 Design preference: Modern, clean blue theme with unified color palette for professional appearance.
-
-## Recent Updates (January 2025)
-
-### Blue Theme Implementation (January 19, 2025)
-- ✅ **Modern Blue Color Palette**: Implemented unified blue theme across entire website with professional appearance
-- ✅ **Clean Design System**: Applied single smooth blue color palette (hsl(213, 85%, 45%)) throughout all components
-- ✅ **Consistent Styling**: Updated buttons, headers, footers, and sections with harmonious blue tones
-- ✅ **CSS Variable Updates**: Replaced Islamic green/gold colors with modern blue shades for minimal, professional look
-- ✅ **Animation Updates**: Modified glow effects, patterns, and gradients to use blue color scheme
-- ✅ **Dark Mode Compatibility**: Ensured blue theme works seamlessly in both light and dark modes
-- ✅ **Component Consistency**: Applied unified blue styling across Navigation, Hero, Footer, and all major sections
-
-## Recent Updates (January 2025)
-
-### Light Blue Theme Implementation (January 19, 2025)
-- ✅ **Modern Light Blue Color Palette**: Implemented unified light blue theme using soft, pleasant shades (#bcd8ff, #9fc9ff, #85bcff, #6faeff, #5ca2ff, #4b96ff)
-- ✅ **Clean Design System**: Applied single smooth blue color palette throughout all components for harmonious appearance
-- ✅ **Consistent Styling**: Updated buttons, headers, footers, and sections with soft blue tones
-- ✅ **CSS Variable Updates**: Replaced previous colors with modern light blue shades for minimal, professional look
-- ✅ **Animation Updates**: Modified glow effects, patterns, and gradients to use light blue color scheme
-- ✅ **Dark Mode Compatibility**: Ensured light blue theme works seamlessly in both light and dark modes
-- ✅ **Component Consistency**: Applied unified light blue styling across Navigation, Hero, Footer, and all major sections
-
-### Islamic Hijri Date Feature & Color Palette Update (January 18, 2025)
-- ✅ **Islamic Hijri Date Display**: Integrated Aladhan Islamic Calendar API for accurate Hijri dates
-- ✅ **Daily Auto-Updates**: Hijri date updates automatically at midnight and checks hourly for accuracy
-- ✅ **Multi-Device Support**: Hijri date displays on both desktop (navigation bar) and mobile (mobile menu)
-- ✅ **No Location Required**: API provides region-appropriate Hijri dates without location permissions
-- ✅ **Islamic Color Styling**: Date display uses Islamic beige background with green accent borders
-- ✅ **Responsive Design**: Hidden on tablets, visible on desktop and mobile for optimal space usage
-- ✅ **Error Handling**: Graceful fallback to Gregorian date if API is temporarily unavailable
-- ✅ **Format**: Displays as "DD Month YYYY AH" (e.g., "24 Safar 1447 AH")
-
-### Project Migration & Color Palette Update (January 18, 2025)
-- ✅ **Replit Agent Migration**: Successfully completed full migration from Replit Agent to standard Replit environment
-- ✅ **Islamic Color Palette Implementation**: Updated entire website with modern Islamic color scheme:
-  - **Primary Green**: #2E8B57 (Soft Green) - Used for headers, navbar, and main accents
-  - **Secondary Gold**: #FFD966 (Light Gold) - Applied to buttons, hover effects, and call-to-action areas
-  - **Background White**: #FFFFFF - Clean background and text sections for clarity
-  - **Supporting Beige**: #FAF3E0 - Light Beige for section dividers and natural Islamic feel
-- ✅ **Comprehensive Style Updates**: All CSS gradients, animations, and color patterns updated to new palette
-- ✅ **Dark Mode Compatibility**: Color variables properly configured for both light and dark themes
-- ✅ **Visual Consistency**: Maintained all existing UI/UX design and layout while transforming color scheme
-- ✅ **Professional Islamic Theming**: Achieved elegant, readable, and balanced visual appearance
-
-### Migration and Optimization (January 17, 2025)
-- ✅ **Project Migration**: Successfully migrated from Replit Agent to standard Replit environment
-- ✅ **Language Simplification**: Removed Arabic and Urdu language options, kept only English as requested
-- ✅ **Location Permission Fix**: Eliminated repeated location requests by implementing timezone-based prayer times
-- ✅ **API Optimization**: Improved prayer times API with robust fallback system and reduced polling frequency
-- ✅ **Performance Enhancement**: Reduced API calls from every minute to every 30 minutes with proper error handling
-- ✅ **User Experience**: Fixed UI/UX to work seamlessly without requesting location permissions
-- ✅ **Navigation Fix**: Implemented proper multi-page navigation with smooth scrolling to sections
-- ✅ **Router Integration**: Fixed navbar links to work correctly across all pages (Home, Service Detail, Event Detail)
-- ✅ **Smooth Scrolling**: Added proper offset calculation for fixed navbar when scrolling to sections
-- ✅ **Mobile Navigation**: Fixed mobile menu navigation with consistent behavior across all devices
-
-### Visual and Animation Enhancements
-- ✅ **Prayer Times Removed**: Completely removed prayer times from homepage as requested
-- ✅ **Mosque Logo Integration**: Created animated SVG mosque logo replacing "As Saadah" text logo in navbar
-- ✅ **Multilingual System**: Added comprehensive language dropdown (English/Arabic/Urdu) with proper RTL support
-- ✅ **Social Media Icons Fixed**: Replaced invisible Font Awesome icons with working SVG icons and hover effects
-- ✅ **Homepage Animations**: Added smooth parallax scrolling and fade-in animations throughout sections
-- ✅ **Islamic Theming**: Applied consistent Islamic color palette (green, gold, gradients) across all components
-- ✅ **Enhanced Images**: Updated placeholder images with high-quality Islamic-themed stock photos
-- ✅ **Performance Optimized**: Maintained existing functionality while adding lightweight modern animations
-
-### Modern Design System (January 2025)
-- ✅ **Modern Card Layout**: Implemented modern card designs with rounded corners and soft shadows across all sections
-- ✅ **Gradient Effects**: Added gradient borders and hover glow effects for enhanced visual appeal
-- ✅ **Button Modernization**: Updated all buttons with shimmer animations and gradient glows
-- ✅ **Enhanced Animations**: Added hover transformations, scaling effects, and smooth transitions
-- ✅ **Component Consistency**: Standardized modern styling across HeroSection, ServicesSection, EventsSection, ContactSection, and DonationSection
-- ✅ **CSS Architecture**: Implemented reusable CSS classes for consistent modern styling patterns
-- ✅ **Interactive Elements**: Enhanced user experience with responsive hover states and micro-interactions
-
-### Comprehensive Foundation Services (January 2025)
-- ✅ **Expanded Services Section**: Updated with all 12 comprehensive foundation service categories
-- ✅ **Database Schema Enhancement**: Added tables for programs, volunteers, and success stories
-- ✅ **Volunteering Section**: Complete volunteer registration and opportunity matching system with Learn More functionality
-- ✅ **Financial Transparency**: Detailed fund distribution tracking and public reporting system with detailed service pages
-- ✅ **New Muslim Support**: Comprehensive onboarding and integration program for new converts with full service details
-- ✅ **Social Safety Net**: Hostels, elderly care centers, and community welfare facilities with complete Learn More pages
-- ✅ **Technology Platform**: Digital learning, online services, and 24/7 support systems with detailed service information
-- ✅ **Service Detail Pages**: All 18+ foundation services now have comprehensive detail pages with testimonials, schedules, benefits, and professional content
-- ✅ **Complete Button Functionality**: Every "Learn More" button across all sections now opens detailed, professional service pages
-- ✅ **Professional Content**: All service details include engaging descriptions, testimonials, benefits, and trust-building information
-
-### Logo Integration and Animation (January 17, 2025)
-- ✅ **Organization Logo Added**: Integrated authentic As-Saadah logo PNG file into navigation bar and contact section
-- ✅ **Text Replacement**: Removed "As-Saadah" text from navigation, replaced with animated logo only
-- ✅ **Professional Animations**: Applied smooth fade-in, scale, and slide animations using Framer Motion
-- ✅ **Fixed Sizing**: Navigation logo set to 5rem height, contact section logo set to 8rem height
-- ✅ **Responsive Design**: Logo maintains fixed sizes across all screen sizes (desktop, tablet, mobile)
-- ✅ **Dark Mode Compatibility**: Logo brightness adjusts automatically for light and dark themes
-- ✅ **Interactive Elements**: Added subtle hover effects with gentle scaling and rotation animations
-- ✅ **Performance Optimized**: Animations are lightweight and don't affect page loading or navigation performance
-- ✅ **Modern Entry Animations**: Smooth fade-in with scale and slide effects for professional appearance
 
 ## System Architecture
 
 ### Frontend Architecture
-- **Framework**: React 18 with TypeScript for type safety and modern development patterns
-- **Build Tool**: Vite for fast development and optimized production builds
-- **Routing**: Wouter for lightweight client-side routing
-- **State Management**: TanStack Query (React Query) for server state management and caching
-- **Styling**: Tailwind CSS with shadcn/ui component library using the "new-york" style variant
-- **Animation**: Framer Motion for smooth transitions and interactive elements
-- **Theme System**: Custom theme provider supporting light/dark modes with CSS variables
-
-### Design System
-- **Color Palette**: Gradient design with primary colors ranging from soft orange-red (#FF7A50) to soft purple (#B84DFF)
-- **Typography**: Inter font for Latin text and Amiri for Arabic text
-- **Components**: Comprehensive UI component library based on Radix UI primitives
-- **Responsive Design**: Mobile-first approach with Tailwind's responsive utilities
-- **Internationalization**: Built-in support for English and Arabic with RTL layout handling
+- **Framework**: React 18 with TypeScript.
+- **Build Tool**: Vite.
+- **Routing**: Wouter.
+- **State Management**: TanStack Query (React Query) for server state.
+- **Styling**: Tailwind CSS with shadcn/ui component library ("new-york" style variant).
+- **Animation**: Framer Motion.
+- **Theme System**: Custom theme provider supporting light/dark modes with CSS variables.
+- **Design System**: Gradient design with a modern blue color palette (hsl(213, 85%, 45%)) and soft light blue shades (#bcd8ff to #4b96ff). Typography uses Inter for Latin and Amiri for Arabic. Mobile-first responsive design.
+- **Key Features**: Multilingual support (English, Arabic, Urdu) with RTL, animated SVG mosque logo, enhanced UI/UX with parallax scrolling and micro-animations, modern card layouts, gradient effects, and professional service detail pages.
 
 ### Backend Architecture
-- **Server**: Express.js with TypeScript for type-safe server development
-- **API Design**: RESTful API structure with `/api` prefix for all endpoints
-- **Middleware**: Custom logging middleware for API requests and comprehensive error handling
-- **Session Management**: Express sessions with PostgreSQL storage using connect-pg-simple
+- **Server**: Express.js with TypeScript.
+- **API Design**: RESTful API structure (`/api` prefix).
+- **Middleware**: Custom logging and error handling.
+- **Session Management**: Express sessions with PostgreSQL storage using `connect-pg-simple`.
 
 ### Data Layer
-- **ORM**: Drizzle ORM configured for PostgreSQL with type-safe database operations
-- **Database**: PostgreSQL with Neon Database serverless connection for cloud deployment
-- **Schema Management**: Centralized schema definitions in shared directory for type consistency
-- **Migrations**: Drizzle Kit for database schema management and migrations
+- **ORM**: Drizzle ORM for PostgreSQL.
+- **Database**: PostgreSQL with Neon Database serverless connection.
+- **Schema Management**: Drizzle Kit for migrations.
 
 ### Project Structure
-- **Monorepo Setup**: Organized into client, server, and shared directories
-- **Client Directory**: React application with component-based architecture
-- **Server Directory**: Express.js backend with modular route handlers and storage interfaces
-- **Shared Directory**: Common TypeScript schemas and type definitions used across frontend and backend
-- **Path Aliases**: Configured import aliases for cleaner code organization
-
-### Key Features
-- **Multilingual Support**: Complete language system supporting English, Arabic, and Urdu with RTL text direction
-- **Animated Mosque Logo**: Custom SVG mosque logo with smooth animations for brand identity
-- **Enhanced UI/UX**: Modern Islamic-themed design with smooth parallax scrolling and micro-animations
-- **Social Media Integration**: Working social media icons with proper SVG implementation and hover effects
-- **Event Management**: Full CRUD operations for community events with featured event highlighting
-- **Donation System**: Donation processing with multiple types and frequency options
-- **Contact Management**: Contact form with message storage and management
-- **Newsletter Subscription**: Email subscription system for community updates
-- **User Management**: User authentication and profile management system
-- **Performance Optimized**: Lightweight animations and optimized loading without breaking functionality
-
-### Development Features
-- **Hot Module Replacement**: Vite integration with Express middleware for seamless development
-- **Type Safety**: Full TypeScript coverage across frontend, backend, and shared modules
-- **Error Handling**: Runtime error overlay for development debugging
-- **Development Tools**: Replit-specific tooling for cloud development environment
+- **Monorepo**: Organized into `client`, `server`, and `shared` directories.
+- **Shared Directory**: Common TypeScript schemas and type definitions.
+- **Path Aliases**: Configured for cleaner code organization.
 
 ## External Dependencies
 
 ### Core Technologies
-- **Database**: PostgreSQL via Neon Database serverless platform
-- **ORM**: Drizzle ORM with Drizzle Kit for schema management
-- **Frontend Framework**: React 18 with TypeScript
-- **Backend Framework**: Express.js with TypeScript
-- **Build System**: Vite for frontend builds and esbuild for backend bundling
+- **Database**: PostgreSQL via Neon Database.
+- **ORM**: Drizzle ORM.
+- **Frontend Framework**: React 18 with TypeScript.
+- **Backend Framework**: Express.js with TypeScript.
+- **Build System**: Vite (frontend) and esbuild (backend).
 
 ### UI and Design
-- **Component Library**: shadcn/ui built on Radix UI primitives
-- **Styling**: Tailwind CSS with PostCSS processing
-- **Animation**: Framer Motion for interactive animations
-- **Icons**: Lucide React for consistent iconography
-- **Fonts**: Google Fonts (Inter for Latin, Amiri for Arabic)
+- **Component Library**: shadcn/ui (Radix UI primitives).
+- **Styling**: Tailwind CSS.
+- **Animation**: Framer Motion.
+- **Icons**: Lucide React.
+- **Fonts**: Google Fonts (Inter, Amiri).
 
 ### Development and Tooling
-- **State Management**: TanStack Query for server state and caching
-- **Form Handling**: React Hook Form with Zod validation
-- **Routing**: Wouter for lightweight client-side routing
-- **Development Server**: Vite with custom Express middleware integration
-- **Session Storage**: connect-pg-simple for PostgreSQL session management
+- **State Management**: TanStack Query.
+- **Form Handling**: React Hook Form with Zod validation.
+- **Routing**: Wouter.
+- **Session Storage**: `connect-pg-simple`.
 
 ### External APIs and Services
-- **Prayer Times**: Integration ready for Islamic prayer times API services
-- **Email Services**: Newsletter subscription system (implementation pending)
-- **Image Hosting**: Unsplash integration for placeholder images
+- **Prayer Times**: Aladhan Islamic Calendar API for Hijri dates and prayer times.
+- **Image Hosting**: Unsplash (for placeholder images).

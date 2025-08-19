@@ -66,6 +66,8 @@ export default {
         blue: {
           primary: "var(--blue-primary)",
           secondary: "var(--blue-secondary)",
+          tertiary: "var(--blue-tertiary)",
+          quaternary: "var(--blue-quaternary)",
           light: "var(--blue-light)",
           muted: "var(--blue-muted)",
         },
@@ -112,10 +114,10 @@ export default {
         },
         "pulse-glow": {
           "0%, 100%": {
-            boxShadow: "0 0 20px rgba(41, 128, 185, 0.3), 0 0 40px rgba(41, 128, 185, 0.1)",
+            boxShadow: "0 0 20px rgba(92, 162, 255, 0.3), 0 0 40px rgba(92, 162, 255, 0.1)",
           },
           "50%": {
-            boxShadow: "0 0 30px rgba(41, 128, 185, 0.5), 0 0 60px rgba(41, 128, 185, 0.3)",
+            boxShadow: "0 0 30px rgba(92, 162, 255, 0.5), 0 0 60px rgba(92, 162, 255, 0.3)",
           },
         },
         "gradient-shift": {

@@ -226,4 +226,295 @@ export class DatabaseStorage implements IStorage {
   }
 }
 
-export const storage = new DatabaseStorage();
+// Create in-memory storage implementation for Replit environment
+export class MemoryStorage implements IStorage {
+  private users: Map<string, User> = new Map();
+  private events: Map<string, Event> = new Map();
+  private eventRegistrations: Map<string, EventRegistration> = new Map();
+  private donations: Map<string, Donation> = new Map();
+  private contactMessages: Map<string, ContactMessage> = new Map();
+  private prayerTimesMap: Map<string, PrayerTimes> = new Map();
+  private newsletterSubscriptions: Map<string, NewsletterSubscription> = new Map();
+
+  // Initialize with some sample data
+  constructor() {
+    this.initializeSampleData();
+  }
+
+  private initializeSampleData() {
+    // Add sample events
+    const sampleEvents: Event[] = [
+      {
+        id: "1",
+        title: "Friday Prayer",
+        titleAr: "صلاة الجمعة",
+        description: "Join us for our weekly Friday congregational prayer",
+        descriptionAr: "انضم إلينا لصلاة الجمعة الأسبوعية",
+        date: new Date("2025-08-22T13:00:00Z"),
+        time: "1:00 PM",
+        location: "As-Saadah Islamic Center",
+        locationAr: "مركز السعادة الإسلامي",
+        isFeatured: true,
+        maxAttendees: 200,
+        currentAttendees: 85,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        id: "2", 
+        title: "Islamic Education Workshop",
+        titleAr: "ورشة التعليم الإسلامي",
+        description: "Learn about Islamic history and values in this interactive workshop",
+        descriptionAr: "تعلم عن التاريخ والقيم الإسلامية في هذه الورشة التفاعلية",
+        date: new Date("2025-08-25T19:00:00Z"),
+        time: "7:00 PM",
+        location: "Community Hall",
+        locationAr: "قاعة المجتمع",
+        isFeatured: false,
+        maxAttendees: 50,
+        currentAttendees: 23,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      }
+    ];
+
+    sampleEvents.forEach(event => this.events.set(event.id, event));
+
+    // Add sample prayer times for today
+    const today = new Date().toISOString().split('T')[0];
+    const samplePrayerTimes: PrayerTimes = {
+      id: "today",
+      date: today,
+      fajr: "5:30 AM",
+      dhuhr: "12:15 PM",
+      asr: "3:45 PM",
+      maghrib: "6:20 PM",
+      isha: "7:45 PM",
+      sunrise: "6:45 AM",
+      createdAt: new Date(),
+    };
+    this.prayerTimesMap.set(today, samplePrayerTimes);
+  }
+
+  // User operations
+  async getUser(id: string): Promise<User | undefined> {
+    return this.users.get(id);
+  }
+
+  async upsertUser(userData: UpsertUser): Promise<User> {
+    const user: User = {
+      id: userData.id || this.generateId(),
+      email: userData.email || null,
+      firstName: userData.firstName || null,
+      lastName: userData.lastName || null,
+      profileImageUrl: userData.profileImageUrl || null,
+      createdAt: userData.createdAt || new Date(),
+      updatedAt: new Date(),
+    };
+    this.users.set(user.id, user);
+    return user;
+  }
+
+  // Event operations
+  async getEvents(): Promise<Event[]> {
+    return Array.from(this.events.values()).sort((a, b) => 
+      new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+  }
+
+  async getFeaturedEvents(): Promise<Event[]> {
+    return Array.from(this.events.values())
+      .filter(event => event.isFeatured)
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  }
+
+  async getEvent(id: string): Promise<Event | undefined> {
+    return this.events.get(id);
+  }
+
+  async createEvent(eventData: InsertEvent): Promise<Event> {
+    const event: Event = {
+      id: this.generateId(),
+      title: eventData.title,
+      titleAr: eventData.titleAr || null,
+      description: eventData.description,
+      descriptionAr: eventData.descriptionAr || null,
+      date: eventData.date,
+      time: eventData.time,
+      location: eventData.location || null,
+      locationAr: eventData.locationAr || null,
+      isFeatured: eventData.isFeatured || null,
+      maxAttendees: eventData.maxAttendees || null,
+      currentAttendees: 0,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+    this.events.set(event.id, event);
+    return event;
+  }
+
+  async updateEvent(id: string, eventData: Partial<InsertEvent>): Promise<Event> {
+    const existingEvent = this.events.get(id);
+    if (!existingEvent) {
+      throw new Error("Event not found");
+    }
+    const updatedEvent: Event = {
+      ...existingEvent,
+      ...eventData,
+      updatedAt: new Date(),
+    };
+    this.events.set(id, updatedEvent);
+    return updatedEvent;
+  }
+
+  async deleteEvent(id: string): Promise<void> {
+    this.events.delete(id);
+  }
+
+  // Event registration operations
+  async registerForEvent(registration: InsertEventRegistration): Promise<EventRegistration> {
+    const newRegistration: EventRegistration = {
+      id: this.generateId(),
+      eventId: registration.eventId,
+      name: registration.name,
+      email: registration.email,
+      phone: registration.phone || null,
+      registeredAt: new Date(),
+    };
+    this.eventRegistrations.set(newRegistration.id, newRegistration);
+    
+    // Update event attendee count
+    const event = this.events.get(registration.eventId);
+    if (event) {
+      const registrationsForEvent = Array.from(this.eventRegistrations.values())
+        .filter(reg => reg.eventId === registration.eventId);
+      event.currentAttendees = registrationsForEvent.length;
+      this.events.set(registration.eventId, event);
+    }
+
+    return newRegistration;
+  }
+
+  async getEventRegistrations(eventId: string): Promise<EventRegistration[]> {
+    return Array.from(this.eventRegistrations.values())
+      .filter(reg => reg.eventId === eventId);
+  }
+
+  // Donation operations
+  async createDonation(donationData: InsertDonation): Promise<Donation> {
+    const donation: Donation = {
+      id: this.generateId(),
+      amount: donationData.amount,
+      donationType: donationData.donationType,
+      frequency: donationData.frequency,
+      donorName: donationData.donorName,
+      donorEmail: donationData.donorEmail,
+      isAnonymous: donationData.isAnonymous || null,
+      paymentStatus: "pending",
+      createdAt: new Date(),
+    };
+    this.donations.set(donation.id, donation);
+    return donation;
+  }
+
+  async getDonations(): Promise<Donation[]> {
+    return Array.from(this.donations.values()).sort((a, b) => {
+      const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+      const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+      return dateB - dateA;
+    });
+  }
+
+  async updateDonationStatus(id: string, status: string): Promise<void> {
+    const donation = this.donations.get(id);
+    if (donation) {
+      donation.paymentStatus = status;
+      this.donations.set(id, donation);
+    }
+  }
+
+  // Contact operations
+  async createContactMessage(messageData: InsertContactMessage): Promise<ContactMessage> {
+    const message: ContactMessage = {
+      id: this.generateId(),
+      ...messageData,
+      isRead: false,
+      createdAt: new Date(),
+    };
+    this.contactMessages.set(message.id, message);
+    return message;
+  }
+
+  async getContactMessages(): Promise<ContactMessage[]> {
+    return Array.from(this.contactMessages.values()).sort((a, b) => {
+      const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+      const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+      return dateB - dateA;
+    });
+  }
+
+  async markMessageAsRead(id: string): Promise<void> {
+    const message = this.contactMessages.get(id);
+    if (message) {
+      message.isRead = true;
+      this.contactMessages.set(id, message);
+    }
+  }
+
+  // Prayer times operations
+  async getPrayerTimes(date: string): Promise<PrayerTimes | undefined> {
+    return this.prayerTimesMap.get(date);
+  }
+
+  async createPrayerTimes(prayerTimesData: InsertPrayerTimes): Promise<PrayerTimes> {
+    const prayerTimes: PrayerTimes = {
+      id: this.generateId(),
+      date: prayerTimesData.date,
+      fajr: prayerTimesData.fajr,
+      dhuhr: prayerTimesData.dhuhr,
+      asr: prayerTimesData.asr,
+      maghrib: prayerTimesData.maghrib,
+      isha: prayerTimesData.isha,
+      sunrise: prayerTimesData.sunrise || null,
+      createdAt: new Date(),
+    };
+    this.prayerTimesMap.set(prayerTimesData.date, prayerTimes);
+    return prayerTimes;
+  }
+
+  // Newsletter operations
+  async subscribeToNewsletter(subscription: InsertNewsletterSubscription): Promise<NewsletterSubscription> {
+    const existingSubscription = this.newsletterSubscriptions.get(subscription.email);
+    if (existingSubscription) {
+      existingSubscription.isActive = true;
+      existingSubscription.subscribedAt = new Date();
+      return existingSubscription;
+    }
+
+    const newSubscription: NewsletterSubscription = {
+      id: this.generateId(),
+      ...subscription,
+      isActive: true,
+      subscribedAt: new Date(),
+    };
+    this.newsletterSubscriptions.set(subscription.email, newSubscription);
+    return newSubscription;
+  }
+
+  async unsubscribeFromNewsletter(email: string): Promise<void> {
+    const subscription = this.newsletterSubscriptions.get(email);
+    if (subscription) {
+      subscription.isActive = false;
+      this.newsletterSubscriptions.set(email, subscription);
+    }
+  }
+
+  private generateId(): string {
+    return Math.random().toString(36).substr(2, 9);
+  }
+}
+
+// Use in-memory storage for Replit environment compatibility
+export const storage = process.env.DATABASE_URL && process.env.DATABASE_URL !== "postgresql://user:password@localhost:5432/temp_db" 
+  ? new DatabaseStorage()
+  : new MemoryStorage();

@@ -7,7 +7,7 @@ import { usePrayerTimes } from "@/hooks/usePrayerTimes";
 
 export default function Footer() {
   const { data: prayerTimes, isLoading } = usePrayerTimes();
-  const [isServicesExpanded, setIsServicesExpanded] = useState(false);
+  const [expandedService, setExpandedService] = useState<string | null>(null);
 
   const quickLinks = [
     { href: "#home", label: "Home" },
@@ -19,12 +19,36 @@ export default function Footer() {
   ];
 
   const services = [
-    { href: "#quran-classes", label: "Quran Classes" },
-    { href: "#islamic-studies", label: "Islamic Studies" },
-    { href: "#youth-programs", label: "Youth Programs" },
-    { href: "#women-programs", label: "Women's Programs" },
-    { href: "#community-outreach", label: "Community Outreach" },
-    { href: "#prayer-services", label: "Prayer Services" },
+    { 
+      href: "#quran-classes", 
+      label: "Quran Classes",
+      details: "Learn Quran recitation, memorization, and Tajweed with certified instructors. Classes available for all ages and skill levels."
+    },
+    { 
+      href: "#islamic-studies", 
+      label: "Islamic Studies",
+      details: "Comprehensive Islamic education covering Fiqh, Hadith, Islamic history, and contemporary issues from authentic sources."
+    },
+    { 
+      href: "#youth-programs", 
+      label: "Youth Programs",
+      details: "Engaging activities and educational programs designed to help young Muslims develop strong Islamic identity and values."
+    },
+    { 
+      href: "#women-programs", 
+      label: "Women's Programs",
+      details: "Special programs for sisters including Islamic education, community support, and empowerment initiatives."
+    },
+    { 
+      href: "#community-outreach", 
+      label: "Community Outreach",
+      details: "Reaching out to the broader community through dawah activities, interfaith dialogue, and social services."
+    },
+    { 
+      href: "#prayer-services", 
+      label: "Prayer Services",
+      details: "Daily congregational prayers, Friday Jummah services, and special occasion prayers throughout the year."
+    },
   ];
 
   const socialMedia = [
@@ -110,59 +134,48 @@ export default function Footer() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <button
-              onClick={() => setIsServicesExpanded(!isServicesExpanded)}
-              className="flex items-center justify-between w-full text-lg font-bold mb-4 text-left hover:text-primary-start transition-colors group"
-              data-testid="footer-services-toggle"
-            >
-              <span>Our Services</span>
-              <motion.div
-                animate={{ rotate: isServicesExpanded ? 180 : 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="flex-shrink-0 ml-2"
-              >
-                <ChevronDown className="h-4 w-4 group-hover:text-primary-start transition-colors" />
-              </motion.div>
-            </button>
-            
-            <AnimatePresence>
-              {isServicesExpanded && (
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ 
-                    duration: 0.4, 
-                    ease: "easeInOut",
-                    opacity: { duration: 0.3 }
-                  }}
-                  className="overflow-hidden"
-                >
-                  <ul className="space-y-2 text-sm pb-2">
-                    {services.map((service, index) => (
-                      <motion.li 
-                        key={service.href}
-                        initial={{ x: -10, opacity: 0 }}
-                        animate={{ x: 0, opacity: 1 }}
+            <h3 className="text-lg font-bold mb-4">Our Services</h3>
+            <div className="space-y-2 text-sm">
+              {services.map((service, index) => (
+                <div key={service.href}>
+                  <button
+                    onClick={() => setExpandedService(expandedService === service.href ? null : service.href)}
+                    className="flex items-center justify-between w-full text-left text-gray-300 hover:text-white transition-colors group py-1"
+                    data-testid={`footer-service-${service.label.toLowerCase().replace(/\s+/g, "-")}`}
+                  >
+                    <span className="group-hover:translate-x-1 transition-transform duration-300">
+                      • {service.label}
+                    </span>
+                    <motion.div
+                      animate={{ rotate: expandedService === service.href ? 180 : 0 }}
+                      transition={{ duration: 0.2, ease: "easeInOut" }}
+                      className="flex-shrink-0 ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                    >
+                      <ChevronDown className="h-3 w-3" />
+                    </motion.div>
+                  </button>
+                  
+                  <AnimatePresence>
+                    {expandedService === service.href && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0, y: -10 }}
+                        animate={{ height: "auto", opacity: 1, y: 0 }}
+                        exit={{ height: 0, opacity: 0, y: -10 }}
                         transition={{ 
                           duration: 0.3, 
-                          delay: index * 0.05,
-                          ease: "easeOut" 
+                          ease: "easeInOut"
                         }}
+                        className="overflow-hidden pl-4 pr-2"
                       >
-                        <a 
-                          href={service.href} 
-                          className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 block"
-                          data-testid={`footer-service-${service.label.toLowerCase().replace(/\s+/g, "-")}`}
-                        >
-                          • {service.label}
-                        </a>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                        <div className="text-xs text-gray-400 pt-2 pb-3 border-l border-gray-700 pl-3 leading-relaxed">
+                          {service.details}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+            </div>
           </motion.div>
 
           {/* Contact Info */}

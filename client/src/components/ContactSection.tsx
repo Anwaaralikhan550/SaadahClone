@@ -154,14 +154,14 @@ export default function ContactSection() {
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Visit Us</h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-3">
-                    123 Islamic Center Drive<br />
-                    Springfield, IL 62701<br />
-                    United States
+                    Lower Ground Floor, 17 Hills<br />
+                    Traders Colony, 17 mile<br />
+                    Islamabad, Pakistan
                   </p>
                   <Button 
                     className="modern-button mt-2 hover:glow-primary"
                     data-testid="button-get-directions"
-                    onClick={() => window.open('https://maps.google.com/maps?q=123+Islamic+Center+Drive,+Springfield,+IL+62701', '_blank')}
+                    onClick={() => window.open('https://maps.google.com/maps?q=Lower+Ground+Floor,+17+Hills,+Traders+Colony,+17+mile+Islamabad,+Pakistan', '_blank')}
                   >
                     Get Directions <ExternalLink className="ml-2 h-4 w-4" />
                   </Button>
@@ -185,15 +185,21 @@ export default function ContactSection() {
                   <div className="space-y-2 text-gray-600 dark:text-gray-300">
                     <div className="flex items-center" data-testid="contact-phone">
                       <Phone className="mr-2 h-4 w-4" />
-                      (217) 555-0123
+                      Contact via Website
                     </div>
                     <div className="flex items-center" data-testid="contact-email">
                       <Mail className="mr-2 h-4 w-4" />
-                      info@assaadah.org
+                      Visit as-saadah.com
+                    </div>
+                    <div className="flex items-center" data-testid="contact-website">
+                      <ExternalLink className="mr-2 h-4 w-4" />
+                      <a href="https://as-saadah.com" target="_blank" rel="noopener noreferrer" className="text-primary-start hover:underline">
+                        as-saadah.com
+                      </a>
                     </div>
                     <div className="flex items-center" data-testid="contact-hours">
                       <Clock className="mr-2 h-4 w-4" />
-                      Open Daily 5:00 AM - 10:00 PM
+                      Prayer Times Available Daily
                     </div>
                   </div>
                 </div>

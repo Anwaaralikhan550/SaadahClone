@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, ExternalLink } from "lucide-react";
 import MosqueLogo from "@/components/MosqueLogo";
 import { usePrayerTimes } from "@/hooks/usePrayerTimes";
 
@@ -141,17 +141,20 @@ export default function Footer() {
               <div className="flex items-start" data-testid="footer-address">
                 <MapPin className="text-primary-start mr-3 mt-1 h-4 w-4 flex-shrink-0" />
                 <div>
-                  123 Islamic Center Drive<br />
-                  Springfield, IL 62701
+                  Lower Ground Floor, 17 Hills<br />
+                  Traders Colony, 17 mile<br />
+                  Islamabad, Pakistan
                 </div>
               </div>
-              <div className="flex items-center" data-testid="footer-phone">
-                <Phone className="text-primary-start mr-3 h-4 w-4 flex-shrink-0" />
-                <span>(217) 555-0123</span>
+              <div className="flex items-center" data-testid="footer-website">
+                <ExternalLink className="text-primary-start mr-3 h-4 w-4 flex-shrink-0" />
+                <a href="https://as-saadah.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  as-saadah.com
+                </a>
               </div>
               <div className="flex items-center" data-testid="footer-email">
                 <Mail className="text-primary-start mr-3 h-4 w-4 flex-shrink-0" />
-                <span>info@assaadah.org</span>
+                <span>Contact via Website</span>
               </div>
             </div>
           </motion.div>
@@ -185,9 +188,7 @@ export default function Footer() {
                   <div key={prayer.key} className="flex items-center" data-testid={`footer-prayer-${prayer.key}`}>
                     <span className="text-gray-400 mr-2">{prayer.label}:</span>
                     <span className={`font-medium ${prayer.key === 'maghrib' ? 'text-primary' : 'text-white'}`}>
-                      {typeof prayerTimes?.[prayer.key as keyof typeof prayerTimes] === 'string' 
-                        ? prayerTimes[prayer.key as keyof typeof prayerTimes] 
-                        : "--:--"}
+                      {prayerTimes?.[prayer.key as keyof typeof prayerTimes] as string || "--:--"}
                     </span>
                   </div>
                 ))}

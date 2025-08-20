@@ -182,7 +182,13 @@ export default function EventDetail() {
           <div className="max-w-4xl mx-auto px-4 text-center">
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Event Not Found</h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">The event you're looking for doesn't exist.</p>
-            <Button onClick={() => setLocation("/")}>Return Home</Button>
+            <Button onClick={() => {
+              if (window.history.length > 1) {
+                window.history.back();
+              } else {
+                setLocation("/events");
+              }
+            }}>Return to Events</Button>
           </div>
         </div>
         <Footer />
@@ -225,12 +231,20 @@ export default function EventDetail() {
           >
             <Button
               variant="ghost"
-              onClick={() => setLocation("/")}
+              onClick={() => {
+                // Use browser's back navigation for proper history handling
+                if (window.history.length > 1) {
+                  window.history.back();
+                } else {
+                  // Fallback to events page if no history
+                  setLocation("/events");
+                }
+              }}
               className="mb-8 hover:bg-primary-start/10 group transition-all duration-300"
-              data-testid="button-back-to-events"
+              data-testid="button-back-to-previous"
             >
               <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-              Back to Events
+              Back
             </Button>
           </motion.div>
 

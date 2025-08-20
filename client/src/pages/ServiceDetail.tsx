@@ -825,12 +825,20 @@ export default function ServiceDetail() {
           >
             <Button
               variant="ghost"
-              onClick={() => setLocation("/")}
+              onClick={() => {
+                // Use browser's back navigation for proper history handling
+                if (window.history.length > 1) {
+                  window.history.back();
+                } else {
+                  // Fallback to services page if no history
+                  setLocation("/services");
+                }
+              }}
               className="mb-8 hover:bg-primary-start/10 group transition-all duration-300"
-              data-testid="button-back-to-home"
+              data-testid="button-back-to-previous"
             >
               <ArrowLeft className="mr-2 h-4 w-4 group-hover:-translate-x-1 transition-transform" />
-              Back to Home
+              Back
             </Button>
           </motion.div>
 

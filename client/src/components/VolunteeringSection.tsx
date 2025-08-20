@@ -112,8 +112,8 @@ export default function VolunteeringSection() {
                 <div className="modern-card-content flex flex-col h-full">
                   <div className={`w-full h-2 bg-gradient-to-r ${opportunity.color} rounded-t-lg mb-6`}></div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{opportunity.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{opportunity.description}</p>
-                  <div className="space-y-3 mb-6">
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow-0">{opportunity.description}</p>
+                  <div className="space-y-3 mb-6 flex-grow">
                     <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                       <Clock className="h-4 w-4 mr-2" />
                       <span><strong>Commitment:</strong> {opportunity.commitment}</span>
@@ -130,13 +130,15 @@ export default function VolunteeringSection() {
                     </div>
                   </div>
 
-                  <Link href="/contact">
-                    <Button 
-                      className="modern-button w-full hover:glow-primary mt-auto"
-                    >
-                      Learn More
-                    </Button>
-                  </Link>
+                  <div className="mt-auto">
+                    <Link href="/contact">
+                      <Button 
+                        className="modern-button w-full hover:glow-primary"
+                      >
+                        Learn More
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
               </Card>
             </motion.div>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, Mail, MapPin, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
@@ -10,42 +11,48 @@ export default function Footer() {
   const [expandedService, setExpandedService] = useState<string | null>(null);
 
   const quickLinks = [
-    { href: "#home", label: "Home" },
-    { href: "#about", label: "About Us" },
-    { href: "#services", label: "Services" },
-    { href: "#events", label: "Events" },
-    { href: "#contact", label: "Contact" },
-    { href: "#donate", label: "Donate" },
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About Us" },
+    { href: "/services", label: "Services" },
+    { href: "/events", label: "Events" },
+    { href: "/contact", label: "Contact" },
+    { href: "/donate", label: "Donate" },
   ];
 
   const services = [
     { 
-      href: "#quran-classes", 
+      id: "quran-classes",
+      href: "/services", 
       label: "Quran Classes",
       details: "Learn Quran recitation, memorization, and Tajweed with certified instructors. Classes available for all ages and skill levels."
     },
     { 
-      href: "#islamic-studies", 
+      id: "islamic-studies",
+      href: "/services", 
       label: "Islamic Studies",
       details: "Comprehensive Islamic education covering Fiqh, Hadith, Islamic history, and contemporary issues from authentic sources."
     },
     { 
-      href: "#youth-programs", 
+      id: "youth-programs",
+      href: "/services", 
       label: "Youth Programs",
       details: "Engaging activities and educational programs designed to help young Muslims develop strong Islamic identity and values."
     },
     { 
-      href: "#women-programs", 
+      id: "women-programs",
+      href: "/services", 
       label: "Women's Programs",
       details: "Special programs for sisters including Islamic education, community support, and empowerment initiatives."
     },
     { 
-      href: "#community-outreach", 
+      id: "community-outreach",
+      href: "/services", 
       label: "Community Outreach",
       details: "Reaching out to the broader community through dawah activities, interfaith dialogue, and social services."
     },
     { 
-      href: "#prayer-services", 
+      id: "prayer-services",
+      href: "/services", 
       label: "Prayer Services",
       details: "Daily congregational prayers, Friday Jummah services, and special occasion prayers throughout the year."
     },
@@ -115,13 +122,13 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <a 
-                    href={link.href} 
-                    className="text-gray-300 hover:text-white transition-colors"
-                    data-testid={`footer-link-${link.label.toLowerCase().replace(" ", "-")}`}
+                  <Link 
+                    href={link.href}
+                    className="text-gray-300 hover:text-white transition-colors block"
+                    data-testid={`footer-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -137,9 +144,9 @@ export default function Footer() {
             <h3 className="text-lg font-bold mb-4">Our Services</h3>
             <div className="space-y-2 text-sm">
               {services.map((service, index) => (
-                <div key={service.href}>
+                <div key={service.id}>
                   <button
-                    onClick={() => setExpandedService(expandedService === service.href ? null : service.href)}
+                    onClick={() => setExpandedService(expandedService === service.id ? null : service.id)}
                     className="flex items-center justify-between w-full text-left text-gray-300 hover:text-white transition-colors group py-1"
                     data-testid={`footer-service-${service.label.toLowerCase().replace(/\s+/g, "-")}`}
                   >
@@ -147,7 +154,7 @@ export default function Footer() {
                       • {service.label}
                     </span>
                     <motion.div
-                      animate={{ rotate: expandedService === service.href ? 180 : 0 }}
+                      animate={{ rotate: expandedService === service.id ? 180 : 0 }}
                       transition={{ duration: 0.2, ease: "easeInOut" }}
                       className="flex-shrink-0 ml-2 opacity-0 group-hover:opacity-100 transition-opacity"
                     >
@@ -156,7 +163,7 @@ export default function Footer() {
                   </button>
                   
                   <AnimatePresence>
-                    {expandedService === service.href && (
+                    {expandedService === service.id && (
                       <motion.div
                         initial={{ height: 0, opacity: 0, y: -10 }}
                         animate={{ height: "auto", opacity: 1, y: 0 }}
@@ -190,9 +197,7 @@ export default function Footer() {
               <div className="flex items-start" data-testid="footer-address">
                 <MapPin className="text-primary-start mr-3 mt-1 h-4 w-4 flex-shrink-0" />
                 <div>
-                  Lower Ground Floor, 17 Hills<br />
-                  Traders Colony, 17 mile<br />
-                  Islamabad, Pakistan
+                  Lower Ground Floor, 17 Hills, Traders Colony, 17 Mile Islamabad
                 </div>
               </div>
               <div className="flex items-center" data-testid="footer-website">
@@ -203,7 +208,9 @@ export default function Footer() {
               </div>
               <div className="flex items-center" data-testid="footer-email">
                 <Mail className="text-primary-start mr-3 h-4 w-4 flex-shrink-0" />
-                <span>Contact via Website</span>
+                <a href="mailto:info@as-saadah.com" className="text-primary-start hover:underline">
+                  info@as-saadah.com
+                </a>
               </div>
             </div>
           </motion.div>

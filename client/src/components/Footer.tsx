@@ -1,11 +1,13 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Phone, Mail, MapPin, ExternalLink } from "lucide-react";
+import { Phone, Mail, MapPin, ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 import MosqueLogo from "@/components/MosqueLogo";
 import { usePrayerTimes } from "@/hooks/usePrayerTimes";
 
 export default function Footer() {
   const { data: prayerTimes, isLoading } = usePrayerTimes();
+  const [isServicesExpanded, setIsServicesExpanded] = useState(false);
 
   const quickLinks = [
     { href: "#home", label: "Home" },
@@ -52,14 +54,9 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 flex items-center justify-center">
-                <MosqueLogo size={40} className="text-white" animated={false} />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-lg font-bold">As-Saadah</span>
-                <span className="text-xs text-gray-400">Islamic Organization</span>
-              </div>
+            <div className="flex flex-col">
+              <span className="text-lg font-bold">As-Saadah</span>
+              <span className="text-xs text-gray-400">Islamic Organization</span>
             </div>
             <p className="text-gray-300 text-sm">
               Building faith, serving community, and spreading the beautiful message of Islam through education, outreach, and compassionate service.
@@ -113,20 +110,59 @@ export default function Footer() {
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-lg font-bold mb-4">Our Services</h3>
-            <ul className="space-y-2 text-sm">
-              {services.map((service) => (
-                <li key={service.href}>
-                  <a 
-                    href={service.href} 
-                    className="text-gray-300 hover:text-white transition-colors"
-                    data-testid={`footer-service-${service.label.toLowerCase().replace(" ", "-")}`}
-                  >
-                    {service.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <button
+              onClick={() => setIsServicesExpanded(!isServicesExpanded)}
+              className="flex items-center justify-between w-full text-lg font-bold mb-4 text-left hover:text-primary-start transition-colors group"
+              data-testid="footer-services-toggle"
+            >
+              <span>Our Services</span>
+              <motion.div
+                animate={{ rotate: isServicesExpanded ? 180 : 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="flex-shrink-0 ml-2"
+              >
+                <ChevronDown className="h-4 w-4 group-hover:text-primary-start transition-colors" />
+              </motion.div>
+            </button>
+            
+            <AnimatePresence>
+              {isServicesExpanded && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ 
+                    duration: 0.4, 
+                    ease: "easeInOut",
+                    opacity: { duration: 0.3 }
+                  }}
+                  className="overflow-hidden"
+                >
+                  <ul className="space-y-2 text-sm pb-2">
+                    {services.map((service, index) => (
+                      <motion.li 
+                        key={service.href}
+                        initial={{ x: -10, opacity: 0 }}
+                        animate={{ x: 0, opacity: 1 }}
+                        transition={{ 
+                          duration: 0.3, 
+                          delay: index * 0.05,
+                          ease: "easeOut" 
+                        }}
+                      >
+                        <a 
+                          href={service.href} 
+                          className="text-gray-300 hover:text-white hover:translate-x-1 transition-all duration-300 block"
+                          data-testid={`footer-service-${service.label.toLowerCase().replace(/\s+/g, "-")}`}
+                        >
+                          • {service.label}
+                        </a>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
 
           {/* Contact Info */}

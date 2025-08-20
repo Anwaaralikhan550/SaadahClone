@@ -12,10 +12,9 @@ import {
   Calendar,
   Phone
 } from "lucide-react";
-import { useLocation } from "wouter";
+import { Link } from "wouter";
 
 export default function NewMuslimSupportSection() {
-  const [, setLocation] = useLocation();
   const supportServices = [
     {
       icon: BookOpen,
@@ -157,12 +156,13 @@ export default function NewMuslimSupportSection() {
                       </li>
                     ))}
                   </ul>
-                  <Button 
-                    className="modern-button w-full hover:glow-primary mt-auto"
-                    onClick={() => setLocation("/service/new-muslim-support")}
-                  >
-                    Learn More
-                  </Button>
+                  <Link href="/services">
+                    <Button 
+                      className="modern-button w-full hover:glow-primary mt-auto"
+                    >
+                      Learn More
+                    </Button>
+                  </Link>
                 </div>
               </Card>
             </motion.div>
@@ -186,12 +186,13 @@ export default function NewMuslimSupportSection() {
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{mentorshipProgram.title}</h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-6">{mentorshipProgram.description}</p>
-                  <Button 
-                    className="modern-button hover:glow-primary"
-                    onClick={() => setLocation("/service/new-muslim-support")}
-                  >
-                    Request a Mentor
-                  </Button>
+                  <Link href="/contact">
+                    <Button 
+                      className="modern-button hover:glow-primary"
+                    >
+                      Request a Mentor
+                    </Button>
+                  </Link>
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Program Benefits:</h4>
@@ -257,21 +258,23 @@ export default function NewMuslimSupportSection() {
                 and to connect with our New Muslim Support program.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  className="modern-button hover:glow-primary"
-                  onClick={() => setLocation("/service/new-muslim-support")}
-                >
-                  <Calendar className="h-4 w-4 mr-2" />
-                  Schedule a Meeting
-                </Button>
-                <Button 
-                  variant="outline" 
-                  className="modern-button-outline"
-                  onClick={() => setLocation("/service/new-muslim-support")}
-                >
-                  <Phone className="h-4 w-4 mr-2" />
-                  Call Support Line
-                </Button>
+                <Link href="/contact">
+                  <Button 
+                    className="modern-button hover:glow-primary"
+                  >
+                    <Calendar className="h-4 w-4 mr-2" />
+                    Schedule a Meeting
+                  </Button>
+                </Link>
+                <Link href="/contact">
+                  <Button 
+                    variant="outline" 
+                    className="modern-button-outline"
+                  >
+                    <Phone className="h-4 w-4 mr-2" />
+                    Call Support Line
+                  </Button>
+                </Link>
               </div>
               <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
                 <p className="text-sm text-gray-600 dark:text-gray-400">

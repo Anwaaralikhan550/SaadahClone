@@ -26,17 +26,8 @@ export default function Navigation() {
     { href: "/contact", label: getTranslation("nav.contact", language) },
   ];
 
-  // Handle navigation clicks
-  const handleNavClick = (href: string, e: React.MouseEvent) => {
-    e.preventDefault();
-    navigate(href);
-    setIsOpen(false);
-  };
-
-  // Handle donate button click
-  const handleDonateClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    navigate("/donate");
+  // Handle mobile menu close only
+  const closeMobileMenu = () => {
     setIsOpen(false);
   };
 

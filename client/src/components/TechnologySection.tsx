@@ -14,10 +14,9 @@ import {
   Headphones,
   Play
 } from "lucide-react";
-import { useLocation } from "wouter";
+import { Link } from "wouter";
 
 export default function TechnologySection() {
-  const [, setLocation] = useLocation();
   const digitalPlatforms = [
     {
       icon: BookOpen,
@@ -195,13 +194,14 @@ export default function TechnologySection() {
                     ))}
                   </ul>
 
-                  <Button 
-                    className="modern-button w-full hover:glow-primary mt-auto"
-                    onClick={() => setLocation("/service/technology-platforms")}
-                  >
-                    <Play className="h-4 w-4 mr-2" />
-                    Explore Platform
-                  </Button>
+                  <Link href="/contact">
+                    <Button 
+                      className="modern-button w-full hover:glow-primary mt-auto"
+                    >
+                      <Play className="h-4 w-4 mr-2" />
+                      Explore Platform
+                    </Button>
+                  </Link>
                 </div>
               </Card>
             </motion.div>
@@ -290,13 +290,14 @@ export default function TechnologySection() {
                 connect, or seek support, our technology platforms are designed to serve you wherever you are.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
-                  className="modern-button hover:glow-primary"
-                  onClick={() => setLocation("/service/technology-platforms")}
-                >
-                  <Monitor className="h-4 w-4 mr-2" />
-                  Access Online Platform
-                </Button>
+                <Link href="/contact">
+                  <Button 
+                    className="modern-button hover:glow-primary"
+                  >
+                    <Monitor className="h-4 w-4 mr-2" />
+                    Access Online Platform
+                  </Button>
+                </Link>
                 <Button 
                   variant="outline" 
                   className="modern-button-outline"

@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { useLocation } from "wouter";
+import { Link } from "wouter";
 
 export default function HeroSection() {
-  const [, setLocation] = useLocation();
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -59,27 +58,25 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            <Button
-              size="lg"
-              className="modern-button hover:glow-primary transform hover:scale-105 transition-all duration-300"
-              data-testid="button-learn-more"
-              onClick={() => {
-                setLocation('/services');
-              }}
-            >
-              Learn About Us
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 rounded-xl backdrop-blur-sm hover:glow-primary transform hover:scale-105"
-              data-testid="button-join-community"
-              onClick={() => {
-                setLocation('/contact');
-              }}
-            >
-              Join Our Community
-            </Button>
+            <Link href="/services">
+              <Button
+                size="lg"
+                className="modern-button hover:glow-primary transform hover:scale-105 transition-all duration-300"
+                data-testid="button-learn-more"
+              >
+                Learn About Us
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-2 border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 rounded-xl backdrop-blur-sm hover:glow-primary transform hover:scale-105"
+                data-testid="button-join-community"
+              >
+                Join Our Community
+              </Button>
+            </Link>
           </motion.div>
         </motion.div>
 

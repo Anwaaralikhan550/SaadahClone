@@ -4,10 +4,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, Bell, Plus, Eye, Mail } from "lucide-react";
 import { usePrayerTimes } from "@/hooks/usePrayerTimes";
-import { useLocation } from "wouter";
+import { Link } from "wouter";
 
 export default function EventsSection() {
-  const [, setLocation] = useLocation();
+
   const { data: events, isLoading: eventsLoading } = useQuery({
     queryKey: ["/api/events"],
   });
@@ -95,15 +95,14 @@ export default function EventsSection() {
                           <Clock className="mr-2 h-4 w-4" />
                           <span>{event.time}</span>
                         </div>
-                        <Button 
-                          className="bg-white text-primary-start hover:bg-gray-100 hover:scale-105 transition-all duration-300 font-semibold"
-                          data-testid={`button-register-${event.id}`}
-                          onClick={() => {
-                            setLocation(`/event/${event.id}`);
-                          }}
-                        >
-                          Register Now
-                        </Button>
+                        <Link href={`/event/${event.id}`}>
+                          <Button 
+                            className="bg-white text-primary-start hover:bg-gray-100 hover:scale-105 transition-all duration-300 font-semibold"
+                            data-testid={`button-register-${event.id}`}
+                          >
+                            Register Now
+                          </Button>
+                        </Link>
                       </div>
                     </div>
                   </Card>
@@ -126,15 +125,14 @@ export default function EventsSection() {
                           <Clock className="mr-2 h-4 w-4" />
                           <span>{event.time}</span>
                         </div>
-                        <Button 
-                          className="modern-button hover:glow-primary"
-                          data-testid={`button-learn-more-${event.id}`}
-                          onClick={() => {
-                            setLocation(`/event/${event.id}`);
-                          }}
-                        >
-                          Learn More <Eye className="ml-2 h-4 w-4" />
-                        </Button>
+                        <Link href={`/event/${event.id}`}>
+                          <Button 
+                            className="modern-button hover:glow-primary"
+                            data-testid={`button-learn-more-${event.id}`}
+                          >
+                            Learn More <Eye className="ml-2 h-4 w-4" />
+                          </Button>
+                        </Link>
                       </div>
                     </div>
                   </Card>
@@ -230,10 +228,7 @@ export default function EventsSection() {
                       className="text-primary-start hover:text-primary-end hover:glow-primary transition-all duration-300"
                       data-testid="button-prayer-notifications"
                       onClick={() => {
-                        const element = document.getElementById('contact');
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth' });
-                        }
+                        window.location.href = '#contact';
                       }}
                     >
                       <Bell className="mr-1 h-4 w-4" />
@@ -260,10 +255,7 @@ export default function EventsSection() {
                       className="w-full justify-start border-2 hover:border-primary-start hover:text-primary-start hover:glow-primary transition-all duration-300"
                       data-testid="button-submit-event"
                       onClick={() => {
-                        const element = document.getElementById('contact');
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth' });
-                        }
+                        window.location.href = '#contact';
                       }}
                     >
                       <Plus className="text-primary-start mr-3 h-4 w-4" />
@@ -286,10 +278,7 @@ export default function EventsSection() {
                       className="w-full justify-start border-2 hover:border-primary-start hover:text-primary-start hover:glow-primary transition-all duration-300"
                       data-testid="button-newsletter"
                       onClick={() => {
-                        const element = document.getElementById('contact');
-                        if (element) {
-                          element.scrollIntoView({ behavior: 'smooth' });
-                        }
+                        window.location.href = '#contact';
                       }}
                     >
                       <Mail className="text-primary-start mr-3 h-4 w-4" />

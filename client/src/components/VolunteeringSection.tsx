@@ -6,11 +6,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Users, Heart, Clock, ArrowRight } from "lucide-react";
 import { useState } from "react";
-import { useLocation } from "wouter";
+import { Link } from "wouter";
 
 export default function VolunteeringSection() {
   const [showForm, setShowForm] = useState(false);
-  const [, setLocation] = useLocation();
 
   const volunteerOpportunities = [
     {
@@ -131,12 +130,13 @@ export default function VolunteeringSection() {
                     </div>
                   </div>
 
-                  <Button 
-                    className="modern-button w-full hover:glow-primary mt-auto"
-                    onClick={() => setLocation("/service/volunteering")}
-                  >
-                    Learn More
-                  </Button>
+                  <Link href="/contact">
+                    <Button 
+                      className="modern-button w-full hover:glow-primary mt-auto"
+                    >
+                      Learn More
+                    </Button>
+                  </Link>
                 </div>
               </Card>
             </motion.div>

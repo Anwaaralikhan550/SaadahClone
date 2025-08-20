@@ -130,10 +130,10 @@ export default function ContactSection() {
           </motion.div>
           
           <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Get in <span className="gradient-primary-text">Touch</span>
+            Reach Out and <span className="gradient-primary-text">Connect</span>
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            We'd love to hear from you. Reach out for questions, visit our center, or join our community.
+            CONNECTING FOR EXCELLENCE
           </p>
         </motion.div>
 
@@ -154,9 +154,7 @@ export default function ContactSection() {
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Visit Us</h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-3">
-                    Lower Ground Floor, 17 Hills<br />
-                    Traders Colony, 17 mile<br />
-                    Islamabad, Pakistan
+                    Lower Ground Floor, 17 Hills, Traders Colony, 17 Mile Islamabad
                   </p>
                   <Button 
                     className="modern-button mt-2 hover:glow-primary"
@@ -185,11 +183,15 @@ export default function ContactSection() {
                   <div className="space-y-2 text-gray-600 dark:text-gray-300">
                     <div className="flex items-center" data-testid="contact-phone">
                       <Phone className="mr-2 h-4 w-4" />
-                      Contact via Website
+                      <a href="tel:+923181078871" className="text-primary-start hover:underline">
+                        +92 318 10 78 871
+                      </a>
                     </div>
                     <div className="flex items-center" data-testid="contact-email">
                       <Mail className="mr-2 h-4 w-4" />
-                      Visit as-saadah.com
+                      <a href="mailto:info@as-saadah.com" className="text-primary-start hover:underline">
+                        info@as-saadah.com
+                      </a>
                     </div>
                     <div className="flex items-center" data-testid="contact-website">
                       <ExternalLink className="mr-2 h-4 w-4" />

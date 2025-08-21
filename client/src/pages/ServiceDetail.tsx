@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowLeft, BookOpen, GraduationCap, Users, Heart, Baby, Clock, MapPin, Phone, Mail, Star, Award, Quote, CheckCircle, Sparkles, Target, Gift, Home, Shield, Trees, Briefcase, BarChart3, Building2, Monitor } from "lucide-react";
 import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+import FooterMinimal from "@/components/FooterMinimal";
 import { useEffect } from "react";
 
 export default function ServiceDetail() {
@@ -770,7 +770,7 @@ export default function ServiceDetail() {
             <Button onClick={() => setLocation("/")}>Return Home</Button>
           </div>
         </div>
-        <Footer />
+        <FooterMinimal />
       </div>
     );
   }
@@ -1186,7 +1186,7 @@ export default function ServiceDetail() {
         <div className="absolute bottom-10 right-10 w-16 h-16 border-2 border-white/20 rounded-full animate-bounce-slow"></div>
       </section>
 
-      <Footer />
+      <FooterMinimal />
     </motion.div>
   );
 }

@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import { motion, useScroll, useTransform } from "framer-motion";
 import HeroSection from "@/components/HeroSection";
 import DonationSection from "@/components/DonationSection";
-import Footer from "@/components/Footer";
+import FooterMinimal from "@/components/FooterMinimal";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 export default function Home() {
@@ -31,7 +31,7 @@ export default function Home() {
           <DonationSection />
         </motion.div>
       </main>
-      <Footer />
+      <FooterMinimal />
     </div>
   );
 }

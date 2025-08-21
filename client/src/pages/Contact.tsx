@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
+import FooterMinimal from "@/components/FooterMinimal";
 import { motion } from "framer-motion";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 
@@ -19,7 +19,7 @@ export default function Contact() {
           <ContactSection />
         </motion.div>
       </main>
-      <Footer />
+      <FooterMinimal />
     </div>
   );
 }

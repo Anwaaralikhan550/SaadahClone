@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ArrowLeft, Calendar, Clock, MapPin, Users, Mail, Bell, Share2, Star, Award, Quote, CheckCircle, Sparkles, Target, Heart, Gift } from "lucide-react";
 import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
+import FooterMinimal from "@/components/FooterMinimal";
 import { useEffect } from "react";
 
 export default function EventDetail() {
@@ -191,7 +191,7 @@ export default function EventDetail() {
             }}>Return to Events</Button>
           </div>
         </div>
-        <Footer />
+        <FooterMinimal />
       </div>
     );
   }
@@ -627,7 +627,7 @@ export default function EventDetail() {
         <div className="absolute bottom-10 right-10 w-16 h-16 border-2 border-white/20 rounded-full animate-bounce-slow"></div>
       </section>
 
-      <Footer />
+      <FooterMinimal />
     </motion.div>
   );
 }

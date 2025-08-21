@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import DonationSection from "@/components/DonationSection";
-import Footer from "@/components/Footer";
+import FooterMinimal from "@/components/FooterMinimal";
 import { motion } from "framer-motion";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 
@@ -19,7 +19,7 @@ export default function Donate() {
           <DonationSection />
         </motion.div>
       </main>
-      <Footer />
+      <FooterMinimal />
     </div>
   );
 }

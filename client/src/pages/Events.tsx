@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import EventsSection from "@/components/EventsSection";
-import Footer from "@/components/Footer";
+import FooterMinimal from "@/components/FooterMinimal";
 import { motion } from "framer-motion";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 
@@ -19,7 +19,7 @@ export default function Events() {
           <EventsSection />
         </motion.div>
       </main>
-      <Footer />
+      <FooterMinimal />
     </div>
   );
 }

@@ -5,7 +5,7 @@ import TransparencySection from "@/components/TransparencySection";
 import NewMuslimSupportSection from "@/components/NewMuslimSupportSection";
 import SocialSafetyNetSection from "@/components/SocialSafetyNetSection";
 import TechnologySection from "@/components/TechnologySection";
-import Footer from "@/components/Footer";
+import FooterMinimal from "@/components/FooterMinimal";
 import { motion } from "framer-motion";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 
@@ -29,7 +29,7 @@ export default function Services() {
           <TechnologySection />
         </motion.div>
       </main>
-      <Footer />
+      <FooterMinimal />
     </div>
   );
 }

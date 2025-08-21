@@ -7,7 +7,6 @@ import { usePrayerTimes } from "@/hooks/usePrayerTimes";
 import { Link } from "wouter";
 
 export default function EventsSection() {
-
   const { data: events, isLoading: eventsLoading } = useQuery({
     queryKey: ["/api/events"],
   });

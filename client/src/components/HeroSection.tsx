@@ -40,9 +40,6 @@ export default function HeroSection() {
             <br />
             <span className="text-3xl sm:text-4xl lg:text-5xl">Islamic Organization</span>
           </motion.h1>
-          
-
-          
           <motion.p 
             className="text-lg sm:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
@@ -79,8 +76,6 @@ export default function HeroSection() {
             </Link>
           </motion.div>
         </motion.div>
-
-
       </div>
     </section>
   );

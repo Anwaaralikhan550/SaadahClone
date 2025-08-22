@@ -1,17 +1,7 @@
 import * as React from "react";
 import { motion } from "framer-motion";
-import Autoplay from "embla-carousel-autoplay";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-  type CarouselApi,
-} from "@/components/ui/carousel";
-import { cn } from "@/lib/utils";
 import carousel1 from "@/assets/carousel-1.jpg";
 import carousel2 from "@/assets/carousel-2.jpg";
 import carousel3 from "@/assets/carousel-3.jpg";
@@ -32,68 +22,56 @@ const carouselImages = [
 ];
 
 export default function HeroCarousel() {
-  const [api, setApi] = React.useState<CarouselApi>();
-  const [current, setCurrent] = React.useState(0);
-  const [count, setCount] = React.useState(0);
+  const [currentIndex, setCurrentIndex] = React.useState(0);
 
   React.useEffect(() => {
-    if (!api) {
-      return;
-    }
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => 
+        (prevIndex + 1) % carouselImages.length
+      );
+    }, 4000); // 4 second intervals
 
-    setCount(api.scrollSnapList().length);
-    setCurrent(api.selectedScrollSnap() + 1);
-
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap() + 1);
-    });
-  }, [api]);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Geometric Pattern Overlay */}
       <div className="geometric-pattern"></div>
       
-      {/* Carousel Background */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="absolute inset-0"
-      >
-        <Carousel
-          setApi={setApi}
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          plugins={[Autoplay({ delay: 4000, stopOnInteraction: true })]}
-          className="w-full h-full"
-        >
-          <CarouselContent className="ml-0 h-full">
-            {carouselImages.map((image, index) => (
-              <CarouselItem key={index} className="pl-0 h-full">
-                <motion.div 
-                  className="relative w-full h-full overflow-hidden"
-                  initial={{ scale: 1.1 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 1.5, ease: "easeOut" }}
-                >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="w-full h-full object-cover"
-                    loading={index === 0 ? "eager" : "lazy"}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary-start/20 to-primary-end/20"></div>
-                </motion.div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          
-        </Carousel>
-      </motion.div>
+      {/* Fade Carousel Background */}
+      <div className="absolute inset-0">
+        {carouselImages.map((image, index) => (
+          <motion.div
+            key={index}
+            className="absolute inset-0 w-full h-full"
+            initial={{ opacity: index === 0 ? 1 : 0 }}
+            animate={{ 
+              opacity: currentIndex === index ? 1 : 0 
+            }}
+            transition={{ 
+              duration: 1.2, 
+              ease: "easeInOut" 
+            }}
+          >
+            <motion.div 
+              className="relative w-full h-full overflow-hidden"
+              initial={{ scale: 1.1 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="w-full h-full object-cover"
+                loading={index === 0 ? "eager" : "lazy"}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-start/20 to-primary-end/20"></div>
+            </motion.div>
+          </motion.div>
+        ))}
+      </div>
 
       {/* Hero Text Content Overlay */}
       <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">

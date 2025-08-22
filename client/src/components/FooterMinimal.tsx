@@ -88,12 +88,12 @@ export default function FooterMinimal() {
             viewport={{ once: true }}
           >
             <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Quick Links</h4>
-            <div className="grid grid-cols-2 gap-2 text-sm">
+            <div className="flex flex-col items-center space-y-2 sm:grid sm:grid-cols-3 sm:gap-x-4 sm:gap-y-2 sm:space-y-0 text-sm">
               {quickLinks.map((link) => (
                 <Link 
                   key={link.href}
                   href={link.href}
-                  className="text-gray-600 dark:text-gray-300 hover:text-primary-start dark:hover:text-primary-start transition-colors"
+                  className="text-gray-600 dark:text-gray-300 hover:text-primary-start dark:hover:text-primary-start hover:underline transition-all duration-200 text-center py-1"
                   data-testid={`footer-link-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
                 >
                   {link.label}

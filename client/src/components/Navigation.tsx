@@ -46,7 +46,7 @@ export default function Navigation() {
               <motion.img 
                 src={asSaadahLogo} 
                 alt="As-Saadah Islamic Organization" 
-                className="w-auto object-contain filter dark:brightness-110"
+                className="w-auto object-contain dark:invert transition-all duration-300"
                 style={{ height: '5rem' }}
                 data-testid="nav-logo"
                 initial={{ opacity: 0, scale: 0.8, y: -10 }}

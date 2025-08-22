@@ -50,7 +50,7 @@ export default function HeroCarousel() {
               opacity: currentIndex === index ? 1 : 0 
             }}
             transition={{ 
-              duration: 1.2, 
+              duration: 2.0, 
               ease: "easeInOut" 
             }}
           >

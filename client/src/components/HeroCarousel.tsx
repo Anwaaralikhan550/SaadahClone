@@ -89,26 +89,11 @@ export default function HeroCarousel() {
             <span className="gradient-primary-text text-4xl sm:text-5xl lg:text-7xl relative inline-block">
               As-Saadah
               <motion.div
-                className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white to-transparent shadow-white/50 shadow-sm"
-                initial={{ scaleX: 0, opacity: 0 }}
-                animate={{ scaleX: 1, opacity: 1 }}
-                transition={{ duration: 1.8, delay: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-                style={{ transformOrigin: "center" }}
-              >
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent"
-                  animate={{ 
-                    x: ['-100%', '100%']
-                  }}
-                  transition={{
-                    duration: 2.5,
-                    delay: 1.5,
-                    ease: "easeInOut",
-                    repeat: Infinity,
-                    repeatDelay: 3
-                  }}
-                />
-              </motion.div>
+                className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-white shadow-sm"
+                initial={{ width: 0, x: "-50%" }}
+                animate={{ width: "100%", x: "-50%" }}
+                transition={{ duration: 1.5, delay: 0.7, ease: "easeOut" }}
+              />
             </span>
             <br />
             <span className="text-3xl sm:text-4xl lg:text-5xl">Islamic Organization</span>

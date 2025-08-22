@@ -107,7 +107,7 @@ export default function ContactSection() {
             <motion.img 
               src={asSaadahLogo} 
               alt="As-Saadah Islamic Organization" 
-              className="w-auto object-contain filter dark:brightness-110"
+              className="w-auto object-contain dark:brightness-0 dark:invert transition-all duration-300"
               style={{ height: '8rem' }}
               data-testid="contact-logo"
               initial={{ opacity: 0, scale: 0.5, y: 20 }}

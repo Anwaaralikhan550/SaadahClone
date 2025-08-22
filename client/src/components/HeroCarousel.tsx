@@ -88,13 +88,11 @@ export default function HeroCarousel() {
           >
             <span className="gradient-primary-text text-4xl sm:text-5xl lg:text-7xl relative inline-block">
               As-Saadah
-              <motion.div
-                className="absolute -bottom-1 left-1/2 w-0 h-1 bg-gradient-to-r from-white/80 via-white to-white/80 shadow-white/30 shadow-lg rounded-full"
-                initial={{ width: 0, x: "-50%" }}
-                animate={{ width: "100%", x: "-50%" }}
-                transition={{ duration: 1.8, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              <div
+                className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-transparent via-white to-transparent shadow-white/40 shadow-sm rounded-full"
                 style={{
-                  filter: "drop-shadow(0 0 8px rgba(255, 255, 255, 0.4))"
+                  background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 20%, white 50%, rgba(255,255,255,0.3) 80%, transparent 100%)",
+                  filter: "drop-shadow(0 0 6px rgba(255, 255, 255, 0.5))"
                 }}
               />
             </span>

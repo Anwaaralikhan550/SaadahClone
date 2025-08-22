@@ -89,10 +89,10 @@ export default function HeroCarousel() {
             <span className="gradient-primary-text text-4xl sm:text-5xl lg:text-7xl relative inline-block">
               As-Saadah
               <motion.div
-                className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary-start to-transparent opacity-80"
-                initial={{ scaleX: 0, opacity: 0 }}
-                animate={{ scaleX: 1, opacity: 0.8 }}
-                transition={{ duration: 1.5, delay: 0.6, ease: "easeOut" }}
+                className="absolute bottom-0 left-0 w-full h-0.5 bg-white shadow-sm"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
                 style={{ transformOrigin: "center" }}
               />
             </span>

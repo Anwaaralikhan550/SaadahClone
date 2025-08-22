@@ -92,9 +92,6 @@ export default function HeroCarousel() {
             ))}
           </CarouselContent>
           
-          {/* Custom styled navigation buttons */}
-          <CarouselPrevious className="left-4 md:left-6 h-10 w-10 md:h-12 md:w-12 bg-white/90 hover:bg-white border-0 shadow-lg backdrop-blur-sm transition-all duration-300 z-20" />
-          <CarouselNext className="right-4 md:right-6 h-10 w-10 md:h-12 md:w-12 bg-white/90 hover:bg-white border-0 shadow-lg backdrop-blur-sm transition-all duration-300 z-20" />
         </Carousel>
       </motion.div>
 
@@ -153,22 +150,6 @@ export default function HeroCarousel() {
         </motion.div>
       </div>
       
-      {/* Indicator dots */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
-        {Array.from({ length: count }).map((_, index) => (
-          <button
-            key={index}
-            className={cn(
-              "w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300",
-              current === index + 1
-                ? "bg-white shadow-lg scale-125"
-                : "bg-white/50 hover:bg-white/75"
-            )}
-            onClick={() => api?.scrollTo(index)}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
     </section>
   );
 }

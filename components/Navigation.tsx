@@ -10,7 +10,7 @@ import MosqueLogo from "./MosqueLogo";
 import AnimatedALogo from "./AnimatedALogo";
 import { getTranslation } from "../lib/i18n";
 import { useHijriDate } from "../hooks/useDateTime";
-import asSaadahLogo from "../public/as-saadah-logo.png";
+import asSaadahLogo from "@assets/client/src/assets/as-saadah-logo.png";
 
 export default function Navigation() {
   const { theme, toggleTheme } = useTheme();
